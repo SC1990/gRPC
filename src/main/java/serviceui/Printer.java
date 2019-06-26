@@ -9,6 +9,8 @@ package serviceui;
  *
  * @author dominic
  */
+
+//headless machine - no UI/just prints to screen - (e.g JPanel etc)
 public interface Printer {
 
     public void append(String string);

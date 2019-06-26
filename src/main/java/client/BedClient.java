@@ -1,7 +1,7 @@
 package client;
 
 import javax.swing.JPanel;
-// import clientui.BedClientGUI;
+import clientui.BedClientGUI;
 import com.google.protobuf.Empty;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -16,11 +16,11 @@ import org.dominic.example.bed.BedStatus;
 
 public class BedClient implements ServiceObserver {
 
-    // protected BedClientGUI ui;
+    protected BedClientGUI ui;
     protected ServiceDescription current;
     private final String serviceType;
     private final String name;
-    private static final Logger logger = Logger.getLogger(GRPCBedClient.class.getName());
+   
 
     private ManagedChannel channel;
     private BedGrpc.BedBlockingStub blockingStub;
@@ -33,12 +33,12 @@ public class BedClient implements ServiceObserver {
         name = "Bedroom";
         jmDNSServiceTracker clientManager = jmDNSServiceTracker.getInstance();
         clientManager.register(this);
-        // java.awt.EventQueue.invokeLater(new Runnable() {
-        //     public void run() {
-        //         ui = new BedClientGUI(BedClient.this);
-        //         ui.setVisible(true);
-        //     }
-        // });
+         java.awt.EventQueue.invokeLater(new Runnable() {
+             public void run() {
+                 ui = new BedClientGUI(BedClient.this);
+                 ui.setVisible(true);
+             }
+         });
         serviceAdded(new ServiceDescription("34.241.178.93", 50021));
     }
 
@@ -56,14 +56,22 @@ public class BedClient implements ServiceObserver {
         return interests;
     }
 
+    //new service created using grpc
     public void serviceAdded(ServiceDescription service) {
         System.out.println("service added");
         current = service;
+        //set up channel to communicate with server
+        //multiple beds -> multiple channels
         channel = ManagedChannelBuilder.forAddress(service.getAddress(), service.getPort())
                 .usePlaintext(true)
                 .build();
+        
+        //To call service methods, we first need to create a stub,  
+        //a blocking/synchronous stub: this means that the RPC call waits for the server to respond, 
+        //and will either return a response or raise an exception.
         blockingStub = BedGrpc.newBlockingStub(channel);
         warm();
+        
     }
 
     public boolean interested(String type) {
@@ -81,26 +89,29 @@ public class BedClient implements ServiceObserver {
     /**
      * Say hello to server.
      */
+    //make request to server
     public void warm() {
         try {
 
+            //new thread so client and server can run concurrently
             new Thread() {
                 public void run() {
                     Empty request = Empty.newBuilder().build();
 
                     Iterator<BedStatus> response = blockingStub.warm(request);
                     while (response.hasNext()) {
-                        System.out.println(response.next().toString());
+                        ui.append(response.next().toString());
                     }
                 }
             }.start();
 
+            //unary request - one thing in, one thing out
             Empty request = Empty.newBuilder().build();
             BedStatus status = blockingStub.getStatus(request);
             System.out.println("Hello " + status);
 
         } catch (RuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed", e);
+            System.out.println("RPC failed: " + e);
             return;
         }
     }

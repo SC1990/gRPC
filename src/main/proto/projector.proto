@@ -1,0 +1,20 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package projector;
+
+option java_multiple_files = true;
+option java_package = "org.stu.projector";
+option java_outer_classname = "ProjectorProto";
+
+service Projector{
+  rpc activateProjector(google.protobuf.Empty) returns (ProjectorStatus){}
+  
+}
+
+message ProjectorStatus{
+    string status = 1;
+}
+

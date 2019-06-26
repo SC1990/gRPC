@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package control_panel;
+
+option java_multiple_files = true;
+option java_package = "org.stu.control_panel";
+option java_outer_classname = "ControlPanelProto";
+
+service ControlPanel{
+  rpc setInputMachine(InputMachine) returns (ResponseMessage){}
+  
+}
+
+message InputMachine{
+    string machine = 1;
+}
+
+message ResponseMessage{
+    string userMsg = 1;
+}
+

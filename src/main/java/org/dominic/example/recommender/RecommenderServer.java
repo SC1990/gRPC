@@ -29,6 +29,7 @@ public class RecommenderServer {
                 .build()
                 .start();
         logger.info("Server started, listening on " + port);
+        //registers itself and advertises it's info
         JmDNSRegistrationHelper helper = new JmDNSRegistrationHelper("Dominics", "_movie-recommender._udp.local.", "", port);
 
         Runtime.getRuntime().addShutdownHook(new Thread() {

@@ -19,7 +19,7 @@ import serviceui.ServiceUI;
  */
 public class BedServer {
 
-    private static final Logger logger = Logger.getLogger(BedServer.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(BedServer.class.getName());
 
     /* The port on which the server should run */
     private int port = 50021;
@@ -30,8 +30,13 @@ public class BedServer {
                 .addService(new BedImpl())
                 .build()
                 .start();
+        
+        //registering bed service so any listeners can pick it up - how bed server finds bed client
+        //JmDNSRegistrationHelper waiting for requests
         JmDNSRegistrationHelper helper = new JmDNSRegistrationHelper("Dominics", "_bed._udp.local.", "", port);
-        logger.info("Server started, listening on " + port);
+        
+        LOGGER.info("Server started, listening on " + port);
+        
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
@@ -68,6 +73,7 @@ public class BedServer {
         server.blockUntilShutdown();
     }
 
+    //BedGrpc.BedImplBase -> generated code 
     private class BedImpl extends BedGrpc.BedImplBase {
 
         private int percentHot = 0;
@@ -76,11 +82,15 @@ public class BedServer {
             String name = "Dominic's";
             String serviceType = "_bed._udp.local.";
         }
-
+        
+        //streams out results to client using Timer - every 2 seconds
         @Override
         public void warm(com.google.protobuf.Empty request,
                 io.grpc.stub.StreamObserver<org.dominic.example.bed.BedStatus> responseObserver) {
             Timer t = new Timer();
+            
+            // 0 -> starts immediately
+            //responseObserver communicates back to client
             t.schedule(new RemindTask(responseObserver), 0, 2000);
 
         }
@@ -100,10 +110,13 @@ public class BedServer {
                 o = j;
             }
 
+            //gets executed every 2 seconds
             @Override
             public void run() {
                 if (percentHot < 100) {
                     percentHot += 10;
+                    
+                    //BedStatus -> generated code
                     BedStatus status = BedStatus.newBuilder().setPercentageHeated(percentHot).build();
                     o.onNext(status);
                 } else {

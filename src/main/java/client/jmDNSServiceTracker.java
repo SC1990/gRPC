@@ -12,6 +12,8 @@ public class jmDNSServiceTracker implements ServiceListener {
 
     private JmDNS jmdns;
     private static jmDNSServiceTracker instance;
+    
+    //can have multiple
     ServiceObserver observer;
 
     private jmDNSServiceTracker() {
@@ -32,6 +34,8 @@ public class jmDNSServiceTracker implements ServiceListener {
 
     public void register(ServiceObserver observer) {
         this.observer = observer;
+        //service listener for one thing observer interested in
+        //get(0) - should be loop if client interested in multiple services
         jmdns.addServiceListener(observer.serviceInterests().get(0), this);
 
     }
