@@ -9,34 +9,11 @@ option java_package = "org.stu.thermostat";
 option java_outer_classname = "ThermostatProto";
 
 service Thermostat{
-  rpc activate(google.protobuf.Empty) returns (ThermostatMode){}
-  rpc deActivate(google.protobuf.Empty) returns (ThermostatMode){}
-  rpc increaseTemp(Degrees) returns (TempStatus){}
-  rpc decreaseTemp(Degrees) returns (TempStatus){}
-  rpc connectToDevice(ControlPanel) returns (TempStatus){}
-  rpc sleep(SleepTime) returns (DeviceStatus){}
+  rpc activateThermostat (google.protobuf.Empty) returns (ThermostatStatus){}
+
 }
 
-message ThermostatMode{
-  string mode = 1;
-}
-
-message Degrees{
-  int32 degreesToSet = 1;
-}
-
-message TempStatus {
-  int32 degreesHeated = 1;
-}
-
-message ControlPanel {
-  string device = 1;
-}
-
-message SleepTime {
-  int32 time = 1;
-}
-
-message DeviceStatus {
+message ThermostatStatus{
   string status = 1;
 }
+

@@ -1,0 +1,21 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package audio_speaker;
+
+option java_multiple_files = true;
+option java_package = "org.stu.audio_speaker";
+option java_outer_classname = "AudioSpeakerProto";
+
+service AudioSpeaker{
+  rpc activateAudioSpeaker(google.protobuf.Empty) returns (AudioSpeakerStatus){}
+  
+}
+
+message AudioSpeakerStatus{
+    string status = 1;
+}
+
+

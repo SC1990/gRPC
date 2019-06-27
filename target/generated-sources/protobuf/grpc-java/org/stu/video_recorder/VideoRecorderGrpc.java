@@ -1,4 +1,4 @@
-package org.stu.thermostat;
+package org.stu.video_recorder;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
@@ -19,184 +19,184 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.19.0)",
-    comments = "Source: thermostat.proto")
-public final class ThermostatGrpc {
+    comments = "Source: video_recorder.proto")
+public final class VideoRecorderGrpc {
 
-  private ThermostatGrpc() {}
+  private VideoRecorderGrpc() {}
 
-  public static final String SERVICE_NAME = "thermostat.Thermostat";
+  public static final String SERVICE_NAME = "video_recorder.VideoRecorder";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      org.stu.thermostat.ThermostatStatus> getActivateThermostatMethod;
+      org.stu.video_recorder.VideoRecorderStatus> getActivateVideoRecorderMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "activateThermostat",
+      fullMethodName = SERVICE_NAME + '/' + "activateVideoRecorder",
       requestType = com.google.protobuf.Empty.class,
-      responseType = org.stu.thermostat.ThermostatStatus.class,
+      responseType = org.stu.video_recorder.VideoRecorderStatus.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      org.stu.thermostat.ThermostatStatus> getActivateThermostatMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.thermostat.ThermostatStatus> getActivateThermostatMethod;
-    if ((getActivateThermostatMethod = ThermostatGrpc.getActivateThermostatMethod) == null) {
-      synchronized (ThermostatGrpc.class) {
-        if ((getActivateThermostatMethod = ThermostatGrpc.getActivateThermostatMethod) == null) {
-          ThermostatGrpc.getActivateThermostatMethod = getActivateThermostatMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.thermostat.ThermostatStatus>newBuilder()
+      org.stu.video_recorder.VideoRecorderStatus> getActivateVideoRecorderMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.video_recorder.VideoRecorderStatus> getActivateVideoRecorderMethod;
+    if ((getActivateVideoRecorderMethod = VideoRecorderGrpc.getActivateVideoRecorderMethod) == null) {
+      synchronized (VideoRecorderGrpc.class) {
+        if ((getActivateVideoRecorderMethod = VideoRecorderGrpc.getActivateVideoRecorderMethod) == null) {
+          VideoRecorderGrpc.getActivateVideoRecorderMethod = getActivateVideoRecorderMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.video_recorder.VideoRecorderStatus>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "thermostat.Thermostat", "activateThermostat"))
+                  "video_recorder.VideoRecorder", "activateVideoRecorder"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.stu.thermostat.ThermostatStatus.getDefaultInstance()))
-                  .setSchemaDescriptor(new ThermostatMethodDescriptorSupplier("activateThermostat"))
+                  org.stu.video_recorder.VideoRecorderStatus.getDefaultInstance()))
+                  .setSchemaDescriptor(new VideoRecorderMethodDescriptorSupplier("activateVideoRecorder"))
                   .build();
           }
         }
      }
-     return getActivateThermostatMethod;
+     return getActivateVideoRecorderMethod;
   }
 
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static ThermostatStub newStub(io.grpc.Channel channel) {
-    return new ThermostatStub(channel);
+  public static VideoRecorderStub newStub(io.grpc.Channel channel) {
+    return new VideoRecorderStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static ThermostatBlockingStub newBlockingStub(
+  public static VideoRecorderBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new ThermostatBlockingStub(channel);
+    return new VideoRecorderBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static ThermostatFutureStub newFutureStub(
+  public static VideoRecorderFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new ThermostatFutureStub(channel);
+    return new VideoRecorderFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class ThermostatImplBase implements io.grpc.BindableService {
+  public static abstract class VideoRecorderImplBase implements io.grpc.BindableService {
 
     /**
      */
-    public void activateThermostat(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<org.stu.thermostat.ThermostatStatus> responseObserver) {
-      asyncUnimplementedUnaryCall(getActivateThermostatMethod(), responseObserver);
+    public void activateVideoRecorder(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.VideoRecorderStatus> responseObserver) {
+      asyncUnimplementedUnaryCall(getActivateVideoRecorderMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getActivateThermostatMethod(),
+            getActivateVideoRecorderMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 com.google.protobuf.Empty,
-                org.stu.thermostat.ThermostatStatus>(
-                  this, METHODID_ACTIVATE_THERMOSTAT)))
+                org.stu.video_recorder.VideoRecorderStatus>(
+                  this, METHODID_ACTIVATE_VIDEO_RECORDER)))
           .build();
     }
   }
 
   /**
    */
-  public static final class ThermostatStub extends io.grpc.stub.AbstractStub<ThermostatStub> {
-    private ThermostatStub(io.grpc.Channel channel) {
+  public static final class VideoRecorderStub extends io.grpc.stub.AbstractStub<VideoRecorderStub> {
+    private VideoRecorderStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private ThermostatStub(io.grpc.Channel channel,
+    private VideoRecorderStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected ThermostatStub build(io.grpc.Channel channel,
+    protected VideoRecorderStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new ThermostatStub(channel, callOptions);
+      return new VideoRecorderStub(channel, callOptions);
     }
 
     /**
      */
-    public void activateThermostat(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<org.stu.thermostat.ThermostatStatus> responseObserver) {
+    public void activateVideoRecorder(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.VideoRecorderStatus> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getActivateThermostatMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getActivateVideoRecorderMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
   /**
    */
-  public static final class ThermostatBlockingStub extends io.grpc.stub.AbstractStub<ThermostatBlockingStub> {
-    private ThermostatBlockingStub(io.grpc.Channel channel) {
+  public static final class VideoRecorderBlockingStub extends io.grpc.stub.AbstractStub<VideoRecorderBlockingStub> {
+    private VideoRecorderBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private ThermostatBlockingStub(io.grpc.Channel channel,
+    private VideoRecorderBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected ThermostatBlockingStub build(io.grpc.Channel channel,
+    protected VideoRecorderBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new ThermostatBlockingStub(channel, callOptions);
+      return new VideoRecorderBlockingStub(channel, callOptions);
     }
 
     /**
      */
-    public org.stu.thermostat.ThermostatStatus activateThermostat(com.google.protobuf.Empty request) {
+    public org.stu.video_recorder.VideoRecorderStatus activateVideoRecorder(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
-          getChannel(), getActivateThermostatMethod(), getCallOptions(), request);
+          getChannel(), getActivateVideoRecorderMethod(), getCallOptions(), request);
     }
   }
 
   /**
    */
-  public static final class ThermostatFutureStub extends io.grpc.stub.AbstractStub<ThermostatFutureStub> {
-    private ThermostatFutureStub(io.grpc.Channel channel) {
+  public static final class VideoRecorderFutureStub extends io.grpc.stub.AbstractStub<VideoRecorderFutureStub> {
+    private VideoRecorderFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private ThermostatFutureStub(io.grpc.Channel channel,
+    private VideoRecorderFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected ThermostatFutureStub build(io.grpc.Channel channel,
+    protected VideoRecorderFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new ThermostatFutureStub(channel, callOptions);
+      return new VideoRecorderFutureStub(channel, callOptions);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.ThermostatStatus> activateThermostat(
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.VideoRecorderStatus> activateVideoRecorder(
         com.google.protobuf.Empty request) {
       return futureUnaryCall(
-          getChannel().newCall(getActivateThermostatMethod(), getCallOptions()), request);
+          getChannel().newCall(getActivateVideoRecorderMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_ACTIVATE_THERMOSTAT = 0;
+  private static final int METHODID_ACTIVATE_VIDEO_RECORDER = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final ThermostatImplBase serviceImpl;
+    private final VideoRecorderImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(ThermostatImplBase serviceImpl, int methodId) {
+    MethodHandlers(VideoRecorderImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -205,9 +205,9 @@ public final class ThermostatGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_ACTIVATE_THERMOSTAT:
-          serviceImpl.activateThermostat((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<org.stu.thermostat.ThermostatStatus>) responseObserver);
+        case METHODID_ACTIVATE_VIDEO_RECORDER:
+          serviceImpl.activateVideoRecorder((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.video_recorder.VideoRecorderStatus>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -225,32 +225,32 @@ public final class ThermostatGrpc {
     }
   }
 
-  private static abstract class ThermostatBaseDescriptorSupplier
+  private static abstract class VideoRecorderBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    ThermostatBaseDescriptorSupplier() {}
+    VideoRecorderBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return org.stu.thermostat.ThermostatProto.getDescriptor();
+      return org.stu.video_recorder.VideoRecorderProto.getDescriptor();
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("Thermostat");
+      return getFileDescriptor().findServiceByName("VideoRecorder");
     }
   }
 
-  private static final class ThermostatFileDescriptorSupplier
-      extends ThermostatBaseDescriptorSupplier {
-    ThermostatFileDescriptorSupplier() {}
+  private static final class VideoRecorderFileDescriptorSupplier
+      extends VideoRecorderBaseDescriptorSupplier {
+    VideoRecorderFileDescriptorSupplier() {}
   }
 
-  private static final class ThermostatMethodDescriptorSupplier
-      extends ThermostatBaseDescriptorSupplier
+  private static final class VideoRecorderMethodDescriptorSupplier
+      extends VideoRecorderBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    ThermostatMethodDescriptorSupplier(String methodName) {
+    VideoRecorderMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -265,12 +265,12 @@ public final class ThermostatGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (ThermostatGrpc.class) {
+      synchronized (VideoRecorderGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new ThermostatFileDescriptorSupplier())
-              .addMethod(getActivateThermostatMethod())
+              .setSchemaDescriptor(new VideoRecorderFileDescriptorSupplier())
+              .addMethod(getActivateVideoRecorderMethod())
               .build();
         }
       }

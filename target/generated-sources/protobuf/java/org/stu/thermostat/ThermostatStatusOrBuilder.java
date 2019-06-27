@@ -3,8 +3,8 @@
 
 package org.stu.thermostat;
 
-public interface DeviceStatusOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:thermostat.DeviceStatus)
+public interface ThermostatStatusOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:thermostat.ThermostatStatus)
     com.google.protobuf.MessageOrBuilder {
 
   /**

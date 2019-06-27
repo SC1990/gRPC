@@ -4,19 +4,19 @@
 package org.stu.thermostat;
 
 /**
- * Protobuf type {@code thermostat.SleepTime}
+ * Protobuf type {@code thermostat.ThermostatStatus}
  */
-public  final class SleepTime extends
+public  final class ThermostatStatus extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:thermostat.SleepTime)
-    SleepTimeOrBuilder {
+    // @@protoc_insertion_point(message_implements:thermostat.ThermostatStatus)
+    ThermostatStatusOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use SleepTime.newBuilder() to construct.
-  private SleepTime(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ThermostatStatus.newBuilder() to construct.
+  private ThermostatStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SleepTime() {
-    time_ = 0;
+  private ThermostatStatus() {
+    status_ = "";
   }
 
   @java.lang.Override
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SleepTime(
+  private ThermostatStatus(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -43,9 +43,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            time_ = input.readInt32();
+            status_ = s;
             break;
           }
           default: {
@@ -69,24 +70,49 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.stu.thermostat.ThermostatProto.internal_static_thermostat_SleepTime_descriptor;
+    return org.stu.thermostat.ThermostatProto.internal_static_thermostat_ThermostatStatus_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.stu.thermostat.ThermostatProto.internal_static_thermostat_SleepTime_fieldAccessorTable
+    return org.stu.thermostat.ThermostatProto.internal_static_thermostat_ThermostatStatus_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.stu.thermostat.SleepTime.class, org.stu.thermostat.SleepTime.Builder.class);
+            org.stu.thermostat.ThermostatStatus.class, org.stu.thermostat.ThermostatStatus.Builder.class);
   }
 
-  public static final int TIME_FIELD_NUMBER = 1;
-  private int time_;
+  public static final int STATUS_FIELD_NUMBER = 1;
+  private volatile java.lang.Object status_;
   /**
-   * <code>int32 time = 1;</code>
+   * <code>string status = 1;</code>
    */
-  public int getTime() {
-    return time_;
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string status = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -103,8 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (time_ != 0) {
-      output.writeInt32(1, time_);
+    if (!getStatusBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (time_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, time_);
+    if (!getStatusBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -129,14 +154,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.stu.thermostat.SleepTime)) {
+    if (!(obj instanceof org.stu.thermostat.ThermostatStatus)) {
       return super.equals(obj);
     }
-    org.stu.thermostat.SleepTime other = (org.stu.thermostat.SleepTime) obj;
+    org.stu.thermostat.ThermostatStatus other = (org.stu.thermostat.ThermostatStatus) obj;
 
     boolean result = true;
-    result = result && (getTime()
-        == other.getTime());
+    result = result && getStatus()
+        .equals(other.getStatus());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -148,76 +173,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TIME_FIELD_NUMBER;
-    hash = (53 * hash) + getTime();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.stu.thermostat.SleepTime parseFrom(
+  public static org.stu.thermostat.ThermostatStatus parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(
+  public static org.stu.thermostat.ThermostatStatus parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(
+  public static org.stu.thermostat.ThermostatStatus parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(
+  public static org.stu.thermostat.ThermostatStatus parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(byte[] data)
+  public static org.stu.thermostat.ThermostatStatus parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(
+  public static org.stu.thermostat.ThermostatStatus parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(java.io.InputStream input)
+  public static org.stu.thermostat.ThermostatStatus parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(
+  public static org.stu.thermostat.ThermostatStatus parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.stu.thermostat.SleepTime parseDelimitedFrom(java.io.InputStream input)
+  public static org.stu.thermostat.ThermostatStatus parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.stu.thermostat.SleepTime parseDelimitedFrom(
+  public static org.stu.thermostat.ThermostatStatus parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(
+  public static org.stu.thermostat.ThermostatStatus parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.stu.thermostat.SleepTime parseFrom(
+  public static org.stu.thermostat.ThermostatStatus parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -230,7 +255,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.stu.thermostat.SleepTime prototype) {
+  public static Builder newBuilder(org.stu.thermostat.ThermostatStatus prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -246,26 +271,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code thermostat.SleepTime}
+   * Protobuf type {@code thermostat.ThermostatStatus}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:thermostat.SleepTime)
-      org.stu.thermostat.SleepTimeOrBuilder {
+      // @@protoc_insertion_point(builder_implements:thermostat.ThermostatStatus)
+      org.stu.thermostat.ThermostatStatusOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.stu.thermostat.ThermostatProto.internal_static_thermostat_SleepTime_descriptor;
+      return org.stu.thermostat.ThermostatProto.internal_static_thermostat_ThermostatStatus_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.stu.thermostat.ThermostatProto.internal_static_thermostat_SleepTime_fieldAccessorTable
+      return org.stu.thermostat.ThermostatProto.internal_static_thermostat_ThermostatStatus_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.stu.thermostat.SleepTime.class, org.stu.thermostat.SleepTime.Builder.class);
+              org.stu.thermostat.ThermostatStatus.class, org.stu.thermostat.ThermostatStatus.Builder.class);
     }
 
-    // Construct using org.stu.thermostat.SleepTime.newBuilder()
+    // Construct using org.stu.thermostat.ThermostatStatus.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -283,7 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      time_ = 0;
+      status_ = "";
 
       return this;
     }
@@ -291,17 +316,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.stu.thermostat.ThermostatProto.internal_static_thermostat_SleepTime_descriptor;
+      return org.stu.thermostat.ThermostatProto.internal_static_thermostat_ThermostatStatus_descriptor;
     }
 
     @java.lang.Override
-    public org.stu.thermostat.SleepTime getDefaultInstanceForType() {
-      return org.stu.thermostat.SleepTime.getDefaultInstance();
+    public org.stu.thermostat.ThermostatStatus getDefaultInstanceForType() {
+      return org.stu.thermostat.ThermostatStatus.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.stu.thermostat.SleepTime build() {
-      org.stu.thermostat.SleepTime result = buildPartial();
+    public org.stu.thermostat.ThermostatStatus build() {
+      org.stu.thermostat.ThermostatStatus result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -309,9 +334,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.stu.thermostat.SleepTime buildPartial() {
-      org.stu.thermostat.SleepTime result = new org.stu.thermostat.SleepTime(this);
-      result.time_ = time_;
+    public org.stu.thermostat.ThermostatStatus buildPartial() {
+      org.stu.thermostat.ThermostatStatus result = new org.stu.thermostat.ThermostatStatus(this);
+      result.status_ = status_;
       onBuilt();
       return result;
     }
@@ -350,18 +375,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.stu.thermostat.SleepTime) {
-        return mergeFrom((org.stu.thermostat.SleepTime)other);
+      if (other instanceof org.stu.thermostat.ThermostatStatus) {
+        return mergeFrom((org.stu.thermostat.ThermostatStatus)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.stu.thermostat.SleepTime other) {
-      if (other == org.stu.thermostat.SleepTime.getDefaultInstance()) return this;
-      if (other.getTime() != 0) {
-        setTime(other.getTime());
+    public Builder mergeFrom(org.stu.thermostat.ThermostatStatus other) {
+      if (other == org.stu.thermostat.ThermostatStatus.getDefaultInstance()) return this;
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -378,11 +404,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.stu.thermostat.SleepTime parsedMessage = null;
+      org.stu.thermostat.ThermostatStatus parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.stu.thermostat.SleepTime) e.getUnfinishedMessage();
+        parsedMessage = (org.stu.thermostat.ThermostatStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -392,28 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int time_ ;
+    private java.lang.Object status_ = "";
     /**
-     * <code>int32 time = 1;</code>
+     * <code>string status = 1;</code>
      */
-    public int getTime() {
-      return time_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 time = 1;</code>
+     * <code>string status = 1;</code>
      */
-    public Builder setTime(int value) {
-      
-      time_ = value;
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string status = 1;</code>
+     */
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 time = 1;</code>
+     * <code>string status = 1;</code>
      */
-    public Builder clearTime() {
+    public Builder clearStatus() {
       
-      time_ = 0;
+      status_ = getDefaultInstance().getStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 1;</code>
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      status_ = value;
       onChanged();
       return this;
     }
@@ -430,41 +499,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:thermostat.SleepTime)
+    // @@protoc_insertion_point(builder_scope:thermostat.ThermostatStatus)
   }
 
-  // @@protoc_insertion_point(class_scope:thermostat.SleepTime)
-  private static final org.stu.thermostat.SleepTime DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:thermostat.ThermostatStatus)
+  private static final org.stu.thermostat.ThermostatStatus DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.stu.thermostat.SleepTime();
+    DEFAULT_INSTANCE = new org.stu.thermostat.ThermostatStatus();
   }
 
-  public static org.stu.thermostat.SleepTime getDefaultInstance() {
+  public static org.stu.thermostat.ThermostatStatus getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SleepTime>
-      PARSER = new com.google.protobuf.AbstractParser<SleepTime>() {
+  private static final com.google.protobuf.Parser<ThermostatStatus>
+      PARSER = new com.google.protobuf.AbstractParser<ThermostatStatus>() {
     @java.lang.Override
-    public SleepTime parsePartialFrom(
+    public ThermostatStatus parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SleepTime(input, extensionRegistry);
+      return new ThermostatStatus(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SleepTime> parser() {
+  public static com.google.protobuf.Parser<ThermostatStatus> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<SleepTime> getParserForType() {
+  public com.google.protobuf.Parser<ThermostatStatus> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.stu.thermostat.SleepTime getDefaultInstanceForType() {
+  public org.stu.thermostat.ThermostatStatus getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package video_recorder;
+
+option java_multiple_files = true;
+option java_package = "org.stu.video_recorder";
+option java_outer_classname = "VideoRecorderProto";
+
+service VideoRecorder {
+  rpc activateVideoRecorder (google.protobuf.Empty) returns (VideoRecorderStatus){}
+
+}
+
+message VideoRecorderStatus{
+  string status = 1;
+}
+

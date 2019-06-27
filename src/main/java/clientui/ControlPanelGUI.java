@@ -5,11 +5,12 @@
  */
 package clientui;
 
+import client.AudioSpeakerClient;
 import client.ControlPanelClient;
 import client.ProjectorClient;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import services.ProjectorServer;
+import client.ThermostatClient;
+import client.VideoRecorderClient;
+
 
 /**
  *
@@ -32,6 +33,9 @@ public class ControlPanelGUI extends javax.swing.JFrame {
          this();
          this.client = aThis;
          projectorTA.setText("Not connected");
+         speakersTA.setText("Not connected");
+         thermoTA.setText("Not connected");
+         videoTA.setText("Not connected");
     }
 
 
@@ -76,7 +80,7 @@ public class ControlPanelGUI extends javax.swing.JFrame {
                 setInputMachineBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(setInputMachineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        getContentPane().add(setInputMachineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
 
         jLabel1.setText("Control Panel");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 16, -1, -1));
@@ -95,7 +99,7 @@ public class ControlPanelGUI extends javax.swing.JFrame {
                 videoActivateBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(videoActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 488, -1, -1));
+        getContentPane().add(videoActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
 
         thermoActivateBtn.setText("Activate");
         thermoActivateBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +107,7 @@ public class ControlPanelGUI extends javax.swing.JFrame {
                 thermoActivateBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(thermoActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(882, 488, 105, -1));
+        getContentPane().add(thermoActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 480, 105, -1));
 
         jLabel2.setText("Choose Input Machine");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
@@ -117,46 +121,46 @@ public class ControlPanelGUI extends javax.swing.JFrame {
                 projActivateBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(projActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, -1));
+        getContentPane().add(projActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
 
         jLabel4.setText("Video-camera");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 492, -1, -1));
 
         jLabel5.setText("Thermostat");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(744, 492, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, -1, -1));
 
         jLabel6.setText("Speakers");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 241, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
 
         videoTA.setColumns(20);
         videoTA.setRows(5);
         jScrollPane1.setViewportView(videoTA);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 526, 220, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 526, 360, -1));
 
         projectorTA.setColumns(20);
         projectorTA.setRows(5);
         jScrollPane2.setViewportView(projectorTA);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 220, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 360, -1));
 
         inputMachineTA.setColumns(20);
         inputMachineTA.setRows(5);
         jScrollPane3.setViewportView(inputMachineTA);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 210, 100));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 360, 100));
 
         speakersTA.setColumns(20);
         speakersTA.setRows(5);
         jScrollPane4.setViewportView(speakersTA);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 230, -1));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 310, -1));
 
         thermoTA.setColumns(20);
         thermoTA.setRows(5);
         jScrollPane5.setViewportView(thermoTA);
 
-        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 520, 240, -1));
+        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 520, 310, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,15 +181,36 @@ public class ControlPanelGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_projActivateBtnActionPerformed
 
     private void videoActivateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoActivateBtnActionPerformed
-        // TODO add your handling code here:
+        try{
+            Thread.sleep(3000);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        VideoRecorderClient.main(null);
+        videoTA.setText("Video recorder activated and connected to: " + this.machine);
     }//GEN-LAST:event_videoActivateBtnActionPerformed
 
     private void speakersActivateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speakersActivateBtnActionPerformed
-        // TODO add your handling code here:
+          // activate speaker client
+        try{
+            Thread.sleep(3000);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        AudioSpeakerClient.main(null);
+        speakersTA.setText("Audio Speaker activated and connected to: " + this.machine);
     }//GEN-LAST:event_speakersActivateBtnActionPerformed
 
     private void thermoActivateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thermoActivateBtnActionPerformed
-        // TODO add your handling code here:
+       // activate client
+        try{
+            Thread.sleep(3000);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        ThermostatClient.main(null);
+        thermoTA.setText("Thermostat activated and connected to: " + this.machine);
+        
     }//GEN-LAST:event_thermoActivateBtnActionPerformed
 
     /**
