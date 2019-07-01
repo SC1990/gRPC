@@ -5,7 +5,7 @@
  */
 package services;
 
-
+import com.google.protobuf.Empty;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.stu.control_panel.ControlPanelGrpc;
 import org.stu.control_panel.InputMachine;
+import org.stu.control_panel.PreShutDownMessage;
 import org.stu.control_panel.ResponseMessage;
 
 /**
@@ -87,9 +88,9 @@ public class ControlPanelServer {
 
         @Override
         public void setInputMachine(InputMachine request, StreamObserver<ResponseMessage> responseObserver) {
-            
+
             ResponseMessage message = null;
-            
+
             try {
                 message = ResponseMessage.newBuilder().setUserMsg(findMachine()).build();
             } catch (UnknownHostException ex) {
@@ -106,23 +107,11 @@ public class ControlPanelServer {
             return ("Searching for machines........Detected machine: " + (localhost.getHostName()).trim());
         }
 
-        //streams out results to client using Timer - every 2 seconds
-//        @Override
-//        public void warm(com.google.protobuf.Empty request,
-//                io.grpc.stub.StreamObserver<org.dominic.example.bed.BedStatus> responseObserver) {
-//            Timer t = new Timer();
-//            
-//            // 0 -> starts immediately
-//            //responseObserver communicates back to client
-//            t.schedule(new RemindTask(responseObserver), 0, 2000);
-//
-//        }
-//        @Override
-//        public void getStatus(com.google.protobuf.Empty request,
-//                io.grpc.stub.StreamObserver<org.dominic.example.bed.BedStatus> responseObserver) {
-//            responseObserver.onNext(BedStatus.newBuilder().setPercentageHeated(percentHot).build());
-//            responseObserver.onCompleted();
-//        }
+        @Override
+        public void shutDown(Empty request, StreamObserver<PreShutDownMessage> responseObserver) {
+
+        }
+
     }
 
 }

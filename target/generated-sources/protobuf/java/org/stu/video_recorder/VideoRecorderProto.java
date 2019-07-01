@@ -15,10 +15,50 @@ public final class VideoRecorderProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_video_recorder_VideoRecorderStatus_descriptor;
+    internal_static_video_recorder_VideoRecorderOnStatus_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_video_recorder_VideoRecorderStatus_fieldAccessorTable;
+      internal_static_video_recorder_VideoRecorderOnStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_video_recorder_VideoRecorderOffStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_video_recorder_VideoRecorderOffStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_video_recorder_RecordStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_video_recorder_RecordStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_video_recorder_IncreaseAmount_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_video_recorder_IncreaseAmount_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_video_recorder_DecreaseAmount_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_video_recorder_DecreaseAmount_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_video_recorder_AudioStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_video_recorder_AudioStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_video_recorder_Resolution_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_video_recorder_Resolution_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_video_recorder_AllResolutions_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_video_recorder_AllResolutions_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_video_recorder_ResultMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_video_recorder_ResultMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -29,12 +69,34 @@ public final class VideoRecorderProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\024video_recorder.proto\022\016video_recorder\032\033" +
-      "google/protobuf/empty.proto\"%\n\023VideoReco" +
-      "rderStatus\022\016\n\006status\030\001 \001(\t2g\n\rVideoRecor" +
-      "der\022V\n\025activateVideoRecorder\022\026.google.pr" +
-      "otobuf.Empty\032#.video_recorder.VideoRecor" +
-      "derStatus\"\000B.\n\026org.stu.video_recorderB\022V" +
-      "ideoRecorderProtoP\001b\006proto3"
+      "google/protobuf/empty.proto\")\n\025VideoReco" +
+      "rderOnStatus\022\020\n\010onStatus\030\001 \001(\t\"+\n\026VideoR" +
+      "ecorderOffStatus\022\021\n\toffStatus\030\001 \001(\t\"\036\n\014R" +
+      "ecordStatus\022\016\n\006status\030\001 \001(\t\"$\n\016IncreaseA" +
+      "mount\022\022\n\npercentage\030\001 \001(\005\"$\n\016DecreaseAmo" +
+      "unt\022\022\n\npercentage\030\001 \001(\005\"\036\n\013AudioStatus\022\017" +
+      "\n\007aStatus\030\001 \001(\t\".\n\nResolution\022\r\n\005ratio\030\001" +
+      " \001(\t\022\021\n\tsupported\030\002 \001(\010\":\n\016AllResolution" +
+      "s\022(\n\004type\030\001 \003(\0132\032.video_recorder.Resolut" +
+      "ion\" \n\rResultMessage\022\017\n\007message\030\001 \001(\t2\363\004" +
+      "\n\rVideoRecorder\022X\n\025activateVideoRecorder" +
+      "\022\026.google.protobuf.Empty\032%.video_recorde" +
+      "r.VideoRecorderOnStatus\"\000\022[\n\027deActivateV" +
+      "ideoRecorder\022\026.google.protobuf.Empty\032&.v" +
+      "ideo_recorder.VideoRecorderOffStatus\"\000\022E" +
+      "\n\013recordVideo\022\026.google.protobuf.Empty\032\034." +
+      "video_recorder.RecordStatus\"\000\022B\n\006zoomIn\022" +
+      "\036.video_recorder.IncreaseAmount\032\026.google" +
+      ".protobuf.Empty\"\000\022C\n\007zoomOut\022\036.video_rec" +
+      "order.DecreaseAmount\032\026.google.protobuf.E" +
+      "mpty\"\000\022B\n\tmuteAudio\022\026.google.protobuf.Em" +
+      "pty\032\033.video_recorder.AudioStatus\"\000\022I\n\017li" +
+      "stResolutions\022\026.google.protobuf.Empty\032\032." +
+      "video_recorder.Resolution\"\0000\001\022L\n\rsetReso" +
+      "lution\022\032.video_recorder.Resolution\032\035.vid" +
+      "eo_recorder.ResultMessage\"\000B.\n\026org.stu.v" +
+      "ideo_recorderB\022VideoRecorderProtoP\001b\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -49,12 +111,60 @@ public final class VideoRecorderProto {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
-    internal_static_video_recorder_VideoRecorderStatus_descriptor =
+    internal_static_video_recorder_VideoRecorderOnStatus_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_video_recorder_VideoRecorderStatus_fieldAccessorTable = new
+    internal_static_video_recorder_VideoRecorderOnStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_video_recorder_VideoRecorderStatus_descriptor,
+        internal_static_video_recorder_VideoRecorderOnStatus_descriptor,
+        new java.lang.String[] { "OnStatus", });
+    internal_static_video_recorder_VideoRecorderOffStatus_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_video_recorder_VideoRecorderOffStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_video_recorder_VideoRecorderOffStatus_descriptor,
+        new java.lang.String[] { "OffStatus", });
+    internal_static_video_recorder_RecordStatus_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_video_recorder_RecordStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_video_recorder_RecordStatus_descriptor,
         new java.lang.String[] { "Status", });
+    internal_static_video_recorder_IncreaseAmount_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_video_recorder_IncreaseAmount_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_video_recorder_IncreaseAmount_descriptor,
+        new java.lang.String[] { "Percentage", });
+    internal_static_video_recorder_DecreaseAmount_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_video_recorder_DecreaseAmount_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_video_recorder_DecreaseAmount_descriptor,
+        new java.lang.String[] { "Percentage", });
+    internal_static_video_recorder_AudioStatus_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_video_recorder_AudioStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_video_recorder_AudioStatus_descriptor,
+        new java.lang.String[] { "AStatus", });
+    internal_static_video_recorder_Resolution_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_video_recorder_Resolution_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_video_recorder_Resolution_descriptor,
+        new java.lang.String[] { "Ratio", "Supported", });
+    internal_static_video_recorder_AllResolutions_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_video_recorder_AllResolutions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_video_recorder_AllResolutions_descriptor,
+        new java.lang.String[] { "Type", });
+    internal_static_video_recorder_ResultMessage_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_video_recorder_ResultMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_video_recorder_ResultMessage_descriptor,
+        new java.lang.String[] { "Message", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

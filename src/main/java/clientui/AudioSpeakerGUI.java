@@ -39,48 +39,43 @@ public class AudioSpeakerGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         statusTA = new javax.swing.JTextArea();
+        speakerShutdownBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel1.setText("Audio Speaker");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 255, 0));
         jLabel2.setText("Status");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
         statusTA.setColumns(20);
         statusTA.setRows(5);
         statusTA.setText("OFF");
         jScrollPane1.setViewportView(statusTA);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(173, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 66, 330, 320));
+
+        speakerShutdownBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        speakerShutdownBtn.setForeground(new java.awt.Color(255, 51, 0));
+        speakerShutdownBtn.setText("Shut down");
+        speakerShutdownBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                speakerShutdownBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(speakerShutdownBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 170, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void speakerShutdownBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speakerShutdownBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_speakerShutdownBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,6 +120,7 @@ public class AudioSpeakerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton speakerShutdownBtn;
     private javax.swing.JTextArea statusTA;
     // End of variables declaration//GEN-END:variables
 }

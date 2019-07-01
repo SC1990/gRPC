@@ -10,6 +10,7 @@ option java_outer_classname = "ControlPanelProto";
 
 service ControlPanel{
   rpc setInputMachine(InputMachine) returns (ResponseMessage){}
+  rpc shutDown(google.protobuf.Empty) returns (PreShutDownMessage){}
   
 }
 
@@ -19,5 +20,9 @@ message InputMachine{
 
 message ResponseMessage{
     string userMsg = 1;
+}
+
+message PreShutDownMessage{
+    string shutDownMsg = 1;
 }
 

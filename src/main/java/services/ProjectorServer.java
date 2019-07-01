@@ -11,8 +11,14 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.util.logging.Logger;
+import org.stu.projector.AspectRatio;
+import org.stu.projector.BrightnessLevel;
+import org.stu.projector.InputType;
+import org.stu.projector.Orientation;
 import org.stu.projector.ProjectorGrpc;
-import org.stu.projector.ProjectorStatus;
+import org.stu.projector.ProjectorOffStatus;
+import org.stu.projector.ProjectorOnStatus;
+import org.stu.projector.Resolution;
 
 
 
@@ -85,13 +91,67 @@ public class ProjectorServer {
         }
 
         @Override
-        public void activateProjector(Empty request, StreamObserver<ProjectorStatus> responseObserver) {
+        public void activateProjector(Empty request, StreamObserver<ProjectorOnStatus> responseObserver) {
             
-            ProjectorStatus status = ProjectorStatus.newBuilder().setStatus("Projector activated").build();
+            ProjectorOnStatus status = ProjectorOnStatus.newBuilder().setOnStatus("Projector activated").build();
 
             responseObserver.onNext(status);
             responseObserver.onCompleted();
 
+        }
+        
+        @Override
+        public void deActivateProjector(Empty request, StreamObserver<ProjectorOffStatus> responseObserver) {
+            
+            ProjectorOffStatus status = ProjectorOffStatus.newBuilder().setOffStatus("Preparing for shutdown.....").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
+        }
+        
+        @Override
+        public void setInputType(InputType inputType, StreamObserver<InputType> responseObserver) {
+            
+            InputType inputType1 = InputType.newBuilder().build();
+            responseObserver.onNext(inputType1);
+            responseObserver.onCompleted();
+            
+        }
+        
+        @Override
+        public void listInputs(Empty request, StreamObserver<InputType> responseObserver) {
+            
+        }
+        
+        @Override
+        public void increaseBrightness(Empty request, StreamObserver<BrightnessLevel> responseObserver) {
+            
+        }
+        
+        @Override
+        public void decreaseBrightness(Empty request, StreamObserver<BrightnessLevel> responseObserver) {
+            
+        }
+        
+        @Override
+        public void setAspectRatio(AspectRatio request, StreamObserver<Empty> responseObserver) {
+            
+        }
+        
+        @Override
+        public void listRatios(Empty request, StreamObserver<AspectRatio> responseObserver) {
+      
+        }
+        
+        @Override
+        public void setResolution(Resolution request, StreamObserver<Empty> responseObserver) {
+      
+        }
+
+    
+        @Override
+        public void setOrientation(Orientation request, StreamObserver<Empty> responseObserver) {
+      
         }
 
      

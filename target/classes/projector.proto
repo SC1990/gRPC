@@ -10,11 +10,61 @@ option java_package = "org.stu.projector";
 option java_outer_classname = "ProjectorProto";
 
 service Projector{
-  rpc activateProjector(google.protobuf.Empty) returns (ProjectorStatus){}
+  rpc activateProjector(google.protobuf.Empty) returns (ProjectorOnStatus){}
+  rpc deActivateProjector(google.protobuf.Empty) returns (ProjectorOffStatus){}
+  rpc setInputType(InputType) returns (InputType){}
+  rpc listInputs(google.protobuf.Empty) returns (stream InputType){}
+  rpc increaseBrightness(google.protobuf.Empty) returns (BrightnessLevel){}
+  rpc decreaseBrightness(google.protobuf.Empty) returns (BrightnessLevel){}
+  rpc setAspectRatio(AspectRatio) returns (google.protobuf.Empty){}
+  rpc listRatios(google.protobuf.Empty) returns (stream AspectRatio){}
+  rpc setResolution(Resolution) returns (google.protobuf.Empty){}
+  rpc setOrientation(Orientation) returns (google.protobuf.Empty){}
   
 }
 
-message ProjectorStatus{
-    string status = 1;
+message ProjectorOnStatus{
+    string onStatus = 1;
+}
+
+message ProjectorOffStatus{
+    string offStatus = 1;
+}
+
+message InputType{
+    string type = 1;
+}
+
+message AllInputTypes{
+    repeated InputType inputTypes = 1;
+}
+
+message BrightnessLevel{
+    int32 currentBrightness = 1;
+}
+
+message AspectRatio{
+    string ratio = 1;
+}
+
+message AllRatios{
+    repeated AspectRatio aspectRatios = 1;
+}
+
+message Resolution{
+    string resOption = 1;
+    bool supported = 2;
+}
+
+message ResolutionOptions{
+    repeated Resolution resolutions = 1;
+}
+
+message Orientation{
+    string orientation = 1;
+}
+
+message OrientationOptions{
+    repeated Orientation orientations = 1;
 }
 

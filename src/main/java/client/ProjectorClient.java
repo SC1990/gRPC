@@ -8,7 +8,7 @@ import io.grpc.ManagedChannelBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.stu.projector.ProjectorStatus;
+import org.stu.projector.ProjectorOnStatus;
 import org.stu.projector.ProjectorGrpc;
 
 public class ProjectorClient implements ServiceObserver {
@@ -94,7 +94,7 @@ public class ProjectorClient implements ServiceObserver {
                 public void run() {
                     Empty request = Empty.newBuilder().build();
 
-                    ProjectorStatus response = blockingStub.activateProjector(request);
+                    ProjectorOnStatus response = blockingStub.activateProjector(request);
 
                     ui.appendProjectorStatus(response.toString());
 

@@ -5,14 +5,20 @@
  */
 package services;
 
-
 import com.google.protobuf.Empty;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.util.logging.Logger;
+import org.stu.video_recorder.AudioStatus;
+import org.stu.video_recorder.DecreaseAmount;
+import org.stu.video_recorder.IncreaseAmount;
+import org.stu.video_recorder.RecordStatus;
+import org.stu.video_recorder.Resolution;
+import org.stu.video_recorder.ResultMessage;
 import org.stu.video_recorder.VideoRecorderGrpc;
-import org.stu.video_recorder.VideoRecorderStatus;
+import org.stu.video_recorder.VideoRecorderOffStatus;
+import org.stu.video_recorder.VideoRecorderOnStatus;
 
 /**
  *
@@ -83,18 +89,50 @@ public class VideoRecorderServer {
         }
 
         @Override
-        public void activateVideoRecorder(Empty request, StreamObserver<VideoRecorderStatus> responseObserver) {
-            
-            VideoRecorderStatus status = VideoRecorderStatus.newBuilder().setStatus("Video recorder activated").build();
+        public void activateVideoRecorder(Empty request, StreamObserver<VideoRecorderOnStatus> responseObserver) {
+
+            VideoRecorderOnStatus status = VideoRecorderOnStatus.newBuilder().setOnStatus("Video recorder activated").build();
 
             responseObserver.onNext(status);
             responseObserver.onCompleted();
 
         }
 
-     
+        @Override
+        public void deActivateVideoRecorder(Empty request, StreamObserver<VideoRecorderOffStatus> responseObserver) {
+
+        }
+
+        @Override
+        public void recordVideo(Empty request, StreamObserver<RecordStatus> responseObserver) {
+
+        }
+
+        @Override
+        public void zoomIn(IncreaseAmount request, StreamObserver<Empty> responseObserver) {
+
+        }
+
+        @Override
+        public void zoomOut(DecreaseAmount request, StreamObserver<Empty> responseObserver) {
+
+        }
+
+        @Override
+        public void muteAudio(Empty request, StreamObserver<AudioStatus> responseObserver) {
+
+        }
+
+        @Override
+        public void listResolutions(Empty request, StreamObserver<Resolution> responseObserver) {
+
+        }
+
+        @Override
+        public void setResolution(Resolution request, StreamObserver<ResultMessage> responseObserver) {
+
+        }
 
     }
 
 }
-

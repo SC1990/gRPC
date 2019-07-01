@@ -5,14 +5,18 @@
  */
 package services;
 
-
 import com.google.protobuf.Empty;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.util.logging.Logger;
+import org.stu.thermostat.CurrentTemp;
+import org.stu.thermostat.FanMode;
+import org.stu.thermostat.FanStatus;
+import org.stu.thermostat.Hours;
 import org.stu.thermostat.ThermostatGrpc;
-import org.stu.thermostat.ThermostatStatus;
+import org.stu.thermostat.ThermostatOffStatus;
+import org.stu.thermostat.ThermostatOnStatus;
 
 /**
  *
@@ -83,16 +87,44 @@ public class ThermoStatServer {
         }
 
         @Override
-        public void activateThermostat(Empty request, StreamObserver<ThermostatStatus> responseObserver) {
-            
-            ThermostatStatus status = ThermostatStatus.newBuilder().setStatus("Thermostat activated").build();
+        public void activateThermostat(Empty request, StreamObserver<ThermostatOnStatus> responseObserver) {
+
+            ThermostatOnStatus status = ThermostatOnStatus.newBuilder().setOnStatus("Thermostat activated").build();
 
             responseObserver.onNext(status);
             responseObserver.onCompleted();
 
         }
 
-     
+        @Override
+        public void deActivateThermostat(Empty request, StreamObserver<ThermostatOffStatus> responseObserver) {
+
+        }
+
+        @Override
+        public void triggerFan(Empty request, StreamObserver<FanStatus> responseObserver) {
+
+        }
+
+        @Override
+        public void setFanMode(FanMode request, StreamObserver<Empty> responseObserver) {
+
+        }
+
+        @Override
+        public void increaseTemp(Empty request, StreamObserver<CurrentTemp> responseObserver) {
+
+        }
+
+        @Override
+        public void decreaseTemp(Empty request, StreamObserver<CurrentTemp> responseObserver) {
+
+        }
+
+        @Override
+        public void setShutDownTime(Hours request, StreamObserver<Empty> responseObserver) {
+
+        }
 
     }
 

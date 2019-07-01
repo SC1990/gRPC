@@ -24,6 +24,11 @@ public final class ControlPanelProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_control_panel_ResponseMessage_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_control_panel_PreShutDownMessage_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_control_panel_PreShutDownMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -36,11 +41,14 @@ public final class ControlPanelProto {
       "\n\023control_panel.proto\022\rcontrol_panel\032\033go" +
       "ogle/protobuf/empty.proto\"\037\n\014InputMachin" +
       "e\022\017\n\007machine\030\001 \001(\t\"\"\n\017ResponseMessage\022\017\n" +
-      "\007userMsg\030\001 \001(\t2`\n\014ControlPanel\022P\n\017setInp" +
-      "utMachine\022\033.control_panel.InputMachine\032\036" +
-      ".control_panel.ResponseMessage\"\000B,\n\025org." +
-      "stu.control_panelB\021ControlPanelProtoP\001b\006" +
-      "proto3"
+      "\007userMsg\030\001 \001(\t\")\n\022PreShutDownMessage\022\023\n\013" +
+      "shutDownMsg\030\001 \001(\t2\251\001\n\014ControlPanel\022P\n\017se" +
+      "tInputMachine\022\033.control_panel.InputMachi" +
+      "ne\032\036.control_panel.ResponseMessage\"\000\022G\n\010" +
+      "shutDown\022\026.google.protobuf.Empty\032!.contr" +
+      "ol_panel.PreShutDownMessage\"\000B,\n\025org.stu" +
+      ".control_panelB\021ControlPanelProtoP\001b\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -67,6 +75,12 @@ public final class ControlPanelProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_control_panel_ResponseMessage_descriptor,
         new java.lang.String[] { "UserMsg", });
+    internal_static_control_panel_PreShutDownMessage_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_control_panel_PreShutDownMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_control_panel_PreShutDownMessage_descriptor,
+        new java.lang.String[] { "ShutDownMsg", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

@@ -9,11 +9,51 @@ option java_package = "org.stu.video_recorder";
 option java_outer_classname = "VideoRecorderProto";
 
 service VideoRecorder {
-  rpc activateVideoRecorder (google.protobuf.Empty) returns (VideoRecorderStatus){}
+  rpc activateVideoRecorder(google.protobuf.Empty) returns (VideoRecorderOnStatus){}
+  rpc deActivateVideoRecorder(google.protobuf.Empty) returns (VideoRecorderOffStatus){}
+  rpc recordVideo(google.protobuf.Empty) returns (RecordStatus){}
+  rpc zoomIn(IncreaseAmount) returns (google.protobuf.Empty){}
+  rpc zoomOut(DecreaseAmount) returns (google.protobuf.Empty){}
+  rpc muteAudio(google.protobuf.Empty) returns (AudioStatus){}
+  rpc listResolutions(google.protobuf.Empty) returns (stream Resolution){}
+  rpc setResolution(Resolution) returns (ResultMessage){}
 
 }
 
-message VideoRecorderStatus{
-  string status = 1;
+message VideoRecorderOnStatus{
+  string onStatus = 1;
+}
+
+message VideoRecorderOffStatus{
+  string offStatus = 1;
+}
+
+message RecordStatus{
+   string status = 1;
+}
+
+message IncreaseAmount{
+  int32 percentage = 1;
+}
+
+message DecreaseAmount{
+  int32 percentage = 1;
+}
+
+message AudioStatus{
+  string aStatus = 1;
+}
+
+message Resolution{
+  string ratio = 1;
+  bool supported = 2;
+}
+
+message AllResolutions{
+  repeated Resolution type = 1;
+}
+
+message ResultMessage{
+  string message = 1; 
 }
 

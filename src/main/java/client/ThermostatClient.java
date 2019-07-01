@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.stu.thermostat.ThermostatGrpc;
-import org.stu.thermostat.ThermostatStatus;
+import org.stu.thermostat.ThermostatOnStatus;
 
 
 public class ThermostatClient implements ServiceObserver {
@@ -93,7 +93,7 @@ public class ThermostatClient implements ServiceObserver {
                 public void run() {
                     Empty request = Empty.newBuilder().build();
 
-                    ThermostatStatus response = blockingStub.activateThermostat(request);
+                    ThermostatOnStatus response = blockingStub.activateThermostat(request);
 
                     ui.appendThermostatStatus(response.toString());
 

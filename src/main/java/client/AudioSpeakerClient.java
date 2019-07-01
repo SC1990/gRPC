@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.stu.audio_speaker.AudioSpeakerGrpc;
-import org.stu.audio_speaker.AudioSpeakerStatus;
+import org.stu.audio_speaker.AudioSpeakerOnStatus;
 
 
 public class AudioSpeakerClient implements ServiceObserver {
@@ -94,7 +94,7 @@ public class AudioSpeakerClient implements ServiceObserver {
                 public void run() {
                     Empty request = Empty.newBuilder().build();
 
-                    AudioSpeakerStatus response = blockingStub.activateAudioSpeaker(request);
+                    AudioSpeakerOnStatus response = blockingStub.activateAudioSpeaker(request);
 
                     ui.appendAudioSpeakerStatus(response.toString());
 

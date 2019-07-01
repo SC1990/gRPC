@@ -28,21 +28,21 @@ public final class ProjectorGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      org.stu.projector.ProjectorStatus> getActivateProjectorMethod;
+      org.stu.projector.ProjectorOnStatus> getActivateProjectorMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "activateProjector",
       requestType = com.google.protobuf.Empty.class,
-      responseType = org.stu.projector.ProjectorStatus.class,
+      responseType = org.stu.projector.ProjectorOnStatus.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      org.stu.projector.ProjectorStatus> getActivateProjectorMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.projector.ProjectorStatus> getActivateProjectorMethod;
+      org.stu.projector.ProjectorOnStatus> getActivateProjectorMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.projector.ProjectorOnStatus> getActivateProjectorMethod;
     if ((getActivateProjectorMethod = ProjectorGrpc.getActivateProjectorMethod) == null) {
       synchronized (ProjectorGrpc.class) {
         if ((getActivateProjectorMethod = ProjectorGrpc.getActivateProjectorMethod) == null) {
           ProjectorGrpc.getActivateProjectorMethod = getActivateProjectorMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.projector.ProjectorStatus>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.projector.ProjectorOnStatus>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "projector.Projector", "activateProjector"))
@@ -50,13 +50,301 @@ public final class ProjectorGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.stu.projector.ProjectorStatus.getDefaultInstance()))
+                  org.stu.projector.ProjectorOnStatus.getDefaultInstance()))
                   .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("activateProjector"))
                   .build();
           }
         }
      }
      return getActivateProjectorMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.ProjectorOffStatus> getDeActivateProjectorMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "deActivateProjector",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.projector.ProjectorOffStatus.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.ProjectorOffStatus> getDeActivateProjectorMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.projector.ProjectorOffStatus> getDeActivateProjectorMethod;
+    if ((getDeActivateProjectorMethod = ProjectorGrpc.getDeActivateProjectorMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getDeActivateProjectorMethod = ProjectorGrpc.getDeActivateProjectorMethod) == null) {
+          ProjectorGrpc.getDeActivateProjectorMethod = getDeActivateProjectorMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.projector.ProjectorOffStatus>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "deActivateProjector"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.ProjectorOffStatus.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("deActivateProjector"))
+                  .build();
+          }
+        }
+     }
+     return getDeActivateProjectorMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.stu.projector.InputType,
+      org.stu.projector.InputType> getSetInputTypeMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "setInputType",
+      requestType = org.stu.projector.InputType.class,
+      responseType = org.stu.projector.InputType.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.stu.projector.InputType,
+      org.stu.projector.InputType> getSetInputTypeMethod() {
+    io.grpc.MethodDescriptor<org.stu.projector.InputType, org.stu.projector.InputType> getSetInputTypeMethod;
+    if ((getSetInputTypeMethod = ProjectorGrpc.getSetInputTypeMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getSetInputTypeMethod = ProjectorGrpc.getSetInputTypeMethod) == null) {
+          ProjectorGrpc.getSetInputTypeMethod = getSetInputTypeMethod = 
+              io.grpc.MethodDescriptor.<org.stu.projector.InputType, org.stu.projector.InputType>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "setInputType"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.InputType.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.InputType.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("setInputType"))
+                  .build();
+          }
+        }
+     }
+     return getSetInputTypeMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.InputType> getListInputsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "listInputs",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.projector.InputType.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.InputType> getListInputsMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.projector.InputType> getListInputsMethod;
+    if ((getListInputsMethod = ProjectorGrpc.getListInputsMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getListInputsMethod = ProjectorGrpc.getListInputsMethod) == null) {
+          ProjectorGrpc.getListInputsMethod = getListInputsMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.projector.InputType>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "listInputs"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.InputType.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("listInputs"))
+                  .build();
+          }
+        }
+     }
+     return getListInputsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.BrightnessLevel> getIncreaseBrightnessMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "increaseBrightness",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.projector.BrightnessLevel.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.BrightnessLevel> getIncreaseBrightnessMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.projector.BrightnessLevel> getIncreaseBrightnessMethod;
+    if ((getIncreaseBrightnessMethod = ProjectorGrpc.getIncreaseBrightnessMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getIncreaseBrightnessMethod = ProjectorGrpc.getIncreaseBrightnessMethod) == null) {
+          ProjectorGrpc.getIncreaseBrightnessMethod = getIncreaseBrightnessMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.projector.BrightnessLevel>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "increaseBrightness"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.BrightnessLevel.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("increaseBrightness"))
+                  .build();
+          }
+        }
+     }
+     return getIncreaseBrightnessMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.BrightnessLevel> getDecreaseBrightnessMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "decreaseBrightness",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.projector.BrightnessLevel.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.BrightnessLevel> getDecreaseBrightnessMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.projector.BrightnessLevel> getDecreaseBrightnessMethod;
+    if ((getDecreaseBrightnessMethod = ProjectorGrpc.getDecreaseBrightnessMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getDecreaseBrightnessMethod = ProjectorGrpc.getDecreaseBrightnessMethod) == null) {
+          ProjectorGrpc.getDecreaseBrightnessMethod = getDecreaseBrightnessMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.projector.BrightnessLevel>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "decreaseBrightness"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.BrightnessLevel.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("decreaseBrightness"))
+                  .build();
+          }
+        }
+     }
+     return getDecreaseBrightnessMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.stu.projector.AspectRatio,
+      com.google.protobuf.Empty> getSetAspectRatioMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "setAspectRatio",
+      requestType = org.stu.projector.AspectRatio.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.stu.projector.AspectRatio,
+      com.google.protobuf.Empty> getSetAspectRatioMethod() {
+    io.grpc.MethodDescriptor<org.stu.projector.AspectRatio, com.google.protobuf.Empty> getSetAspectRatioMethod;
+    if ((getSetAspectRatioMethod = ProjectorGrpc.getSetAspectRatioMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getSetAspectRatioMethod = ProjectorGrpc.getSetAspectRatioMethod) == null) {
+          ProjectorGrpc.getSetAspectRatioMethod = getSetAspectRatioMethod = 
+              io.grpc.MethodDescriptor.<org.stu.projector.AspectRatio, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "setAspectRatio"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.AspectRatio.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("setAspectRatio"))
+                  .build();
+          }
+        }
+     }
+     return getSetAspectRatioMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.AspectRatio> getListRatiosMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "listRatios",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.projector.AspectRatio.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.projector.AspectRatio> getListRatiosMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.projector.AspectRatio> getListRatiosMethod;
+    if ((getListRatiosMethod = ProjectorGrpc.getListRatiosMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getListRatiosMethod = ProjectorGrpc.getListRatiosMethod) == null) {
+          ProjectorGrpc.getListRatiosMethod = getListRatiosMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.projector.AspectRatio>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "listRatios"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.AspectRatio.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("listRatios"))
+                  .build();
+          }
+        }
+     }
+     return getListRatiosMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.stu.projector.Resolution,
+      com.google.protobuf.Empty> getSetResolutionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "setResolution",
+      requestType = org.stu.projector.Resolution.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.stu.projector.Resolution,
+      com.google.protobuf.Empty> getSetResolutionMethod() {
+    io.grpc.MethodDescriptor<org.stu.projector.Resolution, com.google.protobuf.Empty> getSetResolutionMethod;
+    if ((getSetResolutionMethod = ProjectorGrpc.getSetResolutionMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getSetResolutionMethod = ProjectorGrpc.getSetResolutionMethod) == null) {
+          ProjectorGrpc.getSetResolutionMethod = getSetResolutionMethod = 
+              io.grpc.MethodDescriptor.<org.stu.projector.Resolution, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "setResolution"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.Resolution.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("setResolution"))
+                  .build();
+          }
+        }
+     }
+     return getSetResolutionMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.stu.projector.Orientation,
+      com.google.protobuf.Empty> getSetOrientationMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "setOrientation",
+      requestType = org.stu.projector.Orientation.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.stu.projector.Orientation,
+      com.google.protobuf.Empty> getSetOrientationMethod() {
+    io.grpc.MethodDescriptor<org.stu.projector.Orientation, com.google.protobuf.Empty> getSetOrientationMethod;
+    if ((getSetOrientationMethod = ProjectorGrpc.getSetOrientationMethod) == null) {
+      synchronized (ProjectorGrpc.class) {
+        if ((getSetOrientationMethod = ProjectorGrpc.getSetOrientationMethod) == null) {
+          ProjectorGrpc.getSetOrientationMethod = getSetOrientationMethod = 
+              io.grpc.MethodDescriptor.<org.stu.projector.Orientation, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "projector.Projector", "setOrientation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.projector.Orientation.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+                  .setSchemaDescriptor(new ProjectorMethodDescriptorSupplier("setOrientation"))
+                  .build();
+          }
+        }
+     }
+     return getSetOrientationMethod;
   }
 
   /**
@@ -89,8 +377,71 @@ public final class ProjectorGrpc {
     /**
      */
     public void activateProjector(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<org.stu.projector.ProjectorStatus> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOnStatus> responseObserver) {
       asyncUnimplementedUnaryCall(getActivateProjectorMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void deActivateProjector(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOffStatus> responseObserver) {
+      asyncUnimplementedUnaryCall(getDeActivateProjectorMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void setInputType(org.stu.projector.InputType request,
+        io.grpc.stub.StreamObserver<org.stu.projector.InputType> responseObserver) {
+      asyncUnimplementedUnaryCall(getSetInputTypeMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listInputs(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.InputType> responseObserver) {
+      asyncUnimplementedUnaryCall(getListInputsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void increaseBrightness(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.BrightnessLevel> responseObserver) {
+      asyncUnimplementedUnaryCall(getIncreaseBrightnessMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void decreaseBrightness(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.BrightnessLevel> responseObserver) {
+      asyncUnimplementedUnaryCall(getDecreaseBrightnessMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void setAspectRatio(org.stu.projector.AspectRatio request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnimplementedUnaryCall(getSetAspectRatioMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listRatios(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.AspectRatio> responseObserver) {
+      asyncUnimplementedUnaryCall(getListRatiosMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void setResolution(org.stu.projector.Resolution request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnimplementedUnaryCall(getSetResolutionMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void setOrientation(org.stu.projector.Orientation request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnimplementedUnaryCall(getSetOrientationMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -100,8 +451,71 @@ public final class ProjectorGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 com.google.protobuf.Empty,
-                org.stu.projector.ProjectorStatus>(
+                org.stu.projector.ProjectorOnStatus>(
                   this, METHODID_ACTIVATE_PROJECTOR)))
+          .addMethod(
+            getDeActivateProjectorMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.projector.ProjectorOffStatus>(
+                  this, METHODID_DE_ACTIVATE_PROJECTOR)))
+          .addMethod(
+            getSetInputTypeMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.stu.projector.InputType,
+                org.stu.projector.InputType>(
+                  this, METHODID_SET_INPUT_TYPE)))
+          .addMethod(
+            getListInputsMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.projector.InputType>(
+                  this, METHODID_LIST_INPUTS)))
+          .addMethod(
+            getIncreaseBrightnessMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.projector.BrightnessLevel>(
+                  this, METHODID_INCREASE_BRIGHTNESS)))
+          .addMethod(
+            getDecreaseBrightnessMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.projector.BrightnessLevel>(
+                  this, METHODID_DECREASE_BRIGHTNESS)))
+          .addMethod(
+            getSetAspectRatioMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.stu.projector.AspectRatio,
+                com.google.protobuf.Empty>(
+                  this, METHODID_SET_ASPECT_RATIO)))
+          .addMethod(
+            getListRatiosMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.projector.AspectRatio>(
+                  this, METHODID_LIST_RATIOS)))
+          .addMethod(
+            getSetResolutionMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.stu.projector.Resolution,
+                com.google.protobuf.Empty>(
+                  this, METHODID_SET_RESOLUTION)))
+          .addMethod(
+            getSetOrientationMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.stu.projector.Orientation,
+                com.google.protobuf.Empty>(
+                  this, METHODID_SET_ORIENTATION)))
           .build();
     }
   }
@@ -127,9 +541,81 @@ public final class ProjectorGrpc {
     /**
      */
     public void activateProjector(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<org.stu.projector.ProjectorStatus> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOnStatus> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getActivateProjectorMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void deActivateProjector(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOffStatus> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDeActivateProjectorMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void setInputType(org.stu.projector.InputType request,
+        io.grpc.stub.StreamObserver<org.stu.projector.InputType> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSetInputTypeMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listInputs(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.InputType> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getListInputsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void increaseBrightness(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.BrightnessLevel> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getIncreaseBrightnessMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void decreaseBrightness(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.BrightnessLevel> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDecreaseBrightnessMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void setAspectRatio(org.stu.projector.AspectRatio request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSetAspectRatioMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listRatios(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.projector.AspectRatio> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getListRatiosMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void setResolution(org.stu.projector.Resolution request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSetResolutionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void setOrientation(org.stu.projector.Orientation request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSetOrientationMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -153,9 +639,74 @@ public final class ProjectorGrpc {
 
     /**
      */
-    public org.stu.projector.ProjectorStatus activateProjector(com.google.protobuf.Empty request) {
+    public org.stu.projector.ProjectorOnStatus activateProjector(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
           getChannel(), getActivateProjectorMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.stu.projector.ProjectorOffStatus deActivateProjector(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getDeActivateProjectorMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.stu.projector.InputType setInputType(org.stu.projector.InputType request) {
+      return blockingUnaryCall(
+          getChannel(), getSetInputTypeMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<org.stu.projector.InputType> listInputs(
+        com.google.protobuf.Empty request) {
+      return blockingServerStreamingCall(
+          getChannel(), getListInputsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.stu.projector.BrightnessLevel increaseBrightness(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getIncreaseBrightnessMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.stu.projector.BrightnessLevel decreaseBrightness(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getDecreaseBrightnessMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty setAspectRatio(org.stu.projector.AspectRatio request) {
+      return blockingUnaryCall(
+          getChannel(), getSetAspectRatioMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<org.stu.projector.AspectRatio> listRatios(
+        com.google.protobuf.Empty request) {
+      return blockingServerStreamingCall(
+          getChannel(), getListRatiosMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty setResolution(org.stu.projector.Resolution request) {
+      return blockingUnaryCall(
+          getChannel(), getSetResolutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty setOrientation(org.stu.projector.Orientation request) {
+      return blockingUnaryCall(
+          getChannel(), getSetOrientationMethod(), getCallOptions(), request);
     }
   }
 
@@ -179,14 +730,79 @@ public final class ProjectorGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.ProjectorStatus> activateProjector(
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.ProjectorOnStatus> activateProjector(
         com.google.protobuf.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getActivateProjectorMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.ProjectorOffStatus> deActivateProjector(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeActivateProjectorMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.InputType> setInputType(
+        org.stu.projector.InputType request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSetInputTypeMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.BrightnessLevel> increaseBrightness(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getIncreaseBrightnessMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.BrightnessLevel> decreaseBrightness(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDecreaseBrightnessMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> setAspectRatio(
+        org.stu.projector.AspectRatio request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSetAspectRatioMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> setResolution(
+        org.stu.projector.Resolution request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSetResolutionMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> setOrientation(
+        org.stu.projector.Orientation request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSetOrientationMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ACTIVATE_PROJECTOR = 0;
+  private static final int METHODID_DE_ACTIVATE_PROJECTOR = 1;
+  private static final int METHODID_SET_INPUT_TYPE = 2;
+  private static final int METHODID_LIST_INPUTS = 3;
+  private static final int METHODID_INCREASE_BRIGHTNESS = 4;
+  private static final int METHODID_DECREASE_BRIGHTNESS = 5;
+  private static final int METHODID_SET_ASPECT_RATIO = 6;
+  private static final int METHODID_LIST_RATIOS = 7;
+  private static final int METHODID_SET_RESOLUTION = 8;
+  private static final int METHODID_SET_ORIENTATION = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -207,7 +823,43 @@ public final class ProjectorGrpc {
       switch (methodId) {
         case METHODID_ACTIVATE_PROJECTOR:
           serviceImpl.activateProjector((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<org.stu.projector.ProjectorStatus>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOnStatus>) responseObserver);
+          break;
+        case METHODID_DE_ACTIVATE_PROJECTOR:
+          serviceImpl.deActivateProjector((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOffStatus>) responseObserver);
+          break;
+        case METHODID_SET_INPUT_TYPE:
+          serviceImpl.setInputType((org.stu.projector.InputType) request,
+              (io.grpc.stub.StreamObserver<org.stu.projector.InputType>) responseObserver);
+          break;
+        case METHODID_LIST_INPUTS:
+          serviceImpl.listInputs((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.projector.InputType>) responseObserver);
+          break;
+        case METHODID_INCREASE_BRIGHTNESS:
+          serviceImpl.increaseBrightness((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.projector.BrightnessLevel>) responseObserver);
+          break;
+        case METHODID_DECREASE_BRIGHTNESS:
+          serviceImpl.decreaseBrightness((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.projector.BrightnessLevel>) responseObserver);
+          break;
+        case METHODID_SET_ASPECT_RATIO:
+          serviceImpl.setAspectRatio((org.stu.projector.AspectRatio) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_LIST_RATIOS:
+          serviceImpl.listRatios((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.projector.AspectRatio>) responseObserver);
+          break;
+        case METHODID_SET_RESOLUTION:
+          serviceImpl.setResolution((org.stu.projector.Resolution) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_SET_ORIENTATION:
+          serviceImpl.setOrientation((org.stu.projector.Orientation) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -271,6 +923,15 @@ public final class ProjectorGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ProjectorFileDescriptorSupplier())
               .addMethod(getActivateProjectorMethod())
+              .addMethod(getDeActivateProjectorMethod())
+              .addMethod(getSetInputTypeMethod())
+              .addMethod(getListInputsMethod())
+              .addMethod(getIncreaseBrightnessMethod())
+              .addMethod(getDecreaseBrightnessMethod())
+              .addMethod(getSetAspectRatioMethod())
+              .addMethod(getListRatiosMethod())
+              .addMethod(getSetResolutionMethod())
+              .addMethod(getSetOrientationMethod())
               .build();
         }
       }

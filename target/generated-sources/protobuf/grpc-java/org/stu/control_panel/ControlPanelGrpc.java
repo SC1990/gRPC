@@ -59,6 +59,38 @@ public final class ControlPanelGrpc {
      return getSetInputMachineMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.control_panel.PreShutDownMessage> getShutDownMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "shutDown",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.control_panel.PreShutDownMessage.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.control_panel.PreShutDownMessage> getShutDownMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.control_panel.PreShutDownMessage> getShutDownMethod;
+    if ((getShutDownMethod = ControlPanelGrpc.getShutDownMethod) == null) {
+      synchronized (ControlPanelGrpc.class) {
+        if ((getShutDownMethod = ControlPanelGrpc.getShutDownMethod) == null) {
+          ControlPanelGrpc.getShutDownMethod = getShutDownMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.control_panel.PreShutDownMessage>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "control_panel.ControlPanel", "shutDown"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.control_panel.PreShutDownMessage.getDefaultInstance()))
+                  .setSchemaDescriptor(new ControlPanelMethodDescriptorSupplier("shutDown"))
+                  .build();
+          }
+        }
+     }
+     return getShutDownMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -93,6 +125,13 @@ public final class ControlPanelGrpc {
       asyncUnimplementedUnaryCall(getSetInputMachineMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void shutDown(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.control_panel.PreShutDownMessage> responseObserver) {
+      asyncUnimplementedUnaryCall(getShutDownMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -102,6 +141,13 @@ public final class ControlPanelGrpc {
                 org.stu.control_panel.InputMachine,
                 org.stu.control_panel.ResponseMessage>(
                   this, METHODID_SET_INPUT_MACHINE)))
+          .addMethod(
+            getShutDownMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.control_panel.PreShutDownMessage>(
+                  this, METHODID_SHUT_DOWN)))
           .build();
     }
   }
@@ -131,6 +177,14 @@ public final class ControlPanelGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSetInputMachineMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void shutDown(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.control_panel.PreShutDownMessage> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getShutDownMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -156,6 +210,13 @@ public final class ControlPanelGrpc {
     public org.stu.control_panel.ResponseMessage setInputMachine(org.stu.control_panel.InputMachine request) {
       return blockingUnaryCall(
           getChannel(), getSetInputMachineMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.stu.control_panel.PreShutDownMessage shutDown(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getShutDownMethod(), getCallOptions(), request);
     }
   }
 
@@ -184,9 +245,18 @@ public final class ControlPanelGrpc {
       return futureUnaryCall(
           getChannel().newCall(getSetInputMachineMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.control_panel.PreShutDownMessage> shutDown(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getShutDownMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SET_INPUT_MACHINE = 0;
+  private static final int METHODID_SHUT_DOWN = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -208,6 +278,10 @@ public final class ControlPanelGrpc {
         case METHODID_SET_INPUT_MACHINE:
           serviceImpl.setInputMachine((org.stu.control_panel.InputMachine) request,
               (io.grpc.stub.StreamObserver<org.stu.control_panel.ResponseMessage>) responseObserver);
+          break;
+        case METHODID_SHUT_DOWN:
+          serviceImpl.shutDown((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.control_panel.PreShutDownMessage>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -271,6 +345,7 @@ public final class ControlPanelGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ControlPanelFileDescriptorSupplier())
               .addMethod(getSetInputMachineMethod())
+              .addMethod(getShutDownMethod())
               .build();
         }
       }

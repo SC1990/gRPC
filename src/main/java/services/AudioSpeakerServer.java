@@ -5,14 +5,16 @@
  */
 package services;
 
-
 import com.google.protobuf.Empty;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.util.logging.Logger;
+import org.stu.audio_speaker.AudioInput;
 import org.stu.audio_speaker.AudioSpeakerGrpc;
-import org.stu.audio_speaker.AudioSpeakerStatus;
+import org.stu.audio_speaker.AudioSpeakerOffStatus;
+import org.stu.audio_speaker.AudioSpeakerOnStatus;
+import org.stu.audio_speaker.CurrentVolume;
 
 /**
  *
@@ -83,16 +85,39 @@ public class AudioSpeakerServer {
         }
 
         @Override
-        public void activateAudioSpeaker(Empty request, StreamObserver<AudioSpeakerStatus> responseObserver) {
-            
-            AudioSpeakerStatus status = AudioSpeakerStatus.newBuilder().setStatus("Audio speaker activated").build();
+        public void activateAudioSpeaker(Empty request, StreamObserver<AudioSpeakerOnStatus> responseObserver) {
+
+            AudioSpeakerOnStatus status = AudioSpeakerOnStatus.newBuilder().setOnStatus("Audio speaker activated").build();
 
             responseObserver.onNext(status);
             responseObserver.onCompleted();
 
         }
 
-     
+        @Override
+        public void deActivateAudioSpeaker(Empty request, StreamObserver<AudioSpeakerOffStatus> responseObserver) {
+
+        }
+
+        @Override
+        public void increaseVolume(Empty request, StreamObserver<CurrentVolume> responseObserver) {
+
+        }
+
+        @Override
+        public void decreaseVolume(Empty request, StreamObserver<CurrentVolume> responseObserver) {
+
+        }
+
+        @Override
+        public void setInput(AudioInput request, StreamObserver<Empty> responseObserver) {
+
+        }
+
+        @Override
+        public void listSupportedInputs(Empty request, StreamObserver<AudioInput> responseObserver) {
+
+        }
 
     }
 

@@ -49,6 +49,10 @@ public class ControlPanelGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         setInputMachineBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         speakersActivateBtn = new javax.swing.JButton();
@@ -70,6 +74,50 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         speakersTA = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
         thermoTA = new javax.swing.JTextArea();
+        projOffBtn = new javax.swing.JButton();
+        setProjectorInput = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        brightnessSlider = new javax.swing.JSlider();
+        setRatioBtn = new javax.swing.JButton();
+        projInputList = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        ratiosList = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        resList = new javax.swing.JComboBox<>();
+        setResBtn = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        orientationList = new javax.swing.JComboBox<>();
+        setOrientationBtn = new javax.swing.JButton();
+        speakerOffBtn = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        volSlider = new javax.swing.JSlider();
+        jLabel14 = new javax.swing.JLabel();
+        speakerInputsList = new javax.swing.JComboBox<>();
+        setSpeakerInput = new javax.swing.JButton();
+        videoOffBtn = new javax.swing.JButton();
+        vidRecordBtn = new javax.swing.JButton();
+        stopRecordBtn = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        zoomSlider = new javax.swing.JSlider();
+        jLabel15 = new javax.swing.JLabel();
+        muteAudioBtn = new javax.swing.JButton();
+        unMuteAudioBtn = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        resLIst = new javax.swing.JComboBox<>();
+        setResolutionBtn = new javax.swing.JButton();
+        thermoOffBtn = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        fanOnBtn = new javax.swing.JButton();
+        fanOffBtn = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        tempSlider = new javax.swing.JSlider();
+        jLabel19 = new javax.swing.JLabel();
+        fanModeSlider = new javax.swing.JComboBox<>();
+        setFanModeBtn = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        shutdownList = new javax.swing.JComboBox<>();
+        setShutDownBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,87 +128,260 @@ public class ControlPanelGUI extends javax.swing.JFrame {
                 setInputMachineBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(setInputMachineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
+        getContentPane().add(setInputMachineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("Control Panel");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 16, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 16, 180, 20));
 
-        speakersActivateBtn.setText("Activate");
+        speakersActivateBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        speakersActivateBtn.setForeground(new java.awt.Color(0, 204, 51));
+        speakersActivateBtn.setText("On");
         speakersActivateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 speakersActivateBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(speakersActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(885, 237, 102, -1));
+        getContentPane().add(speakersActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 60, -1));
 
-        videoActivateBtn.setText("Activate");
+        videoActivateBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        videoActivateBtn.setForeground(new java.awt.Color(0, 204, 102));
+        videoActivateBtn.setText("On");
         videoActivateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 videoActivateBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(videoActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
+        getContentPane().add(videoActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 590, -1, -1));
 
-        thermoActivateBtn.setText("Activate");
+        thermoActivateBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        thermoActivateBtn.setForeground(new java.awt.Color(51, 204, 0));
+        thermoActivateBtn.setText("On");
         thermoActivateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 thermoActivateBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(thermoActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 480, 105, -1));
+        getContentPane().add(thermoActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 590, 60, -1));
 
         jLabel2.setText("Choose Input Machine");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Projector");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, -1, -1));
 
-        projActivateBtn.setText("Activate");
+        projActivateBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        projActivateBtn.setForeground(new java.awt.Color(0, 153, 102));
+        projActivateBtn.setText("On");
         projActivateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projActivateBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(projActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
+        getContentPane().add(projActivateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 200, -1, -1));
 
-        jLabel4.setText("Video-camera");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 492, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("Video-recorder");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Thermostat");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 590, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Speakers");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         videoTA.setColumns(20);
         videoTA.setRows(5);
         jScrollPane1.setViewportView(videoTA);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 526, 360, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 360, -1));
 
         projectorTA.setColumns(20);
         projectorTA.setRows(5);
         jScrollPane2.setViewportView(projectorTA);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 360, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 490, 120));
 
         inputMachineTA.setColumns(20);
         inputMachineTA.setRows(5);
         jScrollPane3.setViewportView(inputMachineTA);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 360, 100));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 500, 70));
 
         speakersTA.setColumns(20);
         speakersTA.setRows(5);
         jScrollPane4.setViewportView(speakersTA);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 310, -1));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 310, 110));
 
         thermoTA.setColumns(20);
         thermoTA.setRows(5);
         jScrollPane5.setViewportView(thermoTA);
 
-        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 520, 310, -1));
+        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 620, 390, -1));
+
+        projOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        projOffBtn.setForeground(new java.awt.Color(255, 51, 51));
+        projOffBtn.setText("Off");
+        projOffBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projOffBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(projOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 200, -1, -1));
+
+        setProjectorInput.setText("Set");
+        getContentPane().add(setProjectorInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, -1, -1));
+
+        jLabel7.setText("Brightness");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 420, -1, -1));
+        getContentPane().add(brightnessSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 450, 200, -1));
+
+        setRatioBtn.setText("Set");
+        getContentPane().add(setRatioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, -1, -1));
+
+        projInputList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        projInputList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projInputListActionPerformed(evt);
+            }
+        });
+        getContentPane().add(projInputList, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 120, -1));
+
+        jLabel8.setText("Supported inputs");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+
+        jLabel9.setText("Aspect ratios");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 350, -1, -1));
+
+        ratiosList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ratiosList, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 380, 90, -1));
+
+        jLabel10.setText("Set Resolution");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 470, -1, -1));
+
+        resList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(resList, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, 120, -1));
+
+        setResBtn.setText("Set");
+        getContentPane().add(setResBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, -1, -1));
+
+        jLabel11.setText("Orientation");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 470, -1, -1));
+
+        orientationList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(orientationList, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, 110, -1));
+
+        setOrientationBtn.setText("Set");
+        getContentPane().add(setOrientationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, -1, -1));
+
+        speakerOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        speakerOffBtn.setForeground(new java.awt.Color(255, 51, 0));
+        speakerOffBtn.setText("Off");
+        getContentPane().add(speakerOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 60, -1));
+
+        jLabel12.setText("Volume");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        getContentPane().add(volSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 250, -1));
+
+        jLabel14.setText("Supported inputs");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, -1, -1));
+
+        speakerInputsList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(speakerInputsList, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 170, -1));
+
+        setSpeakerInput.setText("Set input");
+        getContentPane().add(setSpeakerInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, -1));
+
+        videoOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        videoOffBtn.setForeground(new java.awt.Color(255, 0, 0));
+        videoOffBtn.setText("Off");
+        getContentPane().add(videoOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 590, -1, -1));
+
+        vidRecordBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        vidRecordBtn.setForeground(new java.awt.Color(255, 51, 0));
+        vidRecordBtn.setText("Record");
+        getContentPane().add(vidRecordBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 720, 100, -1));
+
+        stopRecordBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        stopRecordBtn.setText("Stop");
+        stopRecordBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopRecordBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(stopRecordBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 720, 110, -1));
+
+        jLabel13.setText("Zoom");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 770, -1, -1));
+        getContentPane().add(zoomSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 770, 290, -1));
+
+        jLabel15.setText("Audio");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 820, -1, -1));
+
+        muteAudioBtn.setText("Mute");
+        getContentPane().add(muteAudioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 820, 90, -1));
+
+        unMuteAudioBtn.setText("Unmute");
+        getContentPane().add(unMuteAudioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 820, -1, -1));
+
+        jLabel16.setText("Available resolutions");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 890, -1, -1));
+
+        resLIst.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(resLIst, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 890, 170, -1));
+
+        setResolutionBtn.setText("Set");
+        getContentPane().add(setResolutionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 930, -1, -1));
+
+        thermoOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        thermoOffBtn.setForeground(new java.awt.Color(255, 51, 0));
+        thermoOffBtn.setText("Off");
+        getContentPane().add(thermoOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 590, 60, -1));
+
+        jLabel17.setText("Fan");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 860, 40, 30));
+
+        fanOnBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        fanOnBtn.setForeground(new java.awt.Color(51, 0, 255));
+        fanOnBtn.setText("Switch on");
+        getContentPane().add(fanOnBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 860, 130, -1));
+
+        fanOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        fanOffBtn.setForeground(new java.awt.Color(102, 102, 0));
+        fanOffBtn.setText("Switch off");
+        fanOffBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fanOffBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fanOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 860, 140, -1));
+
+        jLabel18.setText("Temperature");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 730, -1, -1));
+        getContentPane().add(tempSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 730, 280, -1));
+
+        jLabel19.setText("Fan modes");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 790, -1, -1));
+
+        fanModeSlider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(fanModeSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 790, 200, -1));
+
+        setFanModeBtn.setText("Set");
+        getContentPane().add(setFanModeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 790, 80, -1));
+
+        jLabel20.setText("Set shutdown time");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 920, -1, -1));
+
+        shutdownList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(shutdownList, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 920, 220, -1));
+
+        setShutDownBtn.setText("Done");
+        getContentPane().add(setShutDownBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 950, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -213,6 +434,22 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_thermoActivateBtnActionPerformed
 
+    private void projOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projOffBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_projOffBtnActionPerformed
+
+    private void projInputListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projInputListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_projInputListActionPerformed
+
+    private void stopRecordBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopRecordBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopRecordBtnActionPerformed
+
+    private void fanOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fanOffBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fanOffBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -255,27 +492,75 @@ public class ControlPanelGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSlider brightnessSlider;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JComboBox<String> fanModeSlider;
+    private javax.swing.JButton fanOffBtn;
+    private javax.swing.JButton fanOnBtn;
     private javax.swing.JTextArea inputMachineTA;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JButton muteAudioBtn;
+    private javax.swing.JComboBox<String> orientationList;
     private javax.swing.JButton projActivateBtn;
+    private javax.swing.JComboBox<String> projInputList;
+    private javax.swing.JButton projOffBtn;
     private javax.swing.JTextArea projectorTA;
+    private javax.swing.JComboBox<String> ratiosList;
+    private javax.swing.JComboBox<String> resLIst;
+    private javax.swing.JComboBox<String> resList;
+    private javax.swing.JButton setFanModeBtn;
     private javax.swing.JButton setInputMachineBtn;
+    private javax.swing.JButton setOrientationBtn;
+    private javax.swing.JButton setProjectorInput;
+    private javax.swing.JButton setRatioBtn;
+    private javax.swing.JButton setResBtn;
+    private javax.swing.JButton setResolutionBtn;
+    private javax.swing.JButton setShutDownBtn;
+    private javax.swing.JButton setSpeakerInput;
+    private javax.swing.JComboBox<String> shutdownList;
+    private javax.swing.JComboBox<String> speakerInputsList;
+    private javax.swing.JButton speakerOffBtn;
     private javax.swing.JButton speakersActivateBtn;
     private javax.swing.JTextArea speakersTA;
+    private javax.swing.JButton stopRecordBtn;
+    private javax.swing.JSlider tempSlider;
     private javax.swing.JButton thermoActivateBtn;
+    private javax.swing.JButton thermoOffBtn;
     private javax.swing.JTextArea thermoTA;
+    private javax.swing.JButton unMuteAudioBtn;
+    private javax.swing.JButton vidRecordBtn;
     private javax.swing.JButton videoActivateBtn;
+    private javax.swing.JButton videoOffBtn;
     private javax.swing.JTextArea videoTA;
+    private javax.swing.JSlider volSlider;
+    private javax.swing.JSlider zoomSlider;
     // End of variables declaration//GEN-END:variables
 
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.stu.video_recorder.VideoRecorderGrpc;
-import org.stu.video_recorder.VideoRecorderStatus;
+import org.stu.video_recorder.VideoRecorderOnStatus;
 
 
 public class VideoRecorderClient implements ServiceObserver {
@@ -93,7 +93,7 @@ public class VideoRecorderClient implements ServiceObserver {
                 public void run() {
                     Empty request = Empty.newBuilder().build();
 
-                    VideoRecorderStatus response = blockingStub.activateVideoRecorder(request);
+                    VideoRecorderOnStatus response = blockingStub.activateVideoRecorder(request);
 
                     ui.appendVideoRecorderStatus(response.toString());
 

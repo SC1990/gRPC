@@ -15,10 +15,60 @@ public final class ProjectorProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_projector_ProjectorStatus_descriptor;
+    internal_static_projector_ProjectorOnStatus_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_projector_ProjectorStatus_fieldAccessorTable;
+      internal_static_projector_ProjectorOnStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_ProjectorOffStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_ProjectorOffStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_InputType_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_InputType_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_AllInputTypes_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_AllInputTypes_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_BrightnessLevel_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_BrightnessLevel_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_AspectRatio_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_AspectRatio_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_AllRatios_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_AllRatios_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_Resolution_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_Resolution_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_ResolutionOptions_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_ResolutionOptions_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_Orientation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_Orientation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_projector_OrientationOptions_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_projector_OrientationOptions_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -29,11 +79,39 @@ public final class ProjectorProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\017projector.proto\022\tprojector\032\033google/pro" +
-      "tobuf/empty.proto\"!\n\017ProjectorStatus\022\016\n\006" +
-      "status\030\001 \001(\t2V\n\tProjector\022I\n\021activatePro" +
-      "jector\022\026.google.protobuf.Empty\032\032.project" +
-      "or.ProjectorStatus\"\000B%\n\021org.stu.projecto" +
-      "rB\016ProjectorProtoP\001b\006proto3"
+      "tobuf/empty.proto\"%\n\021ProjectorOnStatus\022\020" +
+      "\n\010onStatus\030\001 \001(\t\"\'\n\022ProjectorOffStatus\022\021" +
+      "\n\toffStatus\030\001 \001(\t\"\031\n\tInputType\022\014\n\004type\030\001" +
+      " \001(\t\"9\n\rAllInputTypes\022(\n\ninputTypes\030\001 \003(" +
+      "\0132\024.projector.InputType\",\n\017BrightnessLev" +
+      "el\022\031\n\021currentBrightness\030\001 \001(\005\"\034\n\013AspectR" +
+      "atio\022\r\n\005ratio\030\001 \001(\t\"9\n\tAllRatios\022,\n\014aspe" +
+      "ctRatios\030\001 \003(\0132\026.projector.AspectRatio\"2" +
+      "\n\nResolution\022\021\n\tresOption\030\001 \001(\t\022\021\n\tsuppo" +
+      "rted\030\002 \001(\010\"?\n\021ResolutionOptions\022*\n\013resol" +
+      "utions\030\001 \003(\0132\025.projector.Resolution\"\"\n\013O" +
+      "rientation\022\023\n\013orientation\030\001 \001(\t\"B\n\022Orien" +
+      "tationOptions\022,\n\014orientations\030\001 \003(\0132\026.pr" +
+      "ojector.Orientation2\312\005\n\tProjector\022K\n\021act" +
+      "ivateProjector\022\026.google.protobuf.Empty\032\034" +
+      ".projector.ProjectorOnStatus\"\000\022N\n\023deActi" +
+      "vateProjector\022\026.google.protobuf.Empty\032\035." +
+      "projector.ProjectorOffStatus\"\000\022<\n\014setInp" +
+      "utType\022\024.projector.InputType\032\024.projector" +
+      ".InputType\"\000\022>\n\nlistInputs\022\026.google.prot" +
+      "obuf.Empty\032\024.projector.InputType\"\0000\001\022J\n\022" +
+      "increaseBrightness\022\026.google.protobuf.Emp" +
+      "ty\032\032.projector.BrightnessLevel\"\000\022J\n\022decr" +
+      "easeBrightness\022\026.google.protobuf.Empty\032\032" +
+      ".projector.BrightnessLevel\"\000\022B\n\016setAspec" +
+      "tRatio\022\026.projector.AspectRatio\032\026.google." +
+      "protobuf.Empty\"\000\022@\n\nlistRatios\022\026.google." +
+      "protobuf.Empty\032\026.projector.AspectRatio\"\000" +
+      "0\001\022@\n\rsetResolution\022\025.projector.Resoluti" +
+      "on\032\026.google.protobuf.Empty\"\000\022B\n\016setOrien" +
+      "tation\022\026.projector.Orientation\032\026.google." +
+      "protobuf.Empty\"\000B%\n\021org.stu.projectorB\016P" +
+      "rojectorProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -48,12 +126,72 @@ public final class ProjectorProto {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
-    internal_static_projector_ProjectorStatus_descriptor =
+    internal_static_projector_ProjectorOnStatus_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_projector_ProjectorStatus_fieldAccessorTable = new
+    internal_static_projector_ProjectorOnStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_projector_ProjectorStatus_descriptor,
-        new java.lang.String[] { "Status", });
+        internal_static_projector_ProjectorOnStatus_descriptor,
+        new java.lang.String[] { "OnStatus", });
+    internal_static_projector_ProjectorOffStatus_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_projector_ProjectorOffStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_ProjectorOffStatus_descriptor,
+        new java.lang.String[] { "OffStatus", });
+    internal_static_projector_InputType_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_projector_InputType_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_InputType_descriptor,
+        new java.lang.String[] { "Type", });
+    internal_static_projector_AllInputTypes_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_projector_AllInputTypes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_AllInputTypes_descriptor,
+        new java.lang.String[] { "InputTypes", });
+    internal_static_projector_BrightnessLevel_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_projector_BrightnessLevel_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_BrightnessLevel_descriptor,
+        new java.lang.String[] { "CurrentBrightness", });
+    internal_static_projector_AspectRatio_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_projector_AspectRatio_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_AspectRatio_descriptor,
+        new java.lang.String[] { "Ratio", });
+    internal_static_projector_AllRatios_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_projector_AllRatios_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_AllRatios_descriptor,
+        new java.lang.String[] { "AspectRatios", });
+    internal_static_projector_Resolution_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_projector_Resolution_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_Resolution_descriptor,
+        new java.lang.String[] { "ResOption", "Supported", });
+    internal_static_projector_ResolutionOptions_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_projector_ResolutionOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_ResolutionOptions_descriptor,
+        new java.lang.String[] { "Resolutions", });
+    internal_static_projector_Orientation_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_projector_Orientation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_Orientation_descriptor,
+        new java.lang.String[] { "Orientation", });
+    internal_static_projector_OrientationOptions_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_projector_OrientationOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_projector_OrientationOptions_descriptor,
+        new java.lang.String[] { "Orientations", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

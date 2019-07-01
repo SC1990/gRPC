@@ -15,10 +15,40 @@ public final class ThermostatProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_thermostat_ThermostatStatus_descriptor;
+    internal_static_thermostat_ThermostatOnStatus_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_thermostat_ThermostatStatus_fieldAccessorTable;
+      internal_static_thermostat_ThermostatOnStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_thermostat_ThermostatOffStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_thermostat_ThermostatOffStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_thermostat_FanStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_thermostat_FanStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_thermostat_FanMode_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_thermostat_FanMode_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_thermostat_AllFanModes_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_thermostat_AllFanModes_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_thermostat_CurrentTemp_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_thermostat_CurrentTemp_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_thermostat_Hours_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_thermostat_Hours_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -29,11 +59,27 @@ public final class ThermostatProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\020thermostat.proto\022\nthermostat\032\033google/p" +
-      "rotobuf/empty.proto\"\"\n\020ThermostatStatus\022" +
-      "\016\n\006status\030\001 \001(\t2Z\n\nThermostat\022L\n\022activat" +
-      "eThermostat\022\026.google.protobuf.Empty\032\034.th" +
-      "ermostat.ThermostatStatus\"\000B\'\n\022org.stu.t" +
-      "hermostatB\017ThermostatProtoP\001b\006proto3"
+      "rotobuf/empty.proto\"&\n\022ThermostatOnStatu" +
+      "s\022\020\n\010onStatus\030\001 \001(\t\"(\n\023ThermostatOffStat" +
+      "us\022\021\n\toffStatus\030\001 \001(\t\"\033\n\tFanStatus\022\016\n\006st" +
+      "atus\030\001 \001(\t\"\027\n\007FanMode\022\014\n\004mode\030\001 \001(\t\"1\n\013A" +
+      "llFanModes\022\"\n\005modes\030\001 \003(\0132\023.thermostat.F" +
+      "anMode\"\033\n\013CurrentTemp\022\014\n\004temp\030\001 \001(\005\"\031\n\005H" +
+      "ours\022\020\n\010numHours\030\001 \001(\0052\361\003\n\nThermostat\022N\n" +
+      "\022activateThermostat\022\026.google.protobuf.Em" +
+      "pty\032\036.thermostat.ThermostatOnStatus\"\000\022Q\n" +
+      "\024deActivateThermostat\022\026.google.protobuf." +
+      "Empty\032\037.thermostat.ThermostatOffStatus\"\000" +
+      "\022=\n\ntriggerFan\022\026.google.protobuf.Empty\032\025" +
+      ".thermostat.FanStatus\"\000\022;\n\nsetFanMode\022\023." +
+      "thermostat.FanMode\032\026.google.protobuf.Emp" +
+      "ty\"\000\022A\n\014increaseTemp\022\026.google.protobuf.E" +
+      "mpty\032\027.thermostat.CurrentTemp\"\000\022A\n\014decre" +
+      "aseTemp\022\026.google.protobuf.Empty\032\027.thermo" +
+      "stat.CurrentTemp\"\000\022>\n\017setShutDownTime\022\021." +
+      "thermostat.Hours\032\026.google.protobuf.Empty" +
+      "\"\000B\'\n\022org.stu.thermostatB\017ThermostatProt" +
+      "oP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -48,12 +94,48 @@ public final class ThermostatProto {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
-    internal_static_thermostat_ThermostatStatus_descriptor =
+    internal_static_thermostat_ThermostatOnStatus_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_thermostat_ThermostatStatus_fieldAccessorTable = new
+    internal_static_thermostat_ThermostatOnStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_thermostat_ThermostatStatus_descriptor,
+        internal_static_thermostat_ThermostatOnStatus_descriptor,
+        new java.lang.String[] { "OnStatus", });
+    internal_static_thermostat_ThermostatOffStatus_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_thermostat_ThermostatOffStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_thermostat_ThermostatOffStatus_descriptor,
+        new java.lang.String[] { "OffStatus", });
+    internal_static_thermostat_FanStatus_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_thermostat_FanStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_thermostat_FanStatus_descriptor,
         new java.lang.String[] { "Status", });
+    internal_static_thermostat_FanMode_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_thermostat_FanMode_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_thermostat_FanMode_descriptor,
+        new java.lang.String[] { "Mode", });
+    internal_static_thermostat_AllFanModes_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_thermostat_AllFanModes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_thermostat_AllFanModes_descriptor,
+        new java.lang.String[] { "Modes", });
+    internal_static_thermostat_CurrentTemp_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_thermostat_CurrentTemp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_thermostat_CurrentTemp_descriptor,
+        new java.lang.String[] { "Temp", });
+    internal_static_thermostat_Hours_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_thermostat_Hours_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_thermostat_Hours_descriptor,
+        new java.lang.String[] { "NumHours", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

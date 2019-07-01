@@ -9,11 +9,39 @@ option java_package = "org.stu.thermostat";
 option java_outer_classname = "ThermostatProto";
 
 service Thermostat{
-  rpc activateThermostat (google.protobuf.Empty) returns (ThermostatStatus){}
-
+  rpc activateThermostat (google.protobuf.Empty) returns (ThermostatOnStatus){}
+  rpc deActivateThermostat (google.protobuf.Empty) returns (ThermostatOffStatus){}
+  rpc triggerFan (google.protobuf.Empty) returns (FanStatus){}
+  rpc setFanMode (FanMode) returns (google.protobuf.Empty){}
+  rpc increaseTemp (google.protobuf.Empty) returns (CurrentTemp){}
+  rpc decreaseTemp (google.protobuf.Empty) returns (CurrentTemp){}
+  rpc setShutDownTime (Hours) returns (google.protobuf.Empty){}
 }
 
-message ThermostatStatus{
+message ThermostatOnStatus{
+  string onStatus = 1;
+}
+
+message ThermostatOffStatus{
+  string offStatus = 1;
+}
+
+message FanStatus{
   string status = 1;
 }
 
+message FanMode{
+  string mode = 1;
+}
+
+message AllFanModes{
+  repeated FanMode modes = 1;
+}
+
+message CurrentTemp{
+  int32 temp = 1;
+}
+
+message Hours{
+  int32 numHours = 1;
+}

@@ -15,10 +15,25 @@ public final class AudioSpeakerProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_audio_speaker_AudioSpeakerStatus_descriptor;
+    internal_static_audio_speaker_AudioSpeakerOnStatus_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_audio_speaker_AudioSpeakerStatus_fieldAccessorTable;
+      internal_static_audio_speaker_AudioSpeakerOnStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_audio_speaker_AudioSpeakerOffStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_audio_speaker_AudioSpeakerOffStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_audio_speaker_CurrentVolume_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_audio_speaker_CurrentVolume_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_audio_speaker_AudioInput_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_audio_speaker_AudioInput_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -29,12 +44,24 @@ public final class AudioSpeakerProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\023audio_speaker.proto\022\raudio_speaker\032\033go" +
-      "ogle/protobuf/empty.proto\"$\n\022AudioSpeake" +
-      "rStatus\022\016\n\006status\030\001 \001(\t2c\n\014AudioSpeaker\022" +
-      "S\n\024activateAudioSpeaker\022\026.google.protobu" +
-      "f.Empty\032!.audio_speaker.AudioSpeakerStat" +
-      "us\"\000B,\n\025org.stu.audio_speakerB\021AudioSpea" +
-      "kerProtoP\001b\006proto3"
+      "ogle/protobuf/empty.proto\"(\n\024AudioSpeake" +
+      "rOnStatus\022\020\n\010onStatus\030\001 \001(\t\"*\n\025AudioSpea" +
+      "kerOffStatus\022\021\n\toffStatus\030\001 \001(\t\"\037\n\rCurre" +
+      "ntVolume\022\016\n\006volume\030\001 \001(\005\"\037\n\nAudioInput\022\021" +
+      "\n\tinputType\030\001 \001(\t2\342\003\n\014AudioSpeaker\022U\n\024ac" +
+      "tivateAudioSpeaker\022\026.google.protobuf.Emp" +
+      "ty\032#.audio_speaker.AudioSpeakerOnStatus\"" +
+      "\000\022X\n\026deActivateAudioSpeaker\022\026.google.pro" +
+      "tobuf.Empty\032$.audio_speaker.AudioSpeaker" +
+      "OffStatus\"\000\022H\n\016increaseVolume\022\026.google.p" +
+      "rotobuf.Empty\032\034.audio_speaker.CurrentVol" +
+      "ume\"\000\022H\n\016decreaseVolume\022\026.google.protobu" +
+      "f.Empty\032\034.audio_speaker.CurrentVolume\"\000\022" +
+      "?\n\010setInput\022\031.audio_speaker.AudioInput\032\026" +
+      ".google.protobuf.Empty\"\000\022L\n\023ListSupporte" +
+      "dInputs\022\026.google.protobuf.Empty\032\031.audio_" +
+      "speaker.AudioInput\"\0000\001B,\n\025org.stu.audio_" +
+      "speakerB\021AudioSpeakerProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -49,12 +76,30 @@ public final class AudioSpeakerProto {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
-    internal_static_audio_speaker_AudioSpeakerStatus_descriptor =
+    internal_static_audio_speaker_AudioSpeakerOnStatus_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_audio_speaker_AudioSpeakerStatus_fieldAccessorTable = new
+    internal_static_audio_speaker_AudioSpeakerOnStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_audio_speaker_AudioSpeakerStatus_descriptor,
-        new java.lang.String[] { "Status", });
+        internal_static_audio_speaker_AudioSpeakerOnStatus_descriptor,
+        new java.lang.String[] { "OnStatus", });
+    internal_static_audio_speaker_AudioSpeakerOffStatus_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_audio_speaker_AudioSpeakerOffStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_audio_speaker_AudioSpeakerOffStatus_descriptor,
+        new java.lang.String[] { "OffStatus", });
+    internal_static_audio_speaker_CurrentVolume_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_audio_speaker_CurrentVolume_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_audio_speaker_CurrentVolume_descriptor,
+        new java.lang.String[] { "Volume", });
+    internal_static_audio_speaker_AudioInput_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_audio_speaker_AudioInput_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_audio_speaker_AudioInput_descriptor,
+        new java.lang.String[] { "InputType", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 
