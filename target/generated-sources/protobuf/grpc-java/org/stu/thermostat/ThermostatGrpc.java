@@ -123,22 +123,54 @@ public final class ThermostatGrpc {
      return getTriggerFanMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.thermostat.FanStatus> getShutdownFanMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "shutdownFan",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.thermostat.FanStatus.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.thermostat.FanStatus> getShutdownFanMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.thermostat.FanStatus> getShutdownFanMethod;
+    if ((getShutdownFanMethod = ThermostatGrpc.getShutdownFanMethod) == null) {
+      synchronized (ThermostatGrpc.class) {
+        if ((getShutdownFanMethod = ThermostatGrpc.getShutdownFanMethod) == null) {
+          ThermostatGrpc.getShutdownFanMethod = getShutdownFanMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.thermostat.FanStatus>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "thermostat.Thermostat", "shutdownFan"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.thermostat.FanStatus.getDefaultInstance()))
+                  .setSchemaDescriptor(new ThermostatMethodDescriptorSupplier("shutdownFan"))
+                  .build();
+          }
+        }
+     }
+     return getShutdownFanMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<org.stu.thermostat.FanMode,
-      com.google.protobuf.Empty> getSetFanModeMethod;
+      org.stu.thermostat.FanMode> getSetFanModeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "setFanMode",
       requestType = org.stu.thermostat.FanMode.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = org.stu.thermostat.FanMode.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.stu.thermostat.FanMode,
-      com.google.protobuf.Empty> getSetFanModeMethod() {
-    io.grpc.MethodDescriptor<org.stu.thermostat.FanMode, com.google.protobuf.Empty> getSetFanModeMethod;
+      org.stu.thermostat.FanMode> getSetFanModeMethod() {
+    io.grpc.MethodDescriptor<org.stu.thermostat.FanMode, org.stu.thermostat.FanMode> getSetFanModeMethod;
     if ((getSetFanModeMethod = ThermostatGrpc.getSetFanModeMethod) == null) {
       synchronized (ThermostatGrpc.class) {
         if ((getSetFanModeMethod = ThermostatGrpc.getSetFanModeMethod) == null) {
           ThermostatGrpc.getSetFanModeMethod = getSetFanModeMethod = 
-              io.grpc.MethodDescriptor.<org.stu.thermostat.FanMode, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.thermostat.FanMode, org.stu.thermostat.FanMode>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "thermostat.Thermostat", "setFanMode"))
@@ -146,7 +178,7 @@ public final class ThermostatGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.thermostat.FanMode.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.thermostat.FanMode.getDefaultInstance()))
                   .setSchemaDescriptor(new ThermostatMethodDescriptorSupplier("setFanMode"))
                   .build();
           }
@@ -155,28 +187,28 @@ public final class ThermostatGrpc {
      return getSetFanModeMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+  private static volatile io.grpc.MethodDescriptor<org.stu.thermostat.CurrentTemp,
       org.stu.thermostat.CurrentTemp> getIncreaseTempMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "increaseTemp",
-      requestType = com.google.protobuf.Empty.class,
+      requestType = org.stu.thermostat.CurrentTemp.class,
       responseType = org.stu.thermostat.CurrentTemp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+  public static io.grpc.MethodDescriptor<org.stu.thermostat.CurrentTemp,
       org.stu.thermostat.CurrentTemp> getIncreaseTempMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.thermostat.CurrentTemp> getIncreaseTempMethod;
+    io.grpc.MethodDescriptor<org.stu.thermostat.CurrentTemp, org.stu.thermostat.CurrentTemp> getIncreaseTempMethod;
     if ((getIncreaseTempMethod = ThermostatGrpc.getIncreaseTempMethod) == null) {
       synchronized (ThermostatGrpc.class) {
         if ((getIncreaseTempMethod = ThermostatGrpc.getIncreaseTempMethod) == null) {
           ThermostatGrpc.getIncreaseTempMethod = getIncreaseTempMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.thermostat.CurrentTemp>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.thermostat.CurrentTemp, org.stu.thermostat.CurrentTemp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "thermostat.Thermostat", "increaseTemp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.thermostat.CurrentTemp.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.thermostat.CurrentTemp.getDefaultInstance()))
                   .setSchemaDescriptor(new ThermostatMethodDescriptorSupplier("increaseTemp"))
@@ -187,28 +219,28 @@ public final class ThermostatGrpc {
      return getIncreaseTempMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+  private static volatile io.grpc.MethodDescriptor<org.stu.thermostat.CurrentTemp,
       org.stu.thermostat.CurrentTemp> getDecreaseTempMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "decreaseTemp",
-      requestType = com.google.protobuf.Empty.class,
+      requestType = org.stu.thermostat.CurrentTemp.class,
       responseType = org.stu.thermostat.CurrentTemp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+  public static io.grpc.MethodDescriptor<org.stu.thermostat.CurrentTemp,
       org.stu.thermostat.CurrentTemp> getDecreaseTempMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.thermostat.CurrentTemp> getDecreaseTempMethod;
+    io.grpc.MethodDescriptor<org.stu.thermostat.CurrentTemp, org.stu.thermostat.CurrentTemp> getDecreaseTempMethod;
     if ((getDecreaseTempMethod = ThermostatGrpc.getDecreaseTempMethod) == null) {
       synchronized (ThermostatGrpc.class) {
         if ((getDecreaseTempMethod = ThermostatGrpc.getDecreaseTempMethod) == null) {
           ThermostatGrpc.getDecreaseTempMethod = getDecreaseTempMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.thermostat.CurrentTemp>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.thermostat.CurrentTemp, org.stu.thermostat.CurrentTemp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "thermostat.Thermostat", "decreaseTemp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.thermostat.CurrentTemp.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.thermostat.CurrentTemp.getDefaultInstance()))
                   .setSchemaDescriptor(new ThermostatMethodDescriptorSupplier("decreaseTemp"))
@@ -220,21 +252,21 @@ public final class ThermostatGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.stu.thermostat.Hours,
-      com.google.protobuf.Empty> getSetShutDownTimeMethod;
+      org.stu.thermostat.Hours> getSetShutDownTimeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "setShutDownTime",
       requestType = org.stu.thermostat.Hours.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = org.stu.thermostat.Hours.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.stu.thermostat.Hours,
-      com.google.protobuf.Empty> getSetShutDownTimeMethod() {
-    io.grpc.MethodDescriptor<org.stu.thermostat.Hours, com.google.protobuf.Empty> getSetShutDownTimeMethod;
+      org.stu.thermostat.Hours> getSetShutDownTimeMethod() {
+    io.grpc.MethodDescriptor<org.stu.thermostat.Hours, org.stu.thermostat.Hours> getSetShutDownTimeMethod;
     if ((getSetShutDownTimeMethod = ThermostatGrpc.getSetShutDownTimeMethod) == null) {
       synchronized (ThermostatGrpc.class) {
         if ((getSetShutDownTimeMethod = ThermostatGrpc.getSetShutDownTimeMethod) == null) {
           ThermostatGrpc.getSetShutDownTimeMethod = getSetShutDownTimeMethod = 
-              io.grpc.MethodDescriptor.<org.stu.thermostat.Hours, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.thermostat.Hours, org.stu.thermostat.Hours>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "thermostat.Thermostat", "setShutDownTime"))
@@ -242,7 +274,7 @@ public final class ThermostatGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.thermostat.Hours.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.thermostat.Hours.getDefaultInstance()))
                   .setSchemaDescriptor(new ThermostatMethodDescriptorSupplier("setShutDownTime"))
                   .build();
           }
@@ -301,21 +333,28 @@ public final class ThermostatGrpc {
 
     /**
      */
+    public void shutdownFan(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.thermostat.FanStatus> responseObserver) {
+      asyncUnimplementedUnaryCall(getShutdownFanMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void setFanMode(org.stu.thermostat.FanMode request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.thermostat.FanMode> responseObserver) {
       asyncUnimplementedUnaryCall(getSetFanModeMethod(), responseObserver);
     }
 
     /**
      */
-    public void increaseTemp(com.google.protobuf.Empty request,
+    public void increaseTemp(org.stu.thermostat.CurrentTemp request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.CurrentTemp> responseObserver) {
       asyncUnimplementedUnaryCall(getIncreaseTempMethod(), responseObserver);
     }
 
     /**
      */
-    public void decreaseTemp(com.google.protobuf.Empty request,
+    public void decreaseTemp(org.stu.thermostat.CurrentTemp request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.CurrentTemp> responseObserver) {
       asyncUnimplementedUnaryCall(getDecreaseTempMethod(), responseObserver);
     }
@@ -323,7 +362,7 @@ public final class ThermostatGrpc {
     /**
      */
     public void setShutDownTime(org.stu.thermostat.Hours request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.thermostat.Hours> responseObserver) {
       asyncUnimplementedUnaryCall(getSetShutDownTimeMethod(), responseObserver);
     }
 
@@ -351,24 +390,31 @@ public final class ThermostatGrpc {
                 org.stu.thermostat.FanStatus>(
                   this, METHODID_TRIGGER_FAN)))
           .addMethod(
+            getShutdownFanMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.thermostat.FanStatus>(
+                  this, METHODID_SHUTDOWN_FAN)))
+          .addMethod(
             getSetFanModeMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.stu.thermostat.FanMode,
-                com.google.protobuf.Empty>(
+                org.stu.thermostat.FanMode>(
                   this, METHODID_SET_FAN_MODE)))
           .addMethod(
             getIncreaseTempMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.google.protobuf.Empty,
+                org.stu.thermostat.CurrentTemp,
                 org.stu.thermostat.CurrentTemp>(
                   this, METHODID_INCREASE_TEMP)))
           .addMethod(
             getDecreaseTempMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.google.protobuf.Empty,
+                org.stu.thermostat.CurrentTemp,
                 org.stu.thermostat.CurrentTemp>(
                   this, METHODID_DECREASE_TEMP)))
           .addMethod(
@@ -376,7 +422,7 @@ public final class ThermostatGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.stu.thermostat.Hours,
-                com.google.protobuf.Empty>(
+                org.stu.thermostat.Hours>(
                   this, METHODID_SET_SHUT_DOWN_TIME)))
           .build();
     }
@@ -426,15 +472,23 @@ public final class ThermostatGrpc {
 
     /**
      */
+    public void shutdownFan(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.thermostat.FanStatus> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getShutdownFanMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void setFanMode(org.stu.thermostat.FanMode request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.thermostat.FanMode> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSetFanModeMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void increaseTemp(com.google.protobuf.Empty request,
+    public void increaseTemp(org.stu.thermostat.CurrentTemp request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.CurrentTemp> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getIncreaseTempMethod(), getCallOptions()), request, responseObserver);
@@ -442,7 +496,7 @@ public final class ThermostatGrpc {
 
     /**
      */
-    public void decreaseTemp(com.google.protobuf.Empty request,
+    public void decreaseTemp(org.stu.thermostat.CurrentTemp request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.CurrentTemp> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getDecreaseTempMethod(), getCallOptions()), request, responseObserver);
@@ -451,7 +505,7 @@ public final class ThermostatGrpc {
     /**
      */
     public void setShutDownTime(org.stu.thermostat.Hours request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.thermostat.Hours> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSetShutDownTimeMethod(), getCallOptions()), request, responseObserver);
     }
@@ -498,28 +552,35 @@ public final class ThermostatGrpc {
 
     /**
      */
-    public com.google.protobuf.Empty setFanMode(org.stu.thermostat.FanMode request) {
+    public org.stu.thermostat.FanStatus shutdownFan(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getShutdownFanMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.stu.thermostat.FanMode setFanMode(org.stu.thermostat.FanMode request) {
       return blockingUnaryCall(
           getChannel(), getSetFanModeMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.stu.thermostat.CurrentTemp increaseTemp(com.google.protobuf.Empty request) {
+    public org.stu.thermostat.CurrentTemp increaseTemp(org.stu.thermostat.CurrentTemp request) {
       return blockingUnaryCall(
           getChannel(), getIncreaseTempMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.stu.thermostat.CurrentTemp decreaseTemp(com.google.protobuf.Empty request) {
+    public org.stu.thermostat.CurrentTemp decreaseTemp(org.stu.thermostat.CurrentTemp request) {
       return blockingUnaryCall(
           getChannel(), getDecreaseTempMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty setShutDownTime(org.stu.thermostat.Hours request) {
+    public org.stu.thermostat.Hours setShutDownTime(org.stu.thermostat.Hours request) {
       return blockingUnaryCall(
           getChannel(), getSetShutDownTimeMethod(), getCallOptions(), request);
     }
@@ -569,7 +630,15 @@ public final class ThermostatGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> setFanMode(
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.FanStatus> shutdownFan(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getShutdownFanMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.FanMode> setFanMode(
         org.stu.thermostat.FanMode request) {
       return futureUnaryCall(
           getChannel().newCall(getSetFanModeMethod(), getCallOptions()), request);
@@ -578,7 +647,7 @@ public final class ThermostatGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.CurrentTemp> increaseTemp(
-        com.google.protobuf.Empty request) {
+        org.stu.thermostat.CurrentTemp request) {
       return futureUnaryCall(
           getChannel().newCall(getIncreaseTempMethod(), getCallOptions()), request);
     }
@@ -586,14 +655,14 @@ public final class ThermostatGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.CurrentTemp> decreaseTemp(
-        com.google.protobuf.Empty request) {
+        org.stu.thermostat.CurrentTemp request) {
       return futureUnaryCall(
           getChannel().newCall(getDecreaseTempMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> setShutDownTime(
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.Hours> setShutDownTime(
         org.stu.thermostat.Hours request) {
       return futureUnaryCall(
           getChannel().newCall(getSetShutDownTimeMethod(), getCallOptions()), request);
@@ -603,10 +672,11 @@ public final class ThermostatGrpc {
   private static final int METHODID_ACTIVATE_THERMOSTAT = 0;
   private static final int METHODID_DE_ACTIVATE_THERMOSTAT = 1;
   private static final int METHODID_TRIGGER_FAN = 2;
-  private static final int METHODID_SET_FAN_MODE = 3;
-  private static final int METHODID_INCREASE_TEMP = 4;
-  private static final int METHODID_DECREASE_TEMP = 5;
-  private static final int METHODID_SET_SHUT_DOWN_TIME = 6;
+  private static final int METHODID_SHUTDOWN_FAN = 3;
+  private static final int METHODID_SET_FAN_MODE = 4;
+  private static final int METHODID_INCREASE_TEMP = 5;
+  private static final int METHODID_DECREASE_TEMP = 6;
+  private static final int METHODID_SET_SHUT_DOWN_TIME = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -637,21 +707,25 @@ public final class ThermostatGrpc {
           serviceImpl.triggerFan((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<org.stu.thermostat.FanStatus>) responseObserver);
           break;
+        case METHODID_SHUTDOWN_FAN:
+          serviceImpl.shutdownFan((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.thermostat.FanStatus>) responseObserver);
+          break;
         case METHODID_SET_FAN_MODE:
           serviceImpl.setFanMode((org.stu.thermostat.FanMode) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.stu.thermostat.FanMode>) responseObserver);
           break;
         case METHODID_INCREASE_TEMP:
-          serviceImpl.increaseTemp((com.google.protobuf.Empty) request,
+          serviceImpl.increaseTemp((org.stu.thermostat.CurrentTemp) request,
               (io.grpc.stub.StreamObserver<org.stu.thermostat.CurrentTemp>) responseObserver);
           break;
         case METHODID_DECREASE_TEMP:
-          serviceImpl.decreaseTemp((com.google.protobuf.Empty) request,
+          serviceImpl.decreaseTemp((org.stu.thermostat.CurrentTemp) request,
               (io.grpc.stub.StreamObserver<org.stu.thermostat.CurrentTemp>) responseObserver);
           break;
         case METHODID_SET_SHUT_DOWN_TIME:
           serviceImpl.setShutDownTime((org.stu.thermostat.Hours) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.stu.thermostat.Hours>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -717,6 +791,7 @@ public final class ThermostatGrpc {
               .addMethod(getActivateThermostatMethod())
               .addMethod(getDeActivateThermostatMethod())
               .addMethod(getTriggerFanMethod())
+              .addMethod(getShutdownFanMethod())
               .addMethod(getSetFanModeMethod())
               .addMethod(getIncreaseTempMethod())
               .addMethod(getDecreaseTempMethod())

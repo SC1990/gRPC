@@ -10,35 +10,111 @@ import client.ControlPanelClient;
 import client.ProjectorClient;
 import client.ThermostatClient;
 import client.VideoRecorderClient;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import services.AudioSpeakerServer;
+import services.ProjectorServer;
+import services.ThermoStatServer;
+import services.VideoRecorderServer;
 
 /**
  *
  * @author stuar
  */
-public class ControlPanelGUI extends javax.swing.JFrame {
-    
+public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListener {
+
     private ControlPanelClient client;
+    private ProjectorClient projectorClient;
+    private ThermostatClient thermoClient;
+    private VideoRecorderClient vidClient;
+    private AudioSpeakerClient speakerClient;
     private String machine = "";
+
+    private ProjectorServer projectorServer = new ProjectorServer();
+    ArrayList<String> inputs = new ArrayList<>(
+            Arrays.asList("HDMI", "VGA", "USB-A", "USB-B", "USB-C", "IEEE 1394", "DVI")
+    );
+    ArrayList<String> aspectRatios = new ArrayList<>(
+            Arrays.asList("16:9", "16:10", "4:3", "1:1", "1.2:1", "2.2:1", "21:9")
+    );
+
+    ArrayList<String> resolutions = new ArrayList<>(
+            Arrays.asList("720p", "1080p", "1440p", "2K", "4K")
+    );
+
+    ArrayList<String> orientations = new ArrayList<>(
+            Arrays.asList("Landscape", "Portrait", "Default")
+    );
+
+    ArrayList<String> modes = new ArrayList<>(
+            Arrays.asList("Cool mode", "Dry mode", "Smart fan mode", "Energy saver mode")
+    );
+
+    ArrayList<String> shutDownTimes = new ArrayList<>(
+            Arrays.asList("1", "2", "5", "8")
+    );
 
     /**
      * Creates new form NewJFrame
      */
     public ControlPanelGUI() {
         initComponents();
-        
+
     }
 
     public ControlPanelGUI(ControlPanelClient aThis) throws Exception {
-         this();
-         this.client = aThis;
-         projectorTA.setText("Not connected");
-         speakersTA.setText("Not connected");
-         thermoTA.setText("Not connected");
-         videoTA.setText("Not connected");
+        this();
+        this.client = aThis;
+        projectorTA.setText("Not connected" + "\n");
+        speakersTA.setText("Not connected");
+        thermoTA.setText("Not connected");
+        videoTA.setText("Not connected");
+
+        for (int i = 0; i < inputs.size(); i++) {
+            projInputList.addItem(inputs.get(i));
+        }
+
+        for (int i = 0; i < aspectRatios.size(); i++) {
+            ratiosList.addItem(aspectRatios.get(i));
+        }
+
+        for (int i = 0; i < resolutions.size(); i++) {
+            resList.addItem(resolutions.get(i));
+        }
+
+        for (int i = 0; i < orientations.size(); i++) {
+            orientationList.addItem(orientations.get(i));
+        }
+
+        for (int i = 0; i < modes.size(); i++) {
+            fanModes.addItem(modes.get(i));
+        }
+
+        for (int i = 0; i < shutDownTimes.size(); i++) {
+            shutdownList.addItem(shutDownTimes.get(i));
+        }
+
+        for (int i = 0; i < resolutions.size(); i++) {
+            resListVid.addItem(resolutions.get(i));
+        }
+        
+         for (int i = 0; i < inputs.size(); i++) {
+            speakerInputsList.addItem(inputs.get(i));
+        }
+
+        brightnessControl();
+        tempControl();
+        zoomControl();
+        volumeControl();
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,7 +151,7 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         thermoTA = new javax.swing.JTextArea();
         projOffBtn = new javax.swing.JButton();
-        setProjectorInput = new javax.swing.JButton();
+        listProjectorInputs = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         brightnessSlider = new javax.swing.JSlider();
         setRatioBtn = new javax.swing.JButton();
@@ -104,7 +180,7 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         muteAudioBtn = new javax.swing.JButton();
         unMuteAudioBtn = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        resLIst = new javax.swing.JComboBox<>();
+        resListVid = new javax.swing.JComboBox<>();
         setResolutionBtn = new javax.swing.JButton();
         thermoOffBtn = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
@@ -113,11 +189,37 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         tempSlider = new javax.swing.JSlider();
         jLabel19 = new javax.swing.JLabel();
-        fanModeSlider = new javax.swing.JComboBox<>();
+        fanModes = new javax.swing.JComboBox<>();
         setFanModeBtn = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         shutdownList = new javax.swing.JComboBox<>();
         setShutDownBtn = new javax.swing.JButton();
+        setProjInputBtn = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        brightnessIncreaseAmount = new javax.swing.JTextField();
+        brightnessDecreaseAmount = new javax.swing.JTextField();
+        brightnessIncreaseBtn = new javax.swing.JButton();
+        brightnessDecreaseBtn = new javax.swing.JButton();
+        listRatiosBtn = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        tempIncreaseAmount = new javax.swing.JTextField();
+        decreaseTempAmount = new javax.swing.JTextField();
+        increaseTempBtn = new javax.swing.JButton();
+        decreaseTempBtn = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        zoomInAmount = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        zoomOutAmount = new javax.swing.JTextField();
+        zoomInBtn = new javax.swing.JButton();
+        zoomOutBtn = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        inVolAmount = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        deVolAmount = new javax.swing.JTextField();
+        decreaseVolBtn = new javax.swing.JButton();
+        increaseVolBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -128,7 +230,7 @@ public class ControlPanelGUI extends javax.swing.JFrame {
                 setInputMachineBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(setInputMachineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, -1, -1));
+        getContentPane().add(setInputMachineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
@@ -210,7 +312,7 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         inputMachineTA.setRows(5);
         jScrollPane3.setViewportView(inputMachineTA);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 500, 70));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 580, 70));
 
         speakersTA.setColumns(20);
         speakersTA.setRows(5);
@@ -234,17 +336,26 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         });
         getContentPane().add(projOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 200, -1, -1));
 
-        setProjectorInput.setText("Set");
-        getContentPane().add(setProjectorInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, -1, -1));
+        listProjectorInputs.setText("List inputs");
+        listProjectorInputs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listProjectorInputsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(listProjectorInputs, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, -1, -1));
 
         jLabel7.setText("Brightness");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 420, -1, -1));
-        getContentPane().add(brightnessSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 450, 200, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 440, -1, -1));
+        getContentPane().add(brightnessSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 470, 300, -1));
 
         setRatioBtn.setText("Set");
+        setRatioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setRatioBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(setRatioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, -1, -1));
 
-        projInputList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         projInputList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projInputListActionPerformed(evt);
@@ -253,31 +364,43 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         getContentPane().add(projInputList, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 120, -1));
 
         jLabel8.setText("Supported inputs");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
         jLabel9.setText("Aspect ratios");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 350, -1, -1));
 
-        ratiosList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ratiosList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ratiosListActionPerformed(evt);
+            }
+        });
         getContentPane().add(ratiosList, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 380, 90, -1));
 
         jLabel10.setText("Set Resolution");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 470, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 350, -1, -1));
 
-        resList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(resList, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, 120, -1));
+        resList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resListActionPerformed(evt);
+            }
+        });
+        getContentPane().add(resList, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 380, 120, -1));
 
         setResBtn.setText("Set");
-        getContentPane().add(setResBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, -1, -1));
+        getContentPane().add(setResBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 410, -1, -1));
 
         jLabel11.setText("Orientation");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 470, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, -1, -1));
 
-        orientationList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(orientationList, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, 110, -1));
+        getContentPane().add(orientationList, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 110, -1));
 
         setOrientationBtn.setText("Set");
-        getContentPane().add(setOrientationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, -1, -1));
+        setOrientationBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setOrientationBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(setOrientationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, -1, -1));
 
         speakerOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         speakerOffBtn.setForeground(new java.awt.Color(255, 51, 0));
@@ -285,26 +408,40 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         getContentPane().add(speakerOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 60, -1));
 
         jLabel12.setText("Volume");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
-        getContentPane().add(volSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 250, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        getContentPane().add(volSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 330, -1));
 
         jLabel14.setText("Supported inputs");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, -1, -1));
 
-        speakerInputsList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(speakerInputsList, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 170, -1));
+        getContentPane().add(speakerInputsList, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 170, -1));
 
         setSpeakerInput.setText("Set input");
-        getContentPane().add(setSpeakerInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, -1));
+        setSpeakerInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setSpeakerInputActionPerformed(evt);
+            }
+        });
+        getContentPane().add(setSpeakerInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, -1, -1));
 
         videoOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         videoOffBtn.setForeground(new java.awt.Color(255, 0, 0));
         videoOffBtn.setText("Off");
+        videoOffBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                videoOffBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(videoOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 590, -1, -1));
 
         vidRecordBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         vidRecordBtn.setForeground(new java.awt.Color(255, 51, 0));
         vidRecordBtn.setText("Record");
+        vidRecordBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vidRecordBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(vidRecordBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 720, 100, -1));
 
         stopRecordBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -318,38 +455,67 @@ public class ControlPanelGUI extends javax.swing.JFrame {
 
         jLabel13.setText("Zoom");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 770, -1, -1));
-        getContentPane().add(zoomSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 770, 290, -1));
+        getContentPane().add(zoomSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 770, 430, -1));
 
         jLabel15.setText("Audio");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 820, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 860, -1, -1));
 
         muteAudioBtn.setText("Mute");
-        getContentPane().add(muteAudioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 820, 90, -1));
+        muteAudioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muteAudioBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(muteAudioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 860, 90, -1));
 
         unMuteAudioBtn.setText("Unmute");
-        getContentPane().add(unMuteAudioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 820, -1, -1));
+        unMuteAudioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unMuteAudioBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(unMuteAudioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 860, -1, -1));
 
         jLabel16.setText("Available resolutions");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 890, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 900, -1, -1));
 
-        resLIst.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(resLIst, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 890, 170, -1));
+        resListVid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resListVidActionPerformed(evt);
+            }
+        });
+        getContentPane().add(resListVid, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 900, 170, -1));
 
         setResolutionBtn.setText("Set");
-        getContentPane().add(setResolutionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 930, -1, -1));
+        setResolutionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setResolutionBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(setResolutionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 940, -1, -1));
 
         thermoOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         thermoOffBtn.setForeground(new java.awt.Color(255, 51, 0));
         thermoOffBtn.setText("Off");
+        thermoOffBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                thermoOffBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(thermoOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 590, 60, -1));
 
         jLabel17.setText("Fan");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 860, 40, 30));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 840, 40, 30));
 
         fanOnBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         fanOnBtn.setForeground(new java.awt.Color(51, 0, 255));
         fanOnBtn.setText("Switch on");
-        getContentPane().add(fanOnBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 860, 130, -1));
+        fanOnBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fanOnBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fanOnBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 840, 130, -1));
 
         fanOffBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         fanOffBtn.setForeground(new java.awt.Color(102, 102, 0));
@@ -359,29 +525,144 @@ public class ControlPanelGUI extends javax.swing.JFrame {
                 fanOffBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(fanOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 860, 140, -1));
+        getContentPane().add(fanOffBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 840, 140, -1));
 
         jLabel18.setText("Temperature");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 730, -1, -1));
-        getContentPane().add(tempSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 730, 280, -1));
+        getContentPane().add(tempSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 730, 490, -1));
 
         jLabel19.setText("Fan modes");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 790, -1, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 880, -1, -1));
 
-        fanModeSlider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(fanModeSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 790, 200, -1));
+        fanModes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fanModesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fanModes, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 880, 200, -1));
 
         setFanModeBtn.setText("Set");
-        getContentPane().add(setFanModeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 790, 80, -1));
+        setFanModeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setFanModeBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(setFanModeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 880, 80, -1));
 
         jLabel20.setText("Set shutdown time");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 920, -1, -1));
 
-        shutdownList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        shutdownList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shutdownListActionPerformed(evt);
+            }
+        });
         getContentPane().add(shutdownList, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 920, 220, -1));
 
         setShutDownBtn.setText("Done");
+        setShutDownBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setShutDownBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(setShutDownBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 950, -1, -1));
+
+        setProjInputBtn.setText("Set Input");
+        setProjInputBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setProjInputBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(setProjInputBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, -1, -1));
+
+        jLabel21.setText("Decrease Brightness");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, -1, -1));
+
+        jLabel22.setText("Increase Brightness");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, -1, -1));
+        getContentPane().add(brightnessIncreaseAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 510, 50, -1));
+        getContentPane().add(brightnessDecreaseAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 540, 50, -1));
+
+        brightnessIncreaseBtn.setText("OK");
+        brightnessIncreaseBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brightnessIncreaseBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(brightnessIncreaseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 510, -1, -1));
+
+        brightnessDecreaseBtn.setText("OK");
+        brightnessDecreaseBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brightnessDecreaseBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(brightnessDecreaseBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 540, -1, -1));
+
+        listRatiosBtn.setText("List aspect ratios");
+        listRatiosBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listRatiosBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(listRatiosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 200, -1, -1));
+
+        jLabel23.setText("Decrease temperature");
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 800, -1, -1));
+
+        jLabel24.setText("Increase temperature");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 770, -1, -1));
+        getContentPane().add(tempIncreaseAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 770, 70, -1));
+        getContentPane().add(decreaseTempAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 800, 70, -1));
+
+        increaseTempBtn.setText("OK");
+        getContentPane().add(increaseTempBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 770, -1, -1));
+
+        decreaseTempBtn.setText("OK");
+        decreaseTempBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                decreaseTempBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(decreaseTempBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 800, -1, -1));
+
+        jLabel25.setText("Zoom in");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 810, -1, -1));
+        getContentPane().add(zoomInAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 810, 60, 30));
+
+        jLabel26.setText("Zoom out");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 810, -1, -1));
+        getContentPane().add(zoomOutAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 810, 60, 30));
+
+        zoomInBtn.setText("OK");
+        zoomInBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoomInBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(zoomInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 810, -1, -1));
+
+        zoomOutBtn.setText("Ok");
+        zoomOutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoomOutBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(zoomOutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 810, -1, -1));
+
+        jLabel27.setText("Increase volume");
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+        getContentPane().add(inVolAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 50, -1));
+
+        jLabel28.setText("Decrease volume");
+        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
+        getContentPane().add(deVolAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 50, -1));
+
+        decreaseVolBtn.setText("OK");
+        getContentPane().add(decreaseVolBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, -1, -1));
+
+        increaseVolBtn.setText("OK");
+        getContentPane().add(increaseVolBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -392,63 +673,291 @@ public class ControlPanelGUI extends javax.swing.JFrame {
 
     private void projActivateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projActivateBtnActionPerformed
         // activate projector client
-        try{
-            Thread.sleep(3000);
-        }catch(Exception e){
+        projectorTA.setText("Please wait...");
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        projectorServer.main(null);
+                    } catch (Exception ex) {
+                        Logger.getLogger(ControlPanelGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
             System.out.println(e);
         }
-        ProjectorClient.main(null);
+
+        projectorClient = new ProjectorClient();
         projectorTA.setText("Projector activated and connected to: " + this.machine);
     }//GEN-LAST:event_projActivateBtnActionPerformed
 
     private void videoActivateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoActivateBtnActionPerformed
-        try{
-            Thread.sleep(3000);
-        }catch(Exception e){
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    try {
+                        VideoRecorderServer.main(null);
+                    } catch (Exception ex) {
+                        Logger.getLogger(ControlPanelGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
             System.out.println(e);
         }
-        VideoRecorderClient.main(null);
+        vidClient = new VideoRecorderClient();
         videoTA.setText("Video recorder activated and connected to: " + this.machine);
     }//GEN-LAST:event_videoActivateBtnActionPerformed
 
     private void speakersActivateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speakersActivateBtnActionPerformed
-          // activate speaker client
-        try{
-            Thread.sleep(3000);
-        }catch(Exception e){
+        // activate speaker client
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        AudioSpeakerServer.main(null);
+                    } catch (Exception ex) {
+                        Logger.getLogger(ControlPanelGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
             System.out.println(e);
         }
-        AudioSpeakerClient.main(null);
+        speakerClient.main(null);
         speakersTA.setText("Audio Speaker activated and connected to: " + this.machine);
     }//GEN-LAST:event_speakersActivateBtnActionPerformed
 
     private void thermoActivateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thermoActivateBtnActionPerformed
-       // activate client
-        try{
-            Thread.sleep(3000);
-        }catch(Exception e){
+        // activate client
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    try {
+                        ThermoStatServer.main(null);
+                    } catch (Exception ex) {
+                        Logger.getLogger(ControlPanelGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
             System.out.println(e);
         }
-        ThermostatClient.main(null);
+        thermoClient = new ThermostatClient();
         thermoTA.setText("Thermostat activated and connected to: " + this.machine);
-        
+
     }//GEN-LAST:event_thermoActivateBtnActionPerformed
 
     private void projOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projOffBtnActionPerformed
-        // TODO add your handling code here:
+
+        try {
+            projectorClient.deActivateProjector();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ControlPanelGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        projectorTA.append("\n" + "Projector deactivated");
+
     }//GEN-LAST:event_projOffBtnActionPerformed
 
     private void projInputListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projInputListActionPerformed
-        // TODO add your handling code here:
+
+//        projInputList = new JComboBox();
+//        
+//        ArrayList<String> ls = new ArrayList<>(
+//                //Arrays.asList("HDMI", "VGA", "USB-A", "USB-B", "USB-C", "IEEE 1394", "DVI")
+//        );
+//        ls.add("HDMI");
+//
+//        for (String value : ls) {
+//            projInputList.addItem(value); 
+//        }
+
     }//GEN-LAST:event_projInputListActionPerformed
 
     private void stopRecordBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopRecordBtnActionPerformed
-        // TODO add your handling code here:
+        vidClient.stopRecording();
+        videoTA.append("\n" + "Recording stopped");
     }//GEN-LAST:event_stopRecordBtnActionPerformed
 
     private void fanOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fanOffBtnActionPerformed
-        // TODO add your handling code here:
+        thermoClient.shutdownFan();
     }//GEN-LAST:event_fanOffBtnActionPerformed
+
+    private void listProjectorInputsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listProjectorInputsActionPerformed
+
+        projectorClient.listInputs();
+
+//        ArrayList<String> ls = new ArrayList<>(
+//                Arrays.asList("HDMI", "VGA", "USB-A", "USB-B", "USB-C", "IEEE 1394", "DVI")
+//        );
+//
+//        for (String s : ls) {
+//            projectorTA.append(s + "\n");
+//        }
+
+    }//GEN-LAST:event_listProjectorInputsActionPerformed
+
+    private void ratiosListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ratiosListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ratiosListActionPerformed
+
+    private void resListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resListActionPerformed
+
+    private void setProjInputBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setProjInputBtnActionPerformed
+        String input = projInputList.getItemAt(projInputList.getSelectedIndex());
+        projectorClient.setInput(input);
+        projectorTA.append("\n" + input + " set as input type");
+    }//GEN-LAST:event_setProjInputBtnActionPerformed
+
+    private void brightnessIncreaseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brightnessIncreaseBtnActionPerformed
+        manualIncreaseBrightnessControl();
+    }//GEN-LAST:event_brightnessIncreaseBtnActionPerformed
+
+    private void brightnessDecreaseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brightnessDecreaseBtnActionPerformed
+        manualDecreaseBrightnessControl();
+    }//GEN-LAST:event_brightnessDecreaseBtnActionPerformed
+
+    private void listRatiosBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listRatiosBtnActionPerformed
+        projectorClient.listRatios();
+    }//GEN-LAST:event_listRatiosBtnActionPerformed
+
+    private void setRatioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setRatioBtnActionPerformed
+        String ratio = ratiosList.getItemAt(ratiosList.getSelectedIndex());
+        projectorClient.setAspectRatio(ratio);
+        projectorTA.append("\n" + ratio + " set as aspect ratio");
+    }//GEN-LAST:event_setRatioBtnActionPerformed
+
+    private void setOrientationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setOrientationBtnActionPerformed
+        String orientation = orientationList.getItemAt(orientationList.getSelectedIndex());
+        projectorClient.setOrientation(orientation);
+        projectorTA.append("\n" + orientation + " set as orientation");
+    }//GEN-LAST:event_setOrientationBtnActionPerformed
+
+    private void thermoOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thermoOffBtnActionPerformed
+        thermoClient.deActivateThermostat();
+
+        thermoTA.append("\n" + "Thermostat deactivated");
+    }//GEN-LAST:event_thermoOffBtnActionPerformed
+
+    private void decreaseTempBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreaseTempBtnActionPerformed
+        manualDecreaseTempControl();
+    }//GEN-LAST:event_decreaseTempBtnActionPerformed
+
+    private void fanOnBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fanOnBtnActionPerformed
+        thermoClient.triggerFan();
+    }//GEN-LAST:event_fanOnBtnActionPerformed
+
+    private void setFanModeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setFanModeBtnActionPerformed
+
+        String input = fanModes.getItemAt(fanModes.getSelectedIndex());
+        thermoClient.setFanMode(input);
+        thermoTA.append("\n" + input + " selected");
+    }//GEN-LAST:event_setFanModeBtnActionPerformed
+
+    private void shutdownListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shutdownListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shutdownListActionPerformed
+
+    private void fanModesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fanModesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fanModesActionPerformed
+
+    private void setShutDownBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setShutDownBtnActionPerformed
+        String time = "13.30";
+        String input = shutdownList.getItemAt(shutdownList.getSelectedIndex());
+        thermoClient.setShutDownTime(Integer.valueOf(input));
+        thermoTA.append("\n" + "Thermostat will shut down in " + input + " hour(s) at " + time);
+    }//GEN-LAST:event_setShutDownBtnActionPerformed
+
+    private void videoOffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoOffBtnActionPerformed
+        vidClient.deActivateVideoRecorder();
+
+        videoTA.append("\n" + "Video recorder deactivated");
+    }//GEN-LAST:event_videoOffBtnActionPerformed
+
+    private void vidRecordBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vidRecordBtnActionPerformed
+        vidClient.recordVideo();
+        videoTA.append("\n" + "Recording.....");
+    }//GEN-LAST:event_vidRecordBtnActionPerformed
+
+    private void muteAudioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muteAudioBtnActionPerformed
+        vidClient.muteAudio();
+        videoTA.append("\n" + "Audio muted");
+    }//GEN-LAST:event_muteAudioBtnActionPerformed
+
+    private void unMuteAudioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unMuteAudioBtnActionPerformed
+        vidClient.unmuteAudio();
+        videoTA.append("\n" + "Audio unmuted");
+    }//GEN-LAST:event_unMuteAudioBtnActionPerformed
+
+    private void resListVidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resListVidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resListVidActionPerformed
+
+    private void setResolutionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setResolutionBtnActionPerformed
+        String res = resList.getItemAt(resList.getSelectedIndex());
+        vidClient.setResolution(res);
+        videoTA.append("\n" + res + " set as resolution");
+    }//GEN-LAST:event_setResolutionBtnActionPerformed
+
+    private void zoomInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomInBtnActionPerformed
+        manualZoomIn();
+    }//GEN-LAST:event_zoomInBtnActionPerformed
+
+    private void zoomOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomOutBtnActionPerformed
+       manualZoomOut();
+    }//GEN-LAST:event_zoomOutBtnActionPerformed
+
+    private void setSpeakerInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setSpeakerInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_setSpeakerInputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -482,24 +991,154 @@ public class ControlPanelGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ControlPanelGUI().setVisible(true);
+
             }
         });
+
     }
-    
-    public void appendDetectedMachine(String machineIP){
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        projectorTA.append("Brightness: " + brightnessSlider.getValue());
+
+    }
+
+    public void appendDetectedMachine(String machineIP) {
         inputMachineTA.append(machineIP);
         this.machine = machineIP;
     }
 
+    public void brightnessControl() {
+
+        brightnessSlider.setMajorTickSpacing(10);
+        brightnessSlider.setPaintLabels(true);
+        brightnessSlider.setVisible(true);
+
+        brightnessSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent event) {
+                projectorTA.append("Brightness: " + brightnessSlider.getValue() + "\n");
+
+            }
+        });
+
+    }
+
+    public void manualIncreaseBrightnessControl() {
+
+        projectorClient.increaseBrightness(Integer.valueOf(brightnessIncreaseAmount.getText()));
+        projectorTA.append("+" + brightnessIncreaseAmount.getText() + "\n");
+
+    }
+
+    public void manualDecreaseBrightnessControl() {
+        projectorClient.decreaseBrightness(Integer.valueOf(brightnessDecreaseAmount.getText()));
+        projectorTA.append("-" + brightnessDecreaseAmount.getText() + "\n");
+    }
+
+    public void tempControl() {
+
+        tempSlider.setMajorTickSpacing(5);
+        tempSlider.setPaintLabels(true);
+        tempSlider.setVisible(true);
+
+        tempSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent event) {
+                thermoTA.append("Temperature: " + tempSlider.getValue() + "\n");
+
+            }
+        });
+
+    }
+
+    public void manualIncreaseTempControl() {
+
+        thermoClient.increaseTemp(Integer.valueOf(tempIncreaseAmount.getText()));
+        thermoTA.append("+" + tempIncreaseAmount.getText() + "\n");
+
+    }
+
+    public void manualDecreaseTempControl() {
+        thermoClient.decreaseTemp(Integer.valueOf(decreaseTempAmount.getText()));
+        thermoTA.append("-" + decreaseTempAmount.getText() + "\n");
+    }
+    
+    public void zoomControl() {
+
+        zoomSlider.setMajorTickSpacing(5);
+        zoomSlider.setPaintLabels(true);
+        zoomSlider.setVisible(true);
+
+        zoomSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent event) {
+                videoTA.append("Zoom: " + zoomSlider.getValue() + "\n");
+
+            }
+        });
+
+    }
+
+    public void manualZoomIn() {
+        vidClient.zoomIn(Integer.valueOf(zoomInAmount.getText()));
+        videoTA.append("+" + zoomInAmount.getText() + "\n");
+
+    }
+
+    public void manualZoomOut() {
+        vidClient.zoomOut(Integer.valueOf(zoomOutAmount.getText()));
+        videoTA.append("-" + zoomOutAmount.getText() + "\n");
+    }
+    
+     public void volumeControl() {
+
+        volSlider.setMajorTickSpacing(10);
+        volSlider.setPaintLabels(true);
+        volSlider.setVisible(true);
+
+        volSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent event) {
+                speakersTA.append("Volume: " + volSlider.getValue() + "\n");
+
+            }
+        });
+
+    }
+     
+     public void manualVolIncrease() {
+        speakerClient.increaseVolume(Integer.valueOf(inVolAmount.getText()));
+        speakersTA.append("+" + inVolAmount.getText() + "\n");
+
+    }
+
+    public void manualVolDecrease() {
+        speakerClient.decreaseVolume(Integer.valueOf(deVolAmount.getText()));
+        speakersTA.append("-" + deVolAmount.getText() + "\n");
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField brightnessDecreaseAmount;
+    private javax.swing.JButton brightnessDecreaseBtn;
+    private javax.swing.JTextField brightnessIncreaseAmount;
+    private javax.swing.JButton brightnessIncreaseBtn;
     private javax.swing.JSlider brightnessSlider;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.JComboBox<String> fanModeSlider;
+    private javax.swing.JTextField deVolAmount;
+    private javax.swing.JTextField decreaseTempAmount;
+    private javax.swing.JButton decreaseTempBtn;
+    private javax.swing.JButton decreaseVolBtn;
+    private javax.swing.JComboBox<String> fanModes;
     private javax.swing.JButton fanOffBtn;
     private javax.swing.JButton fanOnBtn;
+    private javax.swing.JTextField inVolAmount;
+    private javax.swing.JButton increaseTempBtn;
+    private javax.swing.JButton increaseVolBtn;
     private javax.swing.JTextArea inputMachineTA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -514,6 +1153,14 @@ public class ControlPanelGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -526,6 +1173,8 @@ public class ControlPanelGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JButton listProjectorInputs;
+    private javax.swing.JButton listRatiosBtn;
     private javax.swing.JButton muteAudioBtn;
     private javax.swing.JComboBox<String> orientationList;
     private javax.swing.JButton projActivateBtn;
@@ -533,12 +1182,12 @@ public class ControlPanelGUI extends javax.swing.JFrame {
     private javax.swing.JButton projOffBtn;
     private javax.swing.JTextArea projectorTA;
     private javax.swing.JComboBox<String> ratiosList;
-    private javax.swing.JComboBox<String> resLIst;
     private javax.swing.JComboBox<String> resList;
+    private javax.swing.JComboBox<String> resListVid;
     private javax.swing.JButton setFanModeBtn;
     private javax.swing.JButton setInputMachineBtn;
     private javax.swing.JButton setOrientationBtn;
-    private javax.swing.JButton setProjectorInput;
+    private javax.swing.JButton setProjInputBtn;
     private javax.swing.JButton setRatioBtn;
     private javax.swing.JButton setResBtn;
     private javax.swing.JButton setResolutionBtn;
@@ -550,6 +1199,7 @@ public class ControlPanelGUI extends javax.swing.JFrame {
     private javax.swing.JButton speakersActivateBtn;
     private javax.swing.JTextArea speakersTA;
     private javax.swing.JButton stopRecordBtn;
+    private javax.swing.JTextField tempIncreaseAmount;
     private javax.swing.JSlider tempSlider;
     private javax.swing.JButton thermoActivateBtn;
     private javax.swing.JButton thermoOffBtn;
@@ -560,8 +1210,11 @@ public class ControlPanelGUI extends javax.swing.JFrame {
     private javax.swing.JButton videoOffBtn;
     private javax.swing.JTextArea videoTA;
     private javax.swing.JSlider volSlider;
+    private javax.swing.JTextField zoomInAmount;
+    private javax.swing.JButton zoomInBtn;
+    private javax.swing.JTextField zoomOutAmount;
+    private javax.swing.JButton zoomOutBtn;
     private javax.swing.JSlider zoomSlider;
     // End of variables declaration//GEN-END:variables
-
 
 }

@@ -65,21 +65,22 @@ public final class ThermostatProto {
       "atus\030\001 \001(\t\"\027\n\007FanMode\022\014\n\004mode\030\001 \001(\t\"1\n\013A" +
       "llFanModes\022\"\n\005modes\030\001 \003(\0132\023.thermostat.F" +
       "anMode\"\033\n\013CurrentTemp\022\014\n\004temp\030\001 \001(\005\"\031\n\005H" +
-      "ours\022\020\n\010numHours\030\001 \001(\0052\361\003\n\nThermostat\022N\n" +
+      "ours\022\020\n\010numHours\030\001 \001(\0052\253\004\n\nThermostat\022N\n" +
       "\022activateThermostat\022\026.google.protobuf.Em" +
       "pty\032\036.thermostat.ThermostatOnStatus\"\000\022Q\n" +
       "\024deActivateThermostat\022\026.google.protobuf." +
       "Empty\032\037.thermostat.ThermostatOffStatus\"\000" +
       "\022=\n\ntriggerFan\022\026.google.protobuf.Empty\032\025" +
-      ".thermostat.FanStatus\"\000\022;\n\nsetFanMode\022\023." +
-      "thermostat.FanMode\032\026.google.protobuf.Emp" +
-      "ty\"\000\022A\n\014increaseTemp\022\026.google.protobuf.E" +
-      "mpty\032\027.thermostat.CurrentTemp\"\000\022A\n\014decre" +
-      "aseTemp\022\026.google.protobuf.Empty\032\027.thermo" +
-      "stat.CurrentTemp\"\000\022>\n\017setShutDownTime\022\021." +
-      "thermostat.Hours\032\026.google.protobuf.Empty" +
-      "\"\000B\'\n\022org.stu.thermostatB\017ThermostatProt" +
-      "oP\001b\006proto3"
+      ".thermostat.FanStatus\"\000\022>\n\013shutdownFan\022\026" +
+      ".google.protobuf.Empty\032\025.thermostat.FanS" +
+      "tatus\"\000\0228\n\nsetFanMode\022\023.thermostat.FanMo" +
+      "de\032\023.thermostat.FanMode\"\000\022B\n\014increaseTem" +
+      "p\022\027.thermostat.CurrentTemp\032\027.thermostat." +
+      "CurrentTemp\"\000\022B\n\014decreaseTemp\022\027.thermost" +
+      "at.CurrentTemp\032\027.thermostat.CurrentTemp\"" +
+      "\000\0229\n\017setShutDownTime\022\021.thermostat.Hours\032" +
+      "\021.thermostat.Hours\"\000B\'\n\022org.stu.thermost" +
+      "atB\017ThermostatProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

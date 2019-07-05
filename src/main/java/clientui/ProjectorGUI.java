@@ -65,10 +65,19 @@ public class ProjectorGUI extends javax.swing.JFrame {
         projShutdownBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         projShutdownBtn.setForeground(new java.awt.Color(255, 51, 0));
         projShutdownBtn.setText("Shut down");
+        projShutdownBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projShutdownBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(projShutdownBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 370, 180, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void projShutdownBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projShutdownBtnActionPerformed
+        close();
+    }//GEN-LAST:event_projShutdownBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,9 +113,13 @@ public class ProjectorGUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void close(){
+        this.setVisible(false);
+    }
 
     public void appendProjectorStatus(String toString) {
-        statusTF.setText(toString);
+        statusTF.append("\n" + toString + "\n");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

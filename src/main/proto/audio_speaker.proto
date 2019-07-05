@@ -12,9 +12,9 @@ option java_outer_classname = "AudioSpeakerProto";
 service AudioSpeaker{
   rpc activateAudioSpeaker(google.protobuf.Empty) returns (AudioSpeakerOnStatus){}
   rpc deActivateAudioSpeaker(google.protobuf.Empty) returns (AudioSpeakerOffStatus){}
-  rpc increaseVolume(google.protobuf.Empty) returns (CurrentVolume){}
-  rpc decreaseVolume(google.protobuf.Empty) returns (CurrentVolume){}
-  rpc setInput(AudioInput) returns (google.protobuf.Empty){}
+  rpc increaseVolume(CurrentVolume) returns (CurrentVolume){}
+  rpc decreaseVolume(CurrentVolume) returns (CurrentVolume){}
+  rpc setInput(AudioInput) returns (AudioInput){}
   rpc ListSupportedInputs(google.protobuf.Empty) returns (stream AudioInput){}
 }
 

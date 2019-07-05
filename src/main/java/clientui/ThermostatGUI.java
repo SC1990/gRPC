@@ -64,10 +64,19 @@ public class ThermostatGUI extends javax.swing.JFrame {
         thermoShutdownBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         thermoShutdownBtn.setForeground(new java.awt.Color(255, 51, 0));
         thermoShutdownBtn.setText("Shut down");
+        thermoShutdownBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                thermoShutdownBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(thermoShutdownBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 420, 180, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void thermoShutdownBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thermoShutdownBtnActionPerformed
+        close();
+    }//GEN-LAST:event_thermoShutdownBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,6 +117,8 @@ public class ThermostatGUI extends javax.swing.JFrame {
         thermoStatusTA.setText(toString);
     }
 
+  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -115,4 +126,8 @@ public class ThermostatGUI extends javax.swing.JFrame {
     private javax.swing.JButton thermoShutdownBtn;
     private javax.swing.JTextArea thermoStatusTA;
     // End of variables declaration//GEN-END:variables
+
+    public void close() {
+        this.setVisible(false);
+    }
 }

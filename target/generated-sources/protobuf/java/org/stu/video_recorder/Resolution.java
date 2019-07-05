@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Resolution() {
-    ratio_ = "";
+    res_ = "";
     supported_ = false;
   }
 
@@ -47,7 +47,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            ratio_ = s;
+            res_ = s;
             break;
           }
           case 16: {
@@ -87,34 +87,34 @@ private static final long serialVersionUID = 0L;
             org.stu.video_recorder.Resolution.class, org.stu.video_recorder.Resolution.Builder.class);
   }
 
-  public static final int RATIO_FIELD_NUMBER = 1;
-  private volatile java.lang.Object ratio_;
+  public static final int RES_FIELD_NUMBER = 1;
+  private volatile java.lang.Object res_;
   /**
-   * <code>string ratio = 1;</code>
+   * <code>string res = 1;</code>
    */
-  public java.lang.String getRatio() {
-    java.lang.Object ref = ratio_;
+  public java.lang.String getRes() {
+    java.lang.Object ref = res_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      ratio_ = s;
+      res_ = s;
       return s;
     }
   }
   /**
-   * <code>string ratio = 1;</code>
+   * <code>string res = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getRatioBytes() {
-    java.lang.Object ref = ratio_;
+      getResBytes() {
+    java.lang.Object ref = res_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      ratio_ = b;
+      res_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -144,8 +144,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getRatioBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, ratio_);
+    if (!getResBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, res_);
     }
     if (supported_ != false) {
       output.writeBool(2, supported_);
@@ -159,8 +159,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getRatioBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, ratio_);
+    if (!getResBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, res_);
     }
     if (supported_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -182,8 +182,8 @@ private static final long serialVersionUID = 0L;
     org.stu.video_recorder.Resolution other = (org.stu.video_recorder.Resolution) obj;
 
     boolean result = true;
-    result = result && getRatio()
-        .equals(other.getRatio());
+    result = result && getRes()
+        .equals(other.getRes());
     result = result && (getSupported()
         == other.getSupported());
     result = result && unknownFields.equals(other.unknownFields);
@@ -197,8 +197,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + RATIO_FIELD_NUMBER;
-    hash = (53 * hash) + getRatio().hashCode();
+    hash = (37 * hash) + RES_FIELD_NUMBER;
+    hash = (53 * hash) + getRes().hashCode();
     hash = (37 * hash) + SUPPORTED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSupported());
@@ -335,7 +335,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      ratio_ = "";
+      res_ = "";
 
       supported_ = false;
 
@@ -365,7 +365,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.stu.video_recorder.Resolution buildPartial() {
       org.stu.video_recorder.Resolution result = new org.stu.video_recorder.Resolution(this);
-      result.ratio_ = ratio_;
+      result.res_ = res_;
       result.supported_ = supported_;
       onBuilt();
       return result;
@@ -415,8 +415,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.stu.video_recorder.Resolution other) {
       if (other == org.stu.video_recorder.Resolution.getDefaultInstance()) return this;
-      if (!other.getRatio().isEmpty()) {
-        ratio_ = other.ratio_;
+      if (!other.getRes().isEmpty()) {
+        res_ = other.res_;
         onChanged();
       }
       if (other.getSupported() != false) {
@@ -451,71 +451,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object ratio_ = "";
+    private java.lang.Object res_ = "";
     /**
-     * <code>string ratio = 1;</code>
+     * <code>string res = 1;</code>
      */
-    public java.lang.String getRatio() {
-      java.lang.Object ref = ratio_;
+    public java.lang.String getRes() {
+      java.lang.Object ref = res_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        ratio_ = s;
+        res_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string ratio = 1;</code>
+     * <code>string res = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getRatioBytes() {
-      java.lang.Object ref = ratio_;
+        getResBytes() {
+      java.lang.Object ref = res_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        ratio_ = b;
+        res_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string ratio = 1;</code>
+     * <code>string res = 1;</code>
      */
-    public Builder setRatio(
+    public Builder setRes(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      ratio_ = value;
+      res_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string ratio = 1;</code>
+     * <code>string res = 1;</code>
      */
-    public Builder clearRatio() {
+    public Builder clearRes() {
       
-      ratio_ = getDefaultInstance().getRatio();
+      res_ = getDefaultInstance().getRes();
       onChanged();
       return this;
     }
     /**
-     * <code>string ratio = 1;</code>
+     * <code>string res = 1;</code>
      */
-    public Builder setRatioBytes(
+    public Builder setResBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      ratio_ = value;
+      res_ = value;
       onChanged();
       return this;
     }

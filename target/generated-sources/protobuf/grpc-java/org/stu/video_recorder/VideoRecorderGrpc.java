@@ -123,22 +123,54 @@ public final class VideoRecorderGrpc {
      return getRecordVideoMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.video_recorder.RecordStatus> getStopRecordingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "stopRecording",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.video_recorder.RecordStatus.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.video_recorder.RecordStatus> getStopRecordingMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.video_recorder.RecordStatus> getStopRecordingMethod;
+    if ((getStopRecordingMethod = VideoRecorderGrpc.getStopRecordingMethod) == null) {
+      synchronized (VideoRecorderGrpc.class) {
+        if ((getStopRecordingMethod = VideoRecorderGrpc.getStopRecordingMethod) == null) {
+          VideoRecorderGrpc.getStopRecordingMethod = getStopRecordingMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.video_recorder.RecordStatus>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "video_recorder.VideoRecorder", "stopRecording"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.video_recorder.RecordStatus.getDefaultInstance()))
+                  .setSchemaDescriptor(new VideoRecorderMethodDescriptorSupplier("stopRecording"))
+                  .build();
+          }
+        }
+     }
+     return getStopRecordingMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<org.stu.video_recorder.IncreaseAmount,
-      com.google.protobuf.Empty> getZoomInMethod;
+      org.stu.video_recorder.IncreaseAmount> getZoomInMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "zoomIn",
       requestType = org.stu.video_recorder.IncreaseAmount.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = org.stu.video_recorder.IncreaseAmount.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.stu.video_recorder.IncreaseAmount,
-      com.google.protobuf.Empty> getZoomInMethod() {
-    io.grpc.MethodDescriptor<org.stu.video_recorder.IncreaseAmount, com.google.protobuf.Empty> getZoomInMethod;
+      org.stu.video_recorder.IncreaseAmount> getZoomInMethod() {
+    io.grpc.MethodDescriptor<org.stu.video_recorder.IncreaseAmount, org.stu.video_recorder.IncreaseAmount> getZoomInMethod;
     if ((getZoomInMethod = VideoRecorderGrpc.getZoomInMethod) == null) {
       synchronized (VideoRecorderGrpc.class) {
         if ((getZoomInMethod = VideoRecorderGrpc.getZoomInMethod) == null) {
           VideoRecorderGrpc.getZoomInMethod = getZoomInMethod = 
-              io.grpc.MethodDescriptor.<org.stu.video_recorder.IncreaseAmount, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.video_recorder.IncreaseAmount, org.stu.video_recorder.IncreaseAmount>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "video_recorder.VideoRecorder", "zoomIn"))
@@ -146,7 +178,7 @@ public final class VideoRecorderGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.video_recorder.IncreaseAmount.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.video_recorder.IncreaseAmount.getDefaultInstance()))
                   .setSchemaDescriptor(new VideoRecorderMethodDescriptorSupplier("zoomIn"))
                   .build();
           }
@@ -156,21 +188,21 @@ public final class VideoRecorderGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.stu.video_recorder.DecreaseAmount,
-      com.google.protobuf.Empty> getZoomOutMethod;
+      org.stu.video_recorder.DecreaseAmount> getZoomOutMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "zoomOut",
       requestType = org.stu.video_recorder.DecreaseAmount.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = org.stu.video_recorder.DecreaseAmount.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.stu.video_recorder.DecreaseAmount,
-      com.google.protobuf.Empty> getZoomOutMethod() {
-    io.grpc.MethodDescriptor<org.stu.video_recorder.DecreaseAmount, com.google.protobuf.Empty> getZoomOutMethod;
+      org.stu.video_recorder.DecreaseAmount> getZoomOutMethod() {
+    io.grpc.MethodDescriptor<org.stu.video_recorder.DecreaseAmount, org.stu.video_recorder.DecreaseAmount> getZoomOutMethod;
     if ((getZoomOutMethod = VideoRecorderGrpc.getZoomOutMethod) == null) {
       synchronized (VideoRecorderGrpc.class) {
         if ((getZoomOutMethod = VideoRecorderGrpc.getZoomOutMethod) == null) {
           VideoRecorderGrpc.getZoomOutMethod = getZoomOutMethod = 
-              io.grpc.MethodDescriptor.<org.stu.video_recorder.DecreaseAmount, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.video_recorder.DecreaseAmount, org.stu.video_recorder.DecreaseAmount>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "video_recorder.VideoRecorder", "zoomOut"))
@@ -178,7 +210,7 @@ public final class VideoRecorderGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.video_recorder.DecreaseAmount.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.video_recorder.DecreaseAmount.getDefaultInstance()))
                   .setSchemaDescriptor(new VideoRecorderMethodDescriptorSupplier("zoomOut"))
                   .build();
           }
@@ -217,6 +249,38 @@ public final class VideoRecorderGrpc {
         }
      }
      return getMuteAudioMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.video_recorder.AudioStatus> getUnmuteAudioMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "unmuteAudio",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.stu.video_recorder.AudioStatus.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.stu.video_recorder.AudioStatus> getUnmuteAudioMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.video_recorder.AudioStatus> getUnmuteAudioMethod;
+    if ((getUnmuteAudioMethod = VideoRecorderGrpc.getUnmuteAudioMethod) == null) {
+      synchronized (VideoRecorderGrpc.class) {
+        if ((getUnmuteAudioMethod = VideoRecorderGrpc.getUnmuteAudioMethod) == null) {
+          VideoRecorderGrpc.getUnmuteAudioMethod = getUnmuteAudioMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.video_recorder.AudioStatus>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "video_recorder.VideoRecorder", "unmuteAudio"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.stu.video_recorder.AudioStatus.getDefaultInstance()))
+                  .setSchemaDescriptor(new VideoRecorderMethodDescriptorSupplier("unmuteAudio"))
+                  .build();
+          }
+        }
+     }
+     return getUnmuteAudioMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
@@ -333,15 +397,22 @@ public final class VideoRecorderGrpc {
 
     /**
      */
+    public void stopRecording(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.RecordStatus> responseObserver) {
+      asyncUnimplementedUnaryCall(getStopRecordingMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void zoomIn(org.stu.video_recorder.IncreaseAmount request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.IncreaseAmount> responseObserver) {
       asyncUnimplementedUnaryCall(getZoomInMethod(), responseObserver);
     }
 
     /**
      */
     public void zoomOut(org.stu.video_recorder.DecreaseAmount request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.DecreaseAmount> responseObserver) {
       asyncUnimplementedUnaryCall(getZoomOutMethod(), responseObserver);
     }
 
@@ -350,6 +421,13 @@ public final class VideoRecorderGrpc {
     public void muteAudio(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.AudioStatus> responseObserver) {
       asyncUnimplementedUnaryCall(getMuteAudioMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void unmuteAudio(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.AudioStatus> responseObserver) {
+      asyncUnimplementedUnaryCall(getUnmuteAudioMethod(), responseObserver);
     }
 
     /**
@@ -390,18 +468,25 @@ public final class VideoRecorderGrpc {
                 org.stu.video_recorder.RecordStatus>(
                   this, METHODID_RECORD_VIDEO)))
           .addMethod(
+            getStopRecordingMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.video_recorder.RecordStatus>(
+                  this, METHODID_STOP_RECORDING)))
+          .addMethod(
             getZoomInMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.stu.video_recorder.IncreaseAmount,
-                com.google.protobuf.Empty>(
+                org.stu.video_recorder.IncreaseAmount>(
                   this, METHODID_ZOOM_IN)))
           .addMethod(
             getZoomOutMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.stu.video_recorder.DecreaseAmount,
-                com.google.protobuf.Empty>(
+                org.stu.video_recorder.DecreaseAmount>(
                   this, METHODID_ZOOM_OUT)))
           .addMethod(
             getMuteAudioMethod(),
@@ -410,6 +495,13 @@ public final class VideoRecorderGrpc {
                 com.google.protobuf.Empty,
                 org.stu.video_recorder.AudioStatus>(
                   this, METHODID_MUTE_AUDIO)))
+          .addMethod(
+            getUnmuteAudioMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.stu.video_recorder.AudioStatus>(
+                  this, METHODID_UNMUTE_AUDIO)))
           .addMethod(
             getListResolutionsMethod(),
             asyncServerStreamingCall(
@@ -472,8 +564,16 @@ public final class VideoRecorderGrpc {
 
     /**
      */
+    public void stopRecording(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.RecordStatus> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getStopRecordingMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void zoomIn(org.stu.video_recorder.IncreaseAmount request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.IncreaseAmount> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getZoomInMethod(), getCallOptions()), request, responseObserver);
     }
@@ -481,7 +581,7 @@ public final class VideoRecorderGrpc {
     /**
      */
     public void zoomOut(org.stu.video_recorder.DecreaseAmount request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.DecreaseAmount> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getZoomOutMethod(), getCallOptions()), request, responseObserver);
     }
@@ -492,6 +592,14 @@ public final class VideoRecorderGrpc {
         io.grpc.stub.StreamObserver<org.stu.video_recorder.AudioStatus> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getMuteAudioMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void unmuteAudio(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.stu.video_recorder.AudioStatus> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUnmuteAudioMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -552,14 +660,21 @@ public final class VideoRecorderGrpc {
 
     /**
      */
-    public com.google.protobuf.Empty zoomIn(org.stu.video_recorder.IncreaseAmount request) {
+    public org.stu.video_recorder.RecordStatus stopRecording(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getStopRecordingMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.stu.video_recorder.IncreaseAmount zoomIn(org.stu.video_recorder.IncreaseAmount request) {
       return blockingUnaryCall(
           getChannel(), getZoomInMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty zoomOut(org.stu.video_recorder.DecreaseAmount request) {
+    public org.stu.video_recorder.DecreaseAmount zoomOut(org.stu.video_recorder.DecreaseAmount request) {
       return blockingUnaryCall(
           getChannel(), getZoomOutMethod(), getCallOptions(), request);
     }
@@ -569,6 +684,13 @@ public final class VideoRecorderGrpc {
     public org.stu.video_recorder.AudioStatus muteAudio(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
           getChannel(), getMuteAudioMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.stu.video_recorder.AudioStatus unmuteAudio(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getUnmuteAudioMethod(), getCallOptions(), request);
     }
 
     /**
@@ -631,7 +753,15 @@ public final class VideoRecorderGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> zoomIn(
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.RecordStatus> stopRecording(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getStopRecordingMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.IncreaseAmount> zoomIn(
         org.stu.video_recorder.IncreaseAmount request) {
       return futureUnaryCall(
           getChannel().newCall(getZoomInMethod(), getCallOptions()), request);
@@ -639,7 +769,7 @@ public final class VideoRecorderGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> zoomOut(
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.DecreaseAmount> zoomOut(
         org.stu.video_recorder.DecreaseAmount request) {
       return futureUnaryCall(
           getChannel().newCall(getZoomOutMethod(), getCallOptions()), request);
@@ -655,6 +785,14 @@ public final class VideoRecorderGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.AudioStatus> unmuteAudio(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUnmuteAudioMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.ResultMessage> setResolution(
         org.stu.video_recorder.Resolution request) {
       return futureUnaryCall(
@@ -665,11 +803,13 @@ public final class VideoRecorderGrpc {
   private static final int METHODID_ACTIVATE_VIDEO_RECORDER = 0;
   private static final int METHODID_DE_ACTIVATE_VIDEO_RECORDER = 1;
   private static final int METHODID_RECORD_VIDEO = 2;
-  private static final int METHODID_ZOOM_IN = 3;
-  private static final int METHODID_ZOOM_OUT = 4;
-  private static final int METHODID_MUTE_AUDIO = 5;
-  private static final int METHODID_LIST_RESOLUTIONS = 6;
-  private static final int METHODID_SET_RESOLUTION = 7;
+  private static final int METHODID_STOP_RECORDING = 3;
+  private static final int METHODID_ZOOM_IN = 4;
+  private static final int METHODID_ZOOM_OUT = 5;
+  private static final int METHODID_MUTE_AUDIO = 6;
+  private static final int METHODID_UNMUTE_AUDIO = 7;
+  private static final int METHODID_LIST_RESOLUTIONS = 8;
+  private static final int METHODID_SET_RESOLUTION = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -700,16 +840,24 @@ public final class VideoRecorderGrpc {
           serviceImpl.recordVideo((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<org.stu.video_recorder.RecordStatus>) responseObserver);
           break;
+        case METHODID_STOP_RECORDING:
+          serviceImpl.stopRecording((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.video_recorder.RecordStatus>) responseObserver);
+          break;
         case METHODID_ZOOM_IN:
           serviceImpl.zoomIn((org.stu.video_recorder.IncreaseAmount) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.stu.video_recorder.IncreaseAmount>) responseObserver);
           break;
         case METHODID_ZOOM_OUT:
           serviceImpl.zoomOut((org.stu.video_recorder.DecreaseAmount) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.stu.video_recorder.DecreaseAmount>) responseObserver);
           break;
         case METHODID_MUTE_AUDIO:
           serviceImpl.muteAudio((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.stu.video_recorder.AudioStatus>) responseObserver);
+          break;
+        case METHODID_UNMUTE_AUDIO:
+          serviceImpl.unmuteAudio((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<org.stu.video_recorder.AudioStatus>) responseObserver);
           break;
         case METHODID_LIST_RESOLUTIONS:
@@ -784,9 +932,11 @@ public final class VideoRecorderGrpc {
               .addMethod(getActivateVideoRecorderMethod())
               .addMethod(getDeActivateVideoRecorderMethod())
               .addMethod(getRecordVideoMethod())
+              .addMethod(getStopRecordingMethod())
               .addMethod(getZoomInMethod())
               .addMethod(getZoomOutMethod())
               .addMethod(getMuteAudioMethod())
+              .addMethod(getUnmuteAudioMethod())
               .addMethod(getListResolutionsMethod())
               .addMethod(getSetResolutionMethod())
               .build();

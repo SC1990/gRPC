@@ -1,16 +1,18 @@
 package client;
 
-
 import clientui.AudioSpeakerGUI;
 import com.google.protobuf.Empty;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.stu.audio_speaker.AudioInput;
 import org.stu.audio_speaker.AudioSpeakerGrpc;
+import org.stu.audio_speaker.AudioSpeakerOffStatus;
 import org.stu.audio_speaker.AudioSpeakerOnStatus;
-
+import org.stu.audio_speaker.CurrentVolume;
 
 public class AudioSpeakerClient implements ServiceObserver {
 
@@ -101,13 +103,115 @@ public class AudioSpeakerClient implements ServiceObserver {
                 }
             }.start();
 
-//            //unary request - one thing in, one thing out
-//            Empty request = Empty.newBuilder().build();
-//            BedStatus status = blockingStub.getStatus(request);
-//            System.out.println("Hello " + status);
         } catch (RuntimeException e) {
             System.out.println("RPC failed: " + e);
             return;
+        }
+    }
+
+    public void deactivateAudioSpeaker() {
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    AudioSpeakerOffStatus response = blockingStub.deActivateAudioSpeaker(request);
+
+                    ui.appendAudioSpeakerStatus(response.toString());
+                    ui.close();
+                    channel.shutdown();
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void increaseVolume(final int amount) {
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    CurrentVolume request = CurrentVolume.newBuilder().setVolume(amount).build();
+
+                    CurrentVolume response = blockingStub.increaseVolume(request);
+
+                    ui.appendAudioSpeakerStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void decreaseVolume(final int amount) {
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    CurrentVolume request = CurrentVolume.newBuilder().setVolume(amount).build();
+
+                    CurrentVolume response = blockingStub.decreaseVolume(request);
+
+                    ui.appendAudioSpeakerStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void setInput(final String input) {
+
+          try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    AudioInput input1 = AudioInput.newBuilder().setInputType(input).build();
+
+                    AudioInput response = blockingStub.setInput(input1);
+
+                    ui.appendAudioSpeakerStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+
+        }
+    }
+
+    public void listSupportedInputs() {
+
+         try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    Iterator<AudioInput> response = blockingStub.listSupportedInputs(request);
+
+                    while (response.hasNext()) {
+                        ui.appendAudioSpeakerStatus(response.next().toString());
+                    }
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+
         }
     }
 

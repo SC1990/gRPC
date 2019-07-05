@@ -97,26 +97,42 @@ public class AudioSpeakerServer {
         @Override
         public void deActivateAudioSpeaker(Empty request, StreamObserver<AudioSpeakerOffStatus> responseObserver) {
 
+            AudioSpeakerOffStatus status = AudioSpeakerOffStatus.newBuilder().setOffStatus("Audio speaker deactivated").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void increaseVolume(Empty request, StreamObserver<CurrentVolume> responseObserver) {
+        public void increaseVolume(CurrentVolume request, StreamObserver<CurrentVolume> responseObserver) {
 
+            CurrentVolume currentVolume = CurrentVolume.newBuilder().setVolume(request.getVolume()).build();
+            responseObserver.onNext(currentVolume);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void decreaseVolume(Empty request, StreamObserver<CurrentVolume> responseObserver) {
+        public void decreaseVolume(CurrentVolume request, StreamObserver<CurrentVolume> responseObserver) {
 
+            CurrentVolume currentVolume = CurrentVolume.newBuilder().setVolume(request.getVolume()).build();
+            responseObserver.onNext(currentVolume);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void setInput(AudioInput request, StreamObserver<Empty> responseObserver) {
+        public void setInput(AudioInput request, StreamObserver<AudioInput> responseObserver) {
 
+            AudioInput audioInput = AudioInput.newBuilder().setInputType(request.getInputType()).build();
+            responseObserver.onNext(audioInput);
+            responseObserver.onCompleted();
         }
 
         @Override
         public void listSupportedInputs(Empty request, StreamObserver<AudioInput> responseObserver) {
 
+            AudioInput audioInput = AudioInput.newBuilder().setInputType("HDMI || " + "VGA || " + "USB-A || " + "USB-B || " + "USB-C || " + "IEEE 1394 || " + "DVI").build();
+            responseObserver.onNext(audioInput);
+            responseObserver.onCompleted();
         }
 
     }

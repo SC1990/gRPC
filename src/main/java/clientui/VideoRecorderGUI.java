@@ -14,6 +14,7 @@ import client.VideoRecorderClient;
 public class VideoRecorderGUI extends javax.swing.JFrame {
 
     private VideoRecorderClient client;
+
     /**
      * Creates new form VideoRecorderGUI
      */
@@ -63,10 +64,19 @@ public class VideoRecorderGUI extends javax.swing.JFrame {
         vidRecShutdownBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         vidRecShutdownBtn.setForeground(new java.awt.Color(255, 51, 0));
         vidRecShutdownBtn.setText("Shut down");
+        vidRecShutdownBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vidRecShutdownBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(vidRecShutdownBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 500, 270, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void vidRecShutdownBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vidRecShutdownBtnActionPerformed
+        close();
+    }//GEN-LAST:event_vidRecShutdownBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,6 +115,10 @@ public class VideoRecorderGUI extends javax.swing.JFrame {
 
     public void appendVideoRecorderStatus(String toString) {
         videoStatusTA.setText(toString);
+    }
+
+    public void close() {
+        this.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,14 +8,14 @@ public interface ResolutionOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string ratio = 1;</code>
+   * <code>string res = 1;</code>
    */
-  java.lang.String getRatio();
+  java.lang.String getRes();
   /**
-   * <code>string ratio = 1;</code>
+   * <code>string res = 1;</code>
    */
   com.google.protobuf.ByteString
-      getRatioBytes();
+      getResBytes();
 
   /**
    * <code>bool supported = 2;</code>

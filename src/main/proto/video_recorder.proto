@@ -12,9 +12,11 @@ service VideoRecorder {
   rpc activateVideoRecorder(google.protobuf.Empty) returns (VideoRecorderOnStatus){}
   rpc deActivateVideoRecorder(google.protobuf.Empty) returns (VideoRecorderOffStatus){}
   rpc recordVideo(google.protobuf.Empty) returns (RecordStatus){}
-  rpc zoomIn(IncreaseAmount) returns (google.protobuf.Empty){}
-  rpc zoomOut(DecreaseAmount) returns (google.protobuf.Empty){}
+  rpc stopRecording(google.protobuf.Empty) returns (RecordStatus){}
+  rpc zoomIn(IncreaseAmount) returns (IncreaseAmount){}
+  rpc zoomOut(DecreaseAmount) returns (DecreaseAmount){}
   rpc muteAudio(google.protobuf.Empty) returns (AudioStatus){}
+  rpc unmuteAudio(google.protobuf.Empty) returns (AudioStatus){}
   rpc listResolutions(google.protobuf.Empty) returns (stream Resolution){}
   rpc setResolution(Resolution) returns (ResultMessage){}
 
@@ -45,7 +47,7 @@ message AudioStatus{
 }
 
 message Resolution{
-  string ratio = 1;
+  string res = 1;
   bool supported = 2;
 }
 

@@ -5,11 +5,18 @@ import com.google.protobuf.Empty;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.stu.video_recorder.AudioStatus;
+import org.stu.video_recorder.DecreaseAmount;
+import org.stu.video_recorder.IncreaseAmount;
+import org.stu.video_recorder.RecordStatus;
+import org.stu.video_recorder.Resolution;
+import org.stu.video_recorder.ResultMessage;
 import org.stu.video_recorder.VideoRecorderGrpc;
+import org.stu.video_recorder.VideoRecorderOffStatus;
 import org.stu.video_recorder.VideoRecorderOnStatus;
-
 
 public class VideoRecorderClient implements ServiceObserver {
 
@@ -100,13 +107,207 @@ public class VideoRecorderClient implements ServiceObserver {
                 }
             }.start();
 
-//            //unary request - one thing in, one thing out
-//            Empty request = Empty.newBuilder().build();
-//            BedStatus status = blockingStub.getStatus(request);
-//            System.out.println("Hello " + status);
         } catch (RuntimeException e) {
             System.out.println("RPC failed: " + e);
             return;
+        }
+    }
+
+    public void deActivateVideoRecorder() {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    VideoRecorderOffStatus response = blockingStub.deActivateVideoRecorder(request);
+
+                    ui.appendVideoRecorderStatus(response.toString());
+                    ui.close();
+                    channel.shutdown();
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+        ;
+    }
+
+    public void recordVideo() {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    RecordStatus response = blockingStub.recordVideo(request);
+
+                    ui.appendVideoRecorderStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+    }
+    
+    public void stopRecording() {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    RecordStatus response = blockingStub.recordVideo(request);
+
+                    ui.appendVideoRecorderStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+    }
+
+    public void zoomIn(final int percentage) {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    IncreaseAmount request = IncreaseAmount.newBuilder().setPercentage(percentage).build();
+
+                    IncreaseAmount response = blockingStub.zoomIn(request);
+
+                    ui.appendVideoRecorderStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void zoomOut(final int percentage) {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    DecreaseAmount request = DecreaseAmount.newBuilder().setPercentage(percentage).build();
+
+                    DecreaseAmount response = blockingStub.zoomOut(request);
+
+                    ui.appendVideoRecorderStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void muteAudio() {
+
+           try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    AudioStatus response = blockingStub.muteAudio(request);
+
+                    ui.appendVideoRecorderStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+    
+     public void unmuteAudio() {
+
+           try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    AudioStatus response = blockingStub.muteAudio(request);
+
+                    ui.appendVideoRecorderStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+   
+    public void listResolutions() {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    Iterator<Resolution> response = blockingStub.listResolutions(request);
+
+                    while (response.hasNext()) {
+                        ui.appendVideoRecorderStatus(response.next().toString());
+                    }
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+
+        }
+    }
+
+    
+    public void setResolution(final String res) {
+
+         try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Resolution resolution = Resolution.newBuilder().setRes(res).build();
+
+                    ResultMessage response = blockingStub.setResolution(resolution);
+
+                    ui.appendVideoRecorderStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+
         }
     }
 

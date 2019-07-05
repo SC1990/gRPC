@@ -96,6 +96,7 @@ public class ControlPanelClient implements ServiceObserver {
         try {
             //new thread so client and server can run concurrently
             new Thread() {
+                @Override
                 public void run() {
                     InputMachine request = InputMachine.newBuilder().build();
 
@@ -114,6 +115,8 @@ public class ControlPanelClient implements ServiceObserver {
             System.out.println("RPC failed: " + e);
             return;
         }
+        
+        
     }
 
     public void switchService(String name) {

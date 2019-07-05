@@ -75,28 +75,31 @@ public final class VideoRecorderProto {
       "ecordStatus\022\016\n\006status\030\001 \001(\t\"$\n\016IncreaseA" +
       "mount\022\022\n\npercentage\030\001 \001(\005\"$\n\016DecreaseAmo" +
       "unt\022\022\n\npercentage\030\001 \001(\005\"\036\n\013AudioStatus\022\017" +
-      "\n\007aStatus\030\001 \001(\t\".\n\nResolution\022\r\n\005ratio\030\001" +
-      " \001(\t\022\021\n\tsupported\030\002 \001(\010\":\n\016AllResolution" +
-      "s\022(\n\004type\030\001 \003(\0132\032.video_recorder.Resolut" +
-      "ion\" \n\rResultMessage\022\017\n\007message\030\001 \001(\t2\363\004" +
-      "\n\rVideoRecorder\022X\n\025activateVideoRecorder" +
-      "\022\026.google.protobuf.Empty\032%.video_recorde" +
-      "r.VideoRecorderOnStatus\"\000\022[\n\027deActivateV" +
-      "ideoRecorder\022\026.google.protobuf.Empty\032&.v" +
-      "ideo_recorder.VideoRecorderOffStatus\"\000\022E" +
-      "\n\013recordVideo\022\026.google.protobuf.Empty\032\034." +
-      "video_recorder.RecordStatus\"\000\022B\n\006zoomIn\022" +
-      "\036.video_recorder.IncreaseAmount\032\026.google" +
-      ".protobuf.Empty\"\000\022C\n\007zoomOut\022\036.video_rec" +
-      "order.DecreaseAmount\032\026.google.protobuf.E" +
-      "mpty\"\000\022B\n\tmuteAudio\022\026.google.protobuf.Em" +
-      "pty\032\033.video_recorder.AudioStatus\"\000\022I\n\017li" +
-      "stResolutions\022\026.google.protobuf.Empty\032\032." +
-      "video_recorder.Resolution\"\0000\001\022L\n\rsetReso" +
-      "lution\022\032.video_recorder.Resolution\032\035.vid" +
-      "eo_recorder.ResultMessage\"\000B.\n\026org.stu.v" +
-      "ideo_recorderB\022VideoRecorderProtoP\001b\006pro" +
-      "to3"
+      "\n\007aStatus\030\001 \001(\t\",\n\nResolution\022\013\n\003res\030\001 \001" +
+      "(\t\022\021\n\tsupported\030\002 \001(\010\":\n\016AllResolutions\022" +
+      "(\n\004type\030\001 \003(\0132\032.video_recorder.Resolutio" +
+      "n\" \n\rResultMessage\022\017\n\007message\030\001 \001(\t2\222\006\n\r" +
+      "VideoRecorder\022X\n\025activateVideoRecorder\022\026" +
+      ".google.protobuf.Empty\032%.video_recorder." +
+      "VideoRecorderOnStatus\"\000\022[\n\027deActivateVid" +
+      "eoRecorder\022\026.google.protobuf.Empty\032&.vid" +
+      "eo_recorder.VideoRecorderOffStatus\"\000\022E\n\013" +
+      "recordVideo\022\026.google.protobuf.Empty\032\034.vi" +
+      "deo_recorder.RecordStatus\"\000\022G\n\rstopRecor" +
+      "ding\022\026.google.protobuf.Empty\032\034.video_rec" +
+      "order.RecordStatus\"\000\022J\n\006zoomIn\022\036.video_r" +
+      "ecorder.IncreaseAmount\032\036.video_recorder." +
+      "IncreaseAmount\"\000\022K\n\007zoomOut\022\036.video_reco" +
+      "rder.DecreaseAmount\032\036.video_recorder.Dec" +
+      "reaseAmount\"\000\022B\n\tmuteAudio\022\026.google.prot" +
+      "obuf.Empty\032\033.video_recorder.AudioStatus\"" +
+      "\000\022D\n\013unmuteAudio\022\026.google.protobuf.Empty" +
+      "\032\033.video_recorder.AudioStatus\"\000\022I\n\017listR" +
+      "esolutions\022\026.google.protobuf.Empty\032\032.vid" +
+      "eo_recorder.Resolution\"\0000\001\022L\n\rsetResolut" +
+      "ion\022\032.video_recorder.Resolution\032\035.video_" +
+      "recorder.ResultMessage\"\000B.\n\026org.stu.vide" +
+      "o_recorderB\022VideoRecorderProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -152,7 +155,7 @@ public final class VideoRecorderProto {
     internal_static_video_recorder_Resolution_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_video_recorder_Resolution_descriptor,
-        new java.lang.String[] { "Ratio", "Supported", });
+        new java.lang.String[] { "Res", "Supported", });
     internal_static_video_recorder_AllResolutions_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_video_recorder_AllResolutions_fieldAccessorTable = new

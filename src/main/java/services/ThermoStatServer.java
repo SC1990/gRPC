@@ -99,31 +99,64 @@ public class ThermoStatServer {
         @Override
         public void deActivateThermostat(Empty request, StreamObserver<ThermostatOffStatus> responseObserver) {
 
+            ThermostatOffStatus status = ThermostatOffStatus.newBuilder().setOffStatus("Thermostat deactivated").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
         public void triggerFan(Empty request, StreamObserver<FanStatus> responseObserver) {
 
+            FanStatus status = FanStatus.newBuilder().setStatus("Fan activated").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
+        }
+        
+        @Override
+        public void shutdownFan(Empty request, StreamObserver<FanStatus> responseObserver) {
+
+            FanStatus status = FanStatus.newBuilder().setStatus("Fan deactivated").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void setFanMode(FanMode request, StreamObserver<Empty> responseObserver) {
+        public void setFanMode(FanMode request, StreamObserver<FanMode> responseObserver) {
 
+            FanMode status = FanMode.newBuilder().setMode(request.getMode()).build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void increaseTemp(Empty request, StreamObserver<CurrentTemp> responseObserver) {
+        public void increaseTemp(CurrentTemp currentTemp, StreamObserver<CurrentTemp> responseObserver) {
 
+            CurrentTemp status = CurrentTemp.newBuilder().setTemp(currentTemp.getTemp()).build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void decreaseTemp(Empty request, StreamObserver<CurrentTemp> responseObserver) {
+        public void decreaseTemp(CurrentTemp currentTemp, StreamObserver<CurrentTemp> responseObserver) {
 
+            CurrentTemp status = CurrentTemp.newBuilder().setTemp(currentTemp.getTemp()).build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void setShutDownTime(Hours request, StreamObserver<Empty> responseObserver) {
+        public void setShutDownTime(Hours request, StreamObserver<Hours> responseObserver) {
 
+            Hours status = Hours.newBuilder().setNumHours(request.getNumHours()).build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
     }

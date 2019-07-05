@@ -91,28 +91,28 @@ public final class AudioSpeakerGrpc {
      return getDeActivateAudioSpeakerMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+  private static volatile io.grpc.MethodDescriptor<org.stu.audio_speaker.CurrentVolume,
       org.stu.audio_speaker.CurrentVolume> getIncreaseVolumeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "increaseVolume",
-      requestType = com.google.protobuf.Empty.class,
+      requestType = org.stu.audio_speaker.CurrentVolume.class,
       responseType = org.stu.audio_speaker.CurrentVolume.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+  public static io.grpc.MethodDescriptor<org.stu.audio_speaker.CurrentVolume,
       org.stu.audio_speaker.CurrentVolume> getIncreaseVolumeMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.audio_speaker.CurrentVolume> getIncreaseVolumeMethod;
+    io.grpc.MethodDescriptor<org.stu.audio_speaker.CurrentVolume, org.stu.audio_speaker.CurrentVolume> getIncreaseVolumeMethod;
     if ((getIncreaseVolumeMethod = AudioSpeakerGrpc.getIncreaseVolumeMethod) == null) {
       synchronized (AudioSpeakerGrpc.class) {
         if ((getIncreaseVolumeMethod = AudioSpeakerGrpc.getIncreaseVolumeMethod) == null) {
           AudioSpeakerGrpc.getIncreaseVolumeMethod = getIncreaseVolumeMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.audio_speaker.CurrentVolume>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.audio_speaker.CurrentVolume, org.stu.audio_speaker.CurrentVolume>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "audio_speaker.AudioSpeaker", "increaseVolume"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.audio_speaker.CurrentVolume.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.audio_speaker.CurrentVolume.getDefaultInstance()))
                   .setSchemaDescriptor(new AudioSpeakerMethodDescriptorSupplier("increaseVolume"))
@@ -123,28 +123,28 @@ public final class AudioSpeakerGrpc {
      return getIncreaseVolumeMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+  private static volatile io.grpc.MethodDescriptor<org.stu.audio_speaker.CurrentVolume,
       org.stu.audio_speaker.CurrentVolume> getDecreaseVolumeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "decreaseVolume",
-      requestType = com.google.protobuf.Empty.class,
+      requestType = org.stu.audio_speaker.CurrentVolume.class,
       responseType = org.stu.audio_speaker.CurrentVolume.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+  public static io.grpc.MethodDescriptor<org.stu.audio_speaker.CurrentVolume,
       org.stu.audio_speaker.CurrentVolume> getDecreaseVolumeMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.stu.audio_speaker.CurrentVolume> getDecreaseVolumeMethod;
+    io.grpc.MethodDescriptor<org.stu.audio_speaker.CurrentVolume, org.stu.audio_speaker.CurrentVolume> getDecreaseVolumeMethod;
     if ((getDecreaseVolumeMethod = AudioSpeakerGrpc.getDecreaseVolumeMethod) == null) {
       synchronized (AudioSpeakerGrpc.class) {
         if ((getDecreaseVolumeMethod = AudioSpeakerGrpc.getDecreaseVolumeMethod) == null) {
           AudioSpeakerGrpc.getDecreaseVolumeMethod = getDecreaseVolumeMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.stu.audio_speaker.CurrentVolume>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.audio_speaker.CurrentVolume, org.stu.audio_speaker.CurrentVolume>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "audio_speaker.AudioSpeaker", "decreaseVolume"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.audio_speaker.CurrentVolume.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.audio_speaker.CurrentVolume.getDefaultInstance()))
                   .setSchemaDescriptor(new AudioSpeakerMethodDescriptorSupplier("decreaseVolume"))
@@ -156,21 +156,21 @@ public final class AudioSpeakerGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.stu.audio_speaker.AudioInput,
-      com.google.protobuf.Empty> getSetInputMethod;
+      org.stu.audio_speaker.AudioInput> getSetInputMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "setInput",
       requestType = org.stu.audio_speaker.AudioInput.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = org.stu.audio_speaker.AudioInput.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.stu.audio_speaker.AudioInput,
-      com.google.protobuf.Empty> getSetInputMethod() {
-    io.grpc.MethodDescriptor<org.stu.audio_speaker.AudioInput, com.google.protobuf.Empty> getSetInputMethod;
+      org.stu.audio_speaker.AudioInput> getSetInputMethod() {
+    io.grpc.MethodDescriptor<org.stu.audio_speaker.AudioInput, org.stu.audio_speaker.AudioInput> getSetInputMethod;
     if ((getSetInputMethod = AudioSpeakerGrpc.getSetInputMethod) == null) {
       synchronized (AudioSpeakerGrpc.class) {
         if ((getSetInputMethod = AudioSpeakerGrpc.getSetInputMethod) == null) {
           AudioSpeakerGrpc.getSetInputMethod = getSetInputMethod = 
-              io.grpc.MethodDescriptor.<org.stu.audio_speaker.AudioInput, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<org.stu.audio_speaker.AudioInput, org.stu.audio_speaker.AudioInput>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "audio_speaker.AudioSpeaker", "setInput"))
@@ -178,7 +178,7 @@ public final class AudioSpeakerGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.stu.audio_speaker.AudioInput.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  org.stu.audio_speaker.AudioInput.getDefaultInstance()))
                   .setSchemaDescriptor(new AudioSpeakerMethodDescriptorSupplier("setInput"))
                   .build();
           }
@@ -262,14 +262,14 @@ public final class AudioSpeakerGrpc {
 
     /**
      */
-    public void increaseVolume(com.google.protobuf.Empty request,
+    public void increaseVolume(org.stu.audio_speaker.CurrentVolume request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.CurrentVolume> responseObserver) {
       asyncUnimplementedUnaryCall(getIncreaseVolumeMethod(), responseObserver);
     }
 
     /**
      */
-    public void decreaseVolume(com.google.protobuf.Empty request,
+    public void decreaseVolume(org.stu.audio_speaker.CurrentVolume request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.CurrentVolume> responseObserver) {
       asyncUnimplementedUnaryCall(getDecreaseVolumeMethod(), responseObserver);
     }
@@ -277,7 +277,7 @@ public final class AudioSpeakerGrpc {
     /**
      */
     public void setInput(org.stu.audio_speaker.AudioInput request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioInput> responseObserver) {
       asyncUnimplementedUnaryCall(getSetInputMethod(), responseObserver);
     }
 
@@ -308,14 +308,14 @@ public final class AudioSpeakerGrpc {
             getIncreaseVolumeMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.google.protobuf.Empty,
+                org.stu.audio_speaker.CurrentVolume,
                 org.stu.audio_speaker.CurrentVolume>(
                   this, METHODID_INCREASE_VOLUME)))
           .addMethod(
             getDecreaseVolumeMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.google.protobuf.Empty,
+                org.stu.audio_speaker.CurrentVolume,
                 org.stu.audio_speaker.CurrentVolume>(
                   this, METHODID_DECREASE_VOLUME)))
           .addMethod(
@@ -323,7 +323,7 @@ public final class AudioSpeakerGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.stu.audio_speaker.AudioInput,
-                com.google.protobuf.Empty>(
+                org.stu.audio_speaker.AudioInput>(
                   this, METHODID_SET_INPUT)))
           .addMethod(
             getListSupportedInputsMethod(),
@@ -372,7 +372,7 @@ public final class AudioSpeakerGrpc {
 
     /**
      */
-    public void increaseVolume(com.google.protobuf.Empty request,
+    public void increaseVolume(org.stu.audio_speaker.CurrentVolume request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.CurrentVolume> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getIncreaseVolumeMethod(), getCallOptions()), request, responseObserver);
@@ -380,7 +380,7 @@ public final class AudioSpeakerGrpc {
 
     /**
      */
-    public void decreaseVolume(com.google.protobuf.Empty request,
+    public void decreaseVolume(org.stu.audio_speaker.CurrentVolume request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.CurrentVolume> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getDecreaseVolumeMethod(), getCallOptions()), request, responseObserver);
@@ -389,7 +389,7 @@ public final class AudioSpeakerGrpc {
     /**
      */
     public void setInput(org.stu.audio_speaker.AudioInput request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioInput> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSetInputMethod(), getCallOptions()), request, responseObserver);
     }
@@ -437,21 +437,21 @@ public final class AudioSpeakerGrpc {
 
     /**
      */
-    public org.stu.audio_speaker.CurrentVolume increaseVolume(com.google.protobuf.Empty request) {
+    public org.stu.audio_speaker.CurrentVolume increaseVolume(org.stu.audio_speaker.CurrentVolume request) {
       return blockingUnaryCall(
           getChannel(), getIncreaseVolumeMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.stu.audio_speaker.CurrentVolume decreaseVolume(com.google.protobuf.Empty request) {
+    public org.stu.audio_speaker.CurrentVolume decreaseVolume(org.stu.audio_speaker.CurrentVolume request) {
       return blockingUnaryCall(
           getChannel(), getDecreaseVolumeMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty setInput(org.stu.audio_speaker.AudioInput request) {
+    public org.stu.audio_speaker.AudioInput setInput(org.stu.audio_speaker.AudioInput request) {
       return blockingUnaryCall(
           getChannel(), getSetInputMethod(), getCallOptions(), request);
     }
@@ -502,7 +502,7 @@ public final class AudioSpeakerGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.audio_speaker.CurrentVolume> increaseVolume(
-        com.google.protobuf.Empty request) {
+        org.stu.audio_speaker.CurrentVolume request) {
       return futureUnaryCall(
           getChannel().newCall(getIncreaseVolumeMethod(), getCallOptions()), request);
     }
@@ -510,14 +510,14 @@ public final class AudioSpeakerGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.audio_speaker.CurrentVolume> decreaseVolume(
-        com.google.protobuf.Empty request) {
+        org.stu.audio_speaker.CurrentVolume request) {
       return futureUnaryCall(
           getChannel().newCall(getDecreaseVolumeMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> setInput(
+    public com.google.common.util.concurrent.ListenableFuture<org.stu.audio_speaker.AudioInput> setInput(
         org.stu.audio_speaker.AudioInput request) {
       return futureUnaryCall(
           getChannel().newCall(getSetInputMethod(), getCallOptions()), request);
@@ -557,16 +557,16 @@ public final class AudioSpeakerGrpc {
               (io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioSpeakerOffStatus>) responseObserver);
           break;
         case METHODID_INCREASE_VOLUME:
-          serviceImpl.increaseVolume((com.google.protobuf.Empty) request,
+          serviceImpl.increaseVolume((org.stu.audio_speaker.CurrentVolume) request,
               (io.grpc.stub.StreamObserver<org.stu.audio_speaker.CurrentVolume>) responseObserver);
           break;
         case METHODID_DECREASE_VOLUME:
-          serviceImpl.decreaseVolume((com.google.protobuf.Empty) request,
+          serviceImpl.decreaseVolume((org.stu.audio_speaker.CurrentVolume) request,
               (io.grpc.stub.StreamObserver<org.stu.audio_speaker.CurrentVolume>) responseObserver);
           break;
         case METHODID_SET_INPUT:
           serviceImpl.setInput((org.stu.audio_speaker.AudioInput) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioInput>) responseObserver);
           break;
         case METHODID_LIST_SUPPORTED_INPUTS:
           serviceImpl.listSupportedInputs((com.google.protobuf.Empty) request,

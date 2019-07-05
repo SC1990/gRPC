@@ -8,12 +8,12 @@ public interface InputTypeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string type = 1;</code>
+   * <code>string supported_inputs = 1;</code>
    */
-  java.lang.String getType();
+  java.lang.String getSupportedInputs();
   /**
-   * <code>string type = 1;</code>
+   * <code>string supported_inputs = 1;</code>
    */
   com.google.protobuf.ByteString
-      getTypeBytes();
+      getSupportedInputsBytes();
 }

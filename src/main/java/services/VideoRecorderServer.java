@@ -101,36 +101,80 @@ public class VideoRecorderServer {
         @Override
         public void deActivateVideoRecorder(Empty request, StreamObserver<VideoRecorderOffStatus> responseObserver) {
 
+            VideoRecorderOffStatus status = VideoRecorderOffStatus.newBuilder().setOffStatus("Video recorder deactivated").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
         public void recordVideo(Empty request, StreamObserver<RecordStatus> responseObserver) {
 
+            RecordStatus status = RecordStatus.newBuilder().setStatus("Recording.....").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void zoomIn(IncreaseAmount request, StreamObserver<Empty> responseObserver) {
+        public void stopRecording(Empty request, StreamObserver<RecordStatus> responseObserver) {
 
+            RecordStatus status = RecordStatus.newBuilder().setStatus("Recording stopped").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
-        public void zoomOut(DecreaseAmount request, StreamObserver<Empty> responseObserver) {
+        public void zoomIn(IncreaseAmount request, StreamObserver<IncreaseAmount> responseObserver) {
 
+            IncreaseAmount status = IncreaseAmount.newBuilder().setPercentage(request.getPercentage()).build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
+        }
+
+        @Override
+        public void zoomOut(DecreaseAmount request, StreamObserver<DecreaseAmount> responseObserver) {
+
+            DecreaseAmount status = DecreaseAmount.newBuilder().setPercentage(request.getPercentage()).build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
         public void muteAudio(Empty request, StreamObserver<AudioStatus> responseObserver) {
 
+            AudioStatus status = AudioStatus.newBuilder().setAStatus("Audio muted").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
+        }
+
+        @Override
+        public void unmuteAudio(Empty request, StreamObserver<AudioStatus> responseObserver) {
+
+            AudioStatus status = AudioStatus.newBuilder().setAStatus("Audio unmuted").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
         @Override
         public void listResolutions(Empty request, StreamObserver<Resolution> responseObserver) {
 
+            Resolution resolution1 = Resolution.newBuilder().setRes("720p || " + "1080p || " + "1440p || " + "2k || " + "4k").build();
+            responseObserver.onNext(resolution1);
+            responseObserver.onCompleted();
         }
 
         @Override
         public void setResolution(Resolution request, StreamObserver<ResultMessage> responseObserver) {
 
+            ResultMessage resultMessage = ResultMessage.newBuilder().setMessage(request.getRes()).build();
+            responseObserver.onNext(resultMessage);
+            responseObserver.onCompleted();
         }
 
     }

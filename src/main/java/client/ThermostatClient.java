@@ -7,9 +7,13 @@ import io.grpc.ManagedChannelBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.stu.thermostat.CurrentTemp;
+import org.stu.thermostat.FanMode;
+import org.stu.thermostat.FanStatus;
+import org.stu.thermostat.Hours;
 import org.stu.thermostat.ThermostatGrpc;
+import org.stu.thermostat.ThermostatOffStatus;
 import org.stu.thermostat.ThermostatOnStatus;
-
 
 public class ThermostatClient implements ServiceObserver {
 
@@ -104,6 +108,158 @@ public class ThermostatClient implements ServiceObserver {
 //            Empty request = Empty.newBuilder().build();
 //            BedStatus status = blockingStub.getStatus(request);
 //            System.out.println("Hello " + status);
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void deActivateThermostat() {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    ThermostatOffStatus response = blockingStub.deActivateThermostat(request);
+
+                    ui.appendThermostatStatus(response.toString());
+                    ui.close();
+                    channel.shutdown();
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void triggerFan() {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    FanStatus response = blockingStub.triggerFan(request);
+
+                    ui.appendThermostatStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+    }
+    
+    public void shutdownFan() {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    FanStatus response = blockingStub.shutdownFan(request);
+
+                    ui.appendThermostatStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+    }
+
+    public void setFanMode(final String mode) {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    FanMode request = FanMode.newBuilder().setMode(mode).build();
+
+                    FanMode response = blockingStub.setFanMode(request);
+
+                    ui.appendThermostatStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+
+    }
+
+    public void increaseTemp(final int amount) {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    CurrentTemp request = CurrentTemp.newBuilder().setTemp(amount).build();
+
+                    CurrentTemp response = blockingStub.increaseTemp(request);
+
+                    ui.appendThermostatStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void decreaseTemp(final int amount) {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    CurrentTemp request = CurrentTemp.newBuilder().setTemp(amount).build();
+
+                    CurrentTemp response = blockingStub.decreaseTemp(request);
+
+                    ui.appendThermostatStatus(response.toString());
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
+    }
+
+    public void setShutDownTime(final int hours) {
+
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Hours request = Hours.newBuilder().setNumHours(hours).build();
+
+                    Hours response = blockingStub.setShutDownTime(request);
+
+                    ui.appendThermostatStatus(response.toString());
+
+                }
+            }.start();
+
         } catch (RuntimeException e) {
             System.out.println("RPC failed: " + e);
             return;

@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private InputType() {
-    type_ = "";
+    supportedInputs_ = "";
   }
 
   @java.lang.Override
@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            type_ = s;
+            supportedInputs_ = s;
             break;
           }
           default: {
@@ -81,34 +81,34 @@ private static final long serialVersionUID = 0L;
             org.stu.projector.InputType.class, org.stu.projector.InputType.Builder.class);
   }
 
-  public static final int TYPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object type_;
+  public static final int SUPPORTED_INPUTS_FIELD_NUMBER = 1;
+  private volatile java.lang.Object supportedInputs_;
   /**
-   * <code>string type = 1;</code>
+   * <code>string supported_inputs = 1;</code>
    */
-  public java.lang.String getType() {
-    java.lang.Object ref = type_;
+  public java.lang.String getSupportedInputs() {
+    java.lang.Object ref = supportedInputs_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      type_ = s;
+      supportedInputs_ = s;
       return s;
     }
   }
   /**
-   * <code>string type = 1;</code>
+   * <code>string supported_inputs = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getTypeBytes() {
-    java.lang.Object ref = type_;
+      getSupportedInputsBytes() {
+    java.lang.Object ref = supportedInputs_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      type_ = b;
+      supportedInputs_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -129,8 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
+    if (!getSupportedInputsBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, supportedInputs_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
+    if (!getSupportedInputsBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, supportedInputs_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -160,8 +160,8 @@ private static final long serialVersionUID = 0L;
     org.stu.projector.InputType other = (org.stu.projector.InputType) obj;
 
     boolean result = true;
-    result = result && getType()
-        .equals(other.getType());
+    result = result && getSupportedInputs()
+        .equals(other.getSupportedInputs());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -173,8 +173,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getType().hashCode();
+    hash = (37 * hash) + SUPPORTED_INPUTS_FIELD_NUMBER;
+    hash = (53 * hash) + getSupportedInputs().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -308,7 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      type_ = "";
+      supportedInputs_ = "";
 
       return this;
     }
@@ -336,7 +336,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.stu.projector.InputType buildPartial() {
       org.stu.projector.InputType result = new org.stu.projector.InputType(this);
-      result.type_ = type_;
+      result.supportedInputs_ = supportedInputs_;
       onBuilt();
       return result;
     }
@@ -385,8 +385,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.stu.projector.InputType other) {
       if (other == org.stu.projector.InputType.getDefaultInstance()) return this;
-      if (!other.getType().isEmpty()) {
-        type_ = other.type_;
+      if (!other.getSupportedInputs().isEmpty()) {
+        supportedInputs_ = other.supportedInputs_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -418,71 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object type_ = "";
+    private java.lang.Object supportedInputs_ = "";
     /**
-     * <code>string type = 1;</code>
+     * <code>string supported_inputs = 1;</code>
      */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
+    public java.lang.String getSupportedInputs() {
+      java.lang.Object ref = supportedInputs_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        type_ = s;
+        supportedInputs_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string type = 1;</code>
+     * <code>string supported_inputs = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
+        getSupportedInputsBytes() {
+      java.lang.Object ref = supportedInputs_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        type_ = b;
+        supportedInputs_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string type = 1;</code>
+     * <code>string supported_inputs = 1;</code>
      */
-    public Builder setType(
+    public Builder setSupportedInputs(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      type_ = value;
+      supportedInputs_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string type = 1;</code>
+     * <code>string supported_inputs = 1;</code>
      */
-    public Builder clearType() {
+    public Builder clearSupportedInputs() {
       
-      type_ = getDefaultInstance().getType();
+      supportedInputs_ = getDefaultInstance().getSupportedInputs();
       onChanged();
       return this;
     }
     /**
-     * <code>string type = 1;</code>
+     * <code>string supported_inputs = 1;</code>
      */
-    public Builder setTypeBytes(
+    public Builder setSupportedInputsBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      type_ = value;
+      supportedInputs_ = value;
       onChanged();
       return this;
     }

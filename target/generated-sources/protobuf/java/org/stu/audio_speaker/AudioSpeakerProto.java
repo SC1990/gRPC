@@ -48,20 +48,21 @@ public final class AudioSpeakerProto {
       "rOnStatus\022\020\n\010onStatus\030\001 \001(\t\"*\n\025AudioSpea" +
       "kerOffStatus\022\021\n\toffStatus\030\001 \001(\t\"\037\n\rCurre" +
       "ntVolume\022\016\n\006volume\030\001 \001(\005\"\037\n\nAudioInput\022\021" +
-      "\n\tinputType\030\001 \001(\t2\342\003\n\014AudioSpeaker\022U\n\024ac" +
+      "\n\tinputType\030\001 \001(\t2\361\003\n\014AudioSpeaker\022U\n\024ac" +
       "tivateAudioSpeaker\022\026.google.protobuf.Emp" +
       "ty\032#.audio_speaker.AudioSpeakerOnStatus\"" +
       "\000\022X\n\026deActivateAudioSpeaker\022\026.google.pro" +
       "tobuf.Empty\032$.audio_speaker.AudioSpeaker" +
-      "OffStatus\"\000\022H\n\016increaseVolume\022\026.google.p" +
-      "rotobuf.Empty\032\034.audio_speaker.CurrentVol" +
-      "ume\"\000\022H\n\016decreaseVolume\022\026.google.protobu" +
-      "f.Empty\032\034.audio_speaker.CurrentVolume\"\000\022" +
-      "?\n\010setInput\022\031.audio_speaker.AudioInput\032\026" +
-      ".google.protobuf.Empty\"\000\022L\n\023ListSupporte" +
-      "dInputs\022\026.google.protobuf.Empty\032\031.audio_" +
-      "speaker.AudioInput\"\0000\001B,\n\025org.stu.audio_" +
-      "speakerB\021AudioSpeakerProtoP\001b\006proto3"
+      "OffStatus\"\000\022N\n\016increaseVolume\022\034.audio_sp" +
+      "eaker.CurrentVolume\032\034.audio_speaker.Curr" +
+      "entVolume\"\000\022N\n\016decreaseVolume\022\034.audio_sp" +
+      "eaker.CurrentVolume\032\034.audio_speaker.Curr" +
+      "entVolume\"\000\022B\n\010setInput\022\031.audio_speaker." +
+      "AudioInput\032\031.audio_speaker.AudioInput\"\000\022" +
+      "L\n\023ListSupportedInputs\022\026.google.protobuf" +
+      ".Empty\032\031.audio_speaker.AudioInput\"\0000\001B,\n" +
+      "\025org.stu.audio_speakerB\021AudioSpeakerProt" +
+      "oP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

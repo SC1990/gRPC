@@ -14,13 +14,14 @@ service Projector{
   rpc deActivateProjector(google.protobuf.Empty) returns (ProjectorOffStatus){}
   rpc setInputType(InputType) returns (InputType){}
   rpc listInputs(google.protobuf.Empty) returns (stream InputType){}
-  rpc increaseBrightness(google.protobuf.Empty) returns (BrightnessLevel){}
-  rpc decreaseBrightness(google.protobuf.Empty) returns (BrightnessLevel){}
-  rpc setAspectRatio(AspectRatio) returns (google.protobuf.Empty){}
+  rpc increaseBrightness(BrightnessLevel) returns (BrightnessLevel){}
+  rpc decreaseBrightness(BrightnessLevel) returns (BrightnessLevel){}
+  rpc setAspectRatio(AspectRatio) returns (AspectRatio){}
   rpc listRatios(google.protobuf.Empty) returns (stream AspectRatio){}
-  rpc setResolution(Resolution) returns (google.protobuf.Empty){}
-  rpc setOrientation(Orientation) returns (google.protobuf.Empty){}
-  
+  rpc setResolution(Resolution) returns (Resolution){}
+  rpc listAvailableResolutions(google.protobuf.Empty) returns (stream Resolution){}
+  rpc setOrientation(Orientation) returns (Orientation){}
+  rpc listAvailableOrientations(google.protobuf.Empty) returns (stream Orientation){}
 }
 
 message ProjectorOnStatus{
@@ -32,7 +33,7 @@ message ProjectorOffStatus{
 }
 
 message InputType{
-    string type = 1;
+    string supported_inputs = 1;
 }
 
 message AllInputTypes{

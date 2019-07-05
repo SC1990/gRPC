@@ -14,6 +14,7 @@ import client.AudioSpeakerClient;
 public class AudioSpeakerGUI extends javax.swing.JFrame {
 
     private AudioSpeakerClient client;
+
     /**
      * Creates new form AudioSpeakerGUI
      */
@@ -74,7 +75,7 @@ public class AudioSpeakerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void speakerShutdownBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speakerShutdownBtnActionPerformed
-        // TODO add your handling code here:
+       close();
     }//GEN-LAST:event_speakerShutdownBtnActionPerformed
 
     /**
@@ -114,6 +115,10 @@ public class AudioSpeakerGUI extends javax.swing.JFrame {
 
     public void appendAudioSpeakerStatus(String toString) {
         statusTA.setText(toString);
+    }
+
+    public void close() {
+        this.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

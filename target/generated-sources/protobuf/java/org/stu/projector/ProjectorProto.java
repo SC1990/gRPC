@@ -81,37 +81,42 @@ public final class ProjectorProto {
       "\n\017projector.proto\022\tprojector\032\033google/pro" +
       "tobuf/empty.proto\"%\n\021ProjectorOnStatus\022\020" +
       "\n\010onStatus\030\001 \001(\t\"\'\n\022ProjectorOffStatus\022\021" +
-      "\n\toffStatus\030\001 \001(\t\"\031\n\tInputType\022\014\n\004type\030\001" +
-      " \001(\t\"9\n\rAllInputTypes\022(\n\ninputTypes\030\001 \003(" +
-      "\0132\024.projector.InputType\",\n\017BrightnessLev" +
-      "el\022\031\n\021currentBrightness\030\001 \001(\005\"\034\n\013AspectR" +
-      "atio\022\r\n\005ratio\030\001 \001(\t\"9\n\tAllRatios\022,\n\014aspe" +
-      "ctRatios\030\001 \003(\0132\026.projector.AspectRatio\"2" +
-      "\n\nResolution\022\021\n\tresOption\030\001 \001(\t\022\021\n\tsuppo" +
-      "rted\030\002 \001(\010\"?\n\021ResolutionOptions\022*\n\013resol" +
-      "utions\030\001 \003(\0132\025.projector.Resolution\"\"\n\013O" +
-      "rientation\022\023\n\013orientation\030\001 \001(\t\"B\n\022Orien" +
-      "tationOptions\022,\n\014orientations\030\001 \003(\0132\026.pr" +
-      "ojector.Orientation2\312\005\n\tProjector\022K\n\021act" +
-      "ivateProjector\022\026.google.protobuf.Empty\032\034" +
-      ".projector.ProjectorOnStatus\"\000\022N\n\023deActi" +
-      "vateProjector\022\026.google.protobuf.Empty\032\035." +
-      "projector.ProjectorOffStatus\"\000\022<\n\014setInp" +
-      "utType\022\024.projector.InputType\032\024.projector" +
-      ".InputType\"\000\022>\n\nlistInputs\022\026.google.prot" +
-      "obuf.Empty\032\024.projector.InputType\"\0000\001\022J\n\022" +
-      "increaseBrightness\022\026.google.protobuf.Emp" +
-      "ty\032\032.projector.BrightnessLevel\"\000\022J\n\022decr" +
-      "easeBrightness\022\026.google.protobuf.Empty\032\032" +
-      ".projector.BrightnessLevel\"\000\022B\n\016setAspec" +
-      "tRatio\022\026.projector.AspectRatio\032\026.google." +
-      "protobuf.Empty\"\000\022@\n\nlistRatios\022\026.google." +
-      "protobuf.Empty\032\026.projector.AspectRatio\"\000" +
-      "0\001\022@\n\rsetResolution\022\025.projector.Resoluti" +
-      "on\032\026.google.protobuf.Empty\"\000\022B\n\016setOrien" +
-      "tation\022\026.projector.Orientation\032\026.google." +
-      "protobuf.Empty\"\000B%\n\021org.stu.projectorB\016P" +
-      "rojectorProtoP\001b\006proto3"
+      "\n\toffStatus\030\001 \001(\t\"%\n\tInputType\022\030\n\020suppor" +
+      "ted_inputs\030\001 \001(\t\"9\n\rAllInputTypes\022(\n\ninp" +
+      "utTypes\030\001 \003(\0132\024.projector.InputType\",\n\017B" +
+      "rightnessLevel\022\031\n\021currentBrightness\030\001 \001(" +
+      "\005\"\034\n\013AspectRatio\022\r\n\005ratio\030\001 \001(\t\"9\n\tAllRa" +
+      "tios\022,\n\014aspectRatios\030\001 \003(\0132\026.projector.A" +
+      "spectRatio\"2\n\nResolution\022\021\n\tresOption\030\001 " +
+      "\001(\t\022\021\n\tsupported\030\002 \001(\010\"?\n\021ResolutionOpti" +
+      "ons\022*\n\013resolutions\030\001 \003(\0132\025.projector.Res" +
+      "olution\"\"\n\013Orientation\022\023\n\013orientation\030\001 " +
+      "\001(\t\"B\n\022OrientationOptions\022,\n\014orientation" +
+      "s\030\001 \003(\0132\026.projector.Orientation2\361\006\n\tProj" +
+      "ector\022K\n\021activateProjector\022\026.google.prot" +
+      "obuf.Empty\032\034.projector.ProjectorOnStatus" +
+      "\"\000\022N\n\023deActivateProjector\022\026.google.proto" +
+      "buf.Empty\032\035.projector.ProjectorOffStatus" +
+      "\"\000\022<\n\014setInputType\022\024.projector.InputType" +
+      "\032\024.projector.InputType\"\000\022>\n\nlistInputs\022\026" +
+      ".google.protobuf.Empty\032\024.projector.Input" +
+      "Type\"\0000\001\022N\n\022increaseBrightness\022\032.project" +
+      "or.BrightnessLevel\032\032.projector.Brightnes" +
+      "sLevel\"\000\022N\n\022decreaseBrightness\022\032.project" +
+      "or.BrightnessLevel\032\032.projector.Brightnes" +
+      "sLevel\"\000\022B\n\016setAspectRatio\022\026.projector.A" +
+      "spectRatio\032\026.projector.AspectRatio\"\000\022@\n\n" +
+      "listRatios\022\026.google.protobuf.Empty\032\026.pro" +
+      "jector.AspectRatio\"\0000\001\022?\n\rsetResolution\022" +
+      "\025.projector.Resolution\032\025.projector.Resol" +
+      "ution\"\000\022M\n\030listAvailableResolutions\022\026.go" +
+      "ogle.protobuf.Empty\032\025.projector.Resoluti" +
+      "on\"\0000\001\022B\n\016setOrientation\022\026.projector.Ori" +
+      "entation\032\026.projector.Orientation\"\000\022O\n\031li" +
+      "stAvailableOrientations\022\026.google.protobu" +
+      "f.Empty\032\026.projector.Orientation\"\0000\001B%\n\021o" +
+      "rg.stu.projectorB\016ProjectorProtoP\001b\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -143,7 +148,7 @@ public final class ProjectorProto {
     internal_static_projector_InputType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_projector_InputType_descriptor,
-        new java.lang.String[] { "Type", });
+        new java.lang.String[] { "SupportedInputs", });
     internal_static_projector_AllInputTypes_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_projector_AllInputTypes_fieldAccessorTable = new
