@@ -105,8 +105,8 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
         for (int i = 0; i < resolutions.size(); i++) {
             resListVid.addItem(resolutions.get(i));
         }
-        
-         for (int i = 0; i < inputs.size(); i++) {
+
+        for (int i = 0; i < inputs.size(); i++) {
             speakerInputsList.addItem(inputs.get(i));
         }
 
@@ -220,6 +220,7 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
         deVolAmount = new javax.swing.JTextField();
         decreaseVolBtn = new javax.swing.JButton();
         increaseVolBtn = new javax.swing.JButton();
+        cpShutDownBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -230,7 +231,7 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
                 setInputMachineBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(setInputMachineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, -1, -1));
+        getContentPane().add(setInputMachineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 140, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
@@ -664,6 +665,16 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
         increaseVolBtn.setText("OK");
         getContentPane().add(increaseVolBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, -1, -1));
 
+        cpShutDownBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        cpShutDownBtn.setForeground(new java.awt.Color(255, 51, 0));
+        cpShutDownBtn.setText("Shutdown");
+        cpShutDownBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpShutDownBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cpShutDownBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 40, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -952,12 +963,16 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
     }//GEN-LAST:event_zoomInBtnActionPerformed
 
     private void zoomOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomOutBtnActionPerformed
-       manualZoomOut();
+        manualZoomOut();
     }//GEN-LAST:event_zoomOutBtnActionPerformed
 
     private void setSpeakerInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setSpeakerInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_setSpeakerInputActionPerformed
+
+    private void cpShutDownBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpShutDownBtnActionPerformed
+        client.shutdownCPanel();
+    }//GEN-LAST:event_cpShutDownBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1006,6 +1021,15 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
     public void appendDetectedMachine(String machineIP) {
         inputMachineTA.append(machineIP);
         this.machine = machineIP;
+    }
+
+    public void appendMessage(String string) {
+        inputMachineTA.append(string);
+    }
+
+    public void close() {
+        this.dispose();
+        System.exit(0);
     }
 
     public void brightnessControl() {
@@ -1063,7 +1087,7 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
         thermoClient.decreaseTemp(Integer.valueOf(decreaseTempAmount.getText()));
         thermoTA.append("-" + decreaseTempAmount.getText() + "\n");
     }
-    
+
     public void zoomControl() {
 
         zoomSlider.setMajorTickSpacing(5);
@@ -1090,8 +1114,8 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
         vidClient.zoomOut(Integer.valueOf(zoomOutAmount.getText()));
         videoTA.append("-" + zoomOutAmount.getText() + "\n");
     }
-    
-     public void volumeControl() {
+
+    public void volumeControl() {
 
         volSlider.setMajorTickSpacing(10);
         volSlider.setPaintLabels(true);
@@ -1106,8 +1130,8 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
         });
 
     }
-     
-     public void manualVolIncrease() {
+
+    public void manualVolIncrease() {
         speakerClient.increaseVolume(Integer.valueOf(inVolAmount.getText()));
         speakersTA.append("+" + inVolAmount.getText() + "\n");
 
@@ -1129,6 +1153,7 @@ public class ControlPanelGUI extends javax.swing.JFrame implements ChangeListene
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JButton cpShutDownBtn;
     private javax.swing.JTextField deVolAmount;
     private javax.swing.JTextField decreaseTempAmount;
     private javax.swing.JButton decreaseTempBtn;

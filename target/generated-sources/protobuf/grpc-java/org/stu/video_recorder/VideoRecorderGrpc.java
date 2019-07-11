@@ -16,6 +16,9 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
+ * <pre>
+ *video recorder service definition
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.19.0)",
@@ -371,10 +374,16 @@ public final class VideoRecorderGrpc {
   }
 
   /**
+   * <pre>
+   *video recorder service definition
+   * </pre>
    */
   public static abstract class VideoRecorderImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *switch on video recorder and return status message
+     * </pre>
      */
     public void activateVideoRecorder(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.VideoRecorderOnStatus> responseObserver) {
@@ -382,6 +391,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *switch off video recorder and return status message
+     * </pre>
      */
     public void deActivateVideoRecorder(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.VideoRecorderOffStatus> responseObserver) {
@@ -431,6 +443,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *list available screen resolutions
+     * </pre>
      */
     public void listResolutions(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.Resolution> responseObserver) {
@@ -438,6 +453,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *set screen resolution
+     * </pre>
      */
     public void setResolution(org.stu.video_recorder.Resolution request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.ResultMessage> responseObserver) {
@@ -521,6 +539,9 @@ public final class VideoRecorderGrpc {
   }
 
   /**
+   * <pre>
+   *video recorder service definition
+   * </pre>
    */
   public static final class VideoRecorderStub extends io.grpc.stub.AbstractStub<VideoRecorderStub> {
     private VideoRecorderStub(io.grpc.Channel channel) {
@@ -539,6 +560,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *switch on video recorder and return status message
+     * </pre>
      */
     public void activateVideoRecorder(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.VideoRecorderOnStatus> responseObserver) {
@@ -547,6 +571,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *switch off video recorder and return status message
+     * </pre>
      */
     public void deActivateVideoRecorder(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.VideoRecorderOffStatus> responseObserver) {
@@ -603,6 +630,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *list available screen resolutions
+     * </pre>
      */
     public void listResolutions(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.Resolution> responseObserver) {
@@ -611,6 +641,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *set screen resolution
+     * </pre>
      */
     public void setResolution(org.stu.video_recorder.Resolution request,
         io.grpc.stub.StreamObserver<org.stu.video_recorder.ResultMessage> responseObserver) {
@@ -620,6 +653,9 @@ public final class VideoRecorderGrpc {
   }
 
   /**
+   * <pre>
+   *video recorder service definition
+   * </pre>
    */
   public static final class VideoRecorderBlockingStub extends io.grpc.stub.AbstractStub<VideoRecorderBlockingStub> {
     private VideoRecorderBlockingStub(io.grpc.Channel channel) {
@@ -638,6 +674,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *switch on video recorder and return status message
+     * </pre>
      */
     public org.stu.video_recorder.VideoRecorderOnStatus activateVideoRecorder(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -645,6 +684,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *switch off video recorder and return status message
+     * </pre>
      */
     public org.stu.video_recorder.VideoRecorderOffStatus deActivateVideoRecorder(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -694,6 +736,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *list available screen resolutions
+     * </pre>
      */
     public java.util.Iterator<org.stu.video_recorder.Resolution> listResolutions(
         com.google.protobuf.Empty request) {
@@ -702,6 +747,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *set screen resolution
+     * </pre>
      */
     public org.stu.video_recorder.ResultMessage setResolution(org.stu.video_recorder.Resolution request) {
       return blockingUnaryCall(
@@ -710,6 +758,9 @@ public final class VideoRecorderGrpc {
   }
 
   /**
+   * <pre>
+   *video recorder service definition
+   * </pre>
    */
   public static final class VideoRecorderFutureStub extends io.grpc.stub.AbstractStub<VideoRecorderFutureStub> {
     private VideoRecorderFutureStub(io.grpc.Channel channel) {
@@ -728,6 +779,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *switch on video recorder and return status message
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.VideoRecorderOnStatus> activateVideoRecorder(
         com.google.protobuf.Empty request) {
@@ -736,6 +790,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *switch off video recorder and return status message
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.VideoRecorderOffStatus> deActivateVideoRecorder(
         com.google.protobuf.Empty request) {
@@ -792,6 +849,9 @@ public final class VideoRecorderGrpc {
     }
 
     /**
+     * <pre>
+     *set screen resolution
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.video_recorder.ResultMessage> setResolution(
         org.stu.video_recorder.Resolution request) {

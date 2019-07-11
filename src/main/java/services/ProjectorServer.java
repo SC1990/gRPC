@@ -44,7 +44,7 @@ public class ProjectorServer {
                 .build()
                 .start();
 
-        //registering bed service so any listeners can pick it up - how bed server finds bed client
+        //registering service so any listeners can pick it up
         //JmDNSRegistrationHelper waiting for requests
         JmDNSRegistrationHelper helper = new JmDNSRegistrationHelper("Projector", "_projector._udp.local.", "", port);
 
@@ -98,7 +98,7 @@ public class ProjectorServer {
 
     }
 
-    // generated code 
+    //method implementations for projector service
     static class ProjectorImpl extends ProjectorGrpc.ProjectorImplBase {
 
         private final Collection<InputType> inputTypes = new ArrayList<>();

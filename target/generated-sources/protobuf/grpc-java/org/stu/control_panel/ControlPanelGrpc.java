@@ -16,6 +16,9 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
+ * <pre>
+ *control panel service definition
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.19.0)",
@@ -115,10 +118,16 @@ public final class ControlPanelGrpc {
   }
 
   /**
+   * <pre>
+   *control panel service definition
+   * </pre>
    */
   public static abstract class ControlPanelImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *retrieve details of, and connect to, local detected machines (e.g. a user's laptop)
+     * </pre>
      */
     public void setInputMachine(org.stu.control_panel.InputMachine request,
         io.grpc.stub.StreamObserver<org.stu.control_panel.ResponseMessage> responseObserver) {
@@ -126,6 +135,9 @@ public final class ControlPanelGrpc {
     }
 
     /**
+     * <pre>
+     *deactivate control panel and disconnect from local connected machine
+     * </pre>
      */
     public void shutDown(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.control_panel.PreShutDownMessage> responseObserver) {
@@ -153,6 +165,9 @@ public final class ControlPanelGrpc {
   }
 
   /**
+   * <pre>
+   *control panel service definition
+   * </pre>
    */
   public static final class ControlPanelStub extends io.grpc.stub.AbstractStub<ControlPanelStub> {
     private ControlPanelStub(io.grpc.Channel channel) {
@@ -171,6 +186,9 @@ public final class ControlPanelGrpc {
     }
 
     /**
+     * <pre>
+     *retrieve details of, and connect to, local detected machines (e.g. a user's laptop)
+     * </pre>
      */
     public void setInputMachine(org.stu.control_panel.InputMachine request,
         io.grpc.stub.StreamObserver<org.stu.control_panel.ResponseMessage> responseObserver) {
@@ -179,6 +197,9 @@ public final class ControlPanelGrpc {
     }
 
     /**
+     * <pre>
+     *deactivate control panel and disconnect from local connected machine
+     * </pre>
      */
     public void shutDown(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.control_panel.PreShutDownMessage> responseObserver) {
@@ -188,6 +209,9 @@ public final class ControlPanelGrpc {
   }
 
   /**
+   * <pre>
+   *control panel service definition
+   * </pre>
    */
   public static final class ControlPanelBlockingStub extends io.grpc.stub.AbstractStub<ControlPanelBlockingStub> {
     private ControlPanelBlockingStub(io.grpc.Channel channel) {
@@ -206,6 +230,9 @@ public final class ControlPanelGrpc {
     }
 
     /**
+     * <pre>
+     *retrieve details of, and connect to, local detected machines (e.g. a user's laptop)
+     * </pre>
      */
     public org.stu.control_panel.ResponseMessage setInputMachine(org.stu.control_panel.InputMachine request) {
       return blockingUnaryCall(
@@ -213,6 +240,9 @@ public final class ControlPanelGrpc {
     }
 
     /**
+     * <pre>
+     *deactivate control panel and disconnect from local connected machine
+     * </pre>
      */
     public org.stu.control_panel.PreShutDownMessage shutDown(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -221,6 +251,9 @@ public final class ControlPanelGrpc {
   }
 
   /**
+   * <pre>
+   *control panel service definition
+   * </pre>
    */
   public static final class ControlPanelFutureStub extends io.grpc.stub.AbstractStub<ControlPanelFutureStub> {
     private ControlPanelFutureStub(io.grpc.Channel channel) {
@@ -239,6 +272,9 @@ public final class ControlPanelGrpc {
     }
 
     /**
+     * <pre>
+     *retrieve details of, and connect to, local detected machines (e.g. a user's laptop)
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.control_panel.ResponseMessage> setInputMachine(
         org.stu.control_panel.InputMachine request) {
@@ -247,6 +283,9 @@ public final class ControlPanelGrpc {
     }
 
     /**
+     * <pre>
+     *deactivate control panel and disconnect from local connected machine
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.control_panel.PreShutDownMessage> shutDown(
         com.google.protobuf.Empty request) {

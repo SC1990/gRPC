@@ -30,17 +30,19 @@ public class ControlPanelServer {
     private int port = 50022;
     private Server server;
 
+    //attach control panel service to server
+    //attach port to server
     private void start() throws Exception {
         server = ServerBuilder.forPort(port)
                 .addService(new ControlPanelImpl())
                 .build()
                 .start();
 
-        //registering bed service so any listeners can pick it up - how bed server finds bed client
+        //registering service so any listeners can pick it up - how server finds client
         //JmDNSRegistrationHelper waiting for requests
         JmDNSRegistrationHelper helper = new JmDNSRegistrationHelper("Stu's Control Panel", "_cpanel._udp.local.", "", port);
 
-        LOGGER.info("Server started, listening on " + port);
+        LOGGER.log(Level.INFO, "Server started, listening on {0}", port);
 
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
@@ -78,7 +80,7 @@ public class ControlPanelServer {
         server.blockUntilShutdown();
     }
 
-    // generated code 
+    //method implementations for control panel service
     static class ControlPanelImpl extends ControlPanelGrpc.ControlPanelImplBase {
 
         public ControlPanelImpl() {
@@ -86,6 +88,7 @@ public class ControlPanelServer {
             String serviceType = "_cpanel._udp.local.";
         }
 
+        //retrieve details of local user machine and connect to device
         @Override
         public void setInputMachine(InputMachine request, StreamObserver<ResponseMessage> responseObserver) {
 
@@ -102,14 +105,20 @@ public class ControlPanelServer {
 
         }
 
+        //retrieve IP address of local machine 
         private String findMachine() throws UnknownHostException {
             InetAddress localhost = InetAddress.getLocalHost();
             return ("Searching for machines........Detected machine: " + (localhost.getHostName()).trim());
         }
 
+        //shut down control panel
         @Override
         public void shutDown(Empty request, StreamObserver<PreShutDownMessage> responseObserver) {
 
+            PreShutDownMessage status = PreShutDownMessage.newBuilder().setShutDownMsg("Shutting down control panel...").build();
+
+            responseObserver.onNext(status);
+            responseObserver.onCompleted();
         }
 
     }

@@ -9,17 +9,38 @@ option java_multiple_files = true;
 option java_package = "org.stu.projector";
 option java_outer_classname = "ProjectorProto";
 
+//projector service definition
 service Projector{
+    
+  //switch on projector and return status message
   rpc activateProjector(google.protobuf.Empty) returns (ProjectorOnStatus){}
+
+  //switch off
   rpc deActivateProjector(google.protobuf.Empty) returns (ProjectorOffStatus){}
+
+  //choose type of input (HDMI, VGA etc.)
   rpc setInputType(InputType) returns (InputType){}
+
+  //list supported inputs
   rpc listInputs(google.protobuf.Empty) returns (stream InputType){}
+
+  //screen brightness control
   rpc increaseBrightness(BrightnessLevel) returns (BrightnessLevel){}
   rpc decreaseBrightness(BrightnessLevel) returns (BrightnessLevel){}
+
+  //set aspect ratio for projector screen
   rpc setAspectRatio(AspectRatio) returns (AspectRatio){}
+
+  //list supported aspect ratios
   rpc listRatios(google.protobuf.Empty) returns (stream AspectRatio){}
+
+  //set screen resolution
   rpc setResolution(Resolution) returns (Resolution){}
+
+  //list available screen resolutions
   rpc listAvailableResolutions(google.protobuf.Empty) returns (stream Resolution){}
+
+ 
   rpc setOrientation(Orientation) returns (Orientation){}
   rpc listAvailableOrientations(google.protobuf.Empty) returns (stream Orientation){}
 }

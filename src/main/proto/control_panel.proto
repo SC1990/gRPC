@@ -8,20 +8,28 @@ option java_multiple_files = true;
 option java_package = "org.stu.control_panel";
 option java_outer_classname = "ControlPanelProto";
 
+ //control panel service definition
 service ControlPanel{
+
+  //retrieve details of, and connect to, local detected machines (e.g. a user's laptop)
   rpc setInputMachine(InputMachine) returns (ResponseMessage){}
+
+  //deactivate control panel and disconnect from local connected machine
   rpc shutDown(google.protobuf.Empty) returns (PreShutDownMessage){}
   
 }
 
+//name of machine detected
 message InputMachine{
     string machine = 1;
 }
 
+//post-connect user facing message
 message ResponseMessage{
     string userMsg = 1;
 }
 
+//user facing message pre-shutdown of control panel
 message PreShutDownMessage{
     string shutDownMsg = 1;
 }

@@ -16,6 +16,9 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
+ * <pre>
+ *thermostat definition
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.19.0)",
@@ -307,10 +310,16 @@ public final class ThermostatGrpc {
   }
 
   /**
+   * <pre>
+   *thermostat definition
+   * </pre>
    */
   public static abstract class ThermostatImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *switch on thermostat and return status message
+     * </pre>
      */
     public void activateThermostat(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.ThermostatOnStatus> responseObserver) {
@@ -318,6 +327,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *switch off thermostat and return status message
+     * </pre>
      */
     public void deActivateThermostat(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.ThermostatOffStatus> responseObserver) {
@@ -339,6 +351,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *e.g. cool mode, dry mode etc.
+     * </pre>
      */
     public void setFanMode(org.stu.thermostat.FanMode request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.FanMode> responseObserver) {
@@ -346,6 +361,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *temperature control
+     * </pre>
      */
     public void increaseTemp(org.stu.thermostat.CurrentTemp request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.CurrentTemp> responseObserver) {
@@ -360,6 +378,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *set specific time for shutdown
+     * </pre>
      */
     public void setShutDownTime(org.stu.thermostat.Hours request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.Hours> responseObserver) {
@@ -429,6 +450,9 @@ public final class ThermostatGrpc {
   }
 
   /**
+   * <pre>
+   *thermostat definition
+   * </pre>
    */
   public static final class ThermostatStub extends io.grpc.stub.AbstractStub<ThermostatStub> {
     private ThermostatStub(io.grpc.Channel channel) {
@@ -447,6 +471,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *switch on thermostat and return status message
+     * </pre>
      */
     public void activateThermostat(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.ThermostatOnStatus> responseObserver) {
@@ -455,6 +482,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *switch off thermostat and return status message
+     * </pre>
      */
     public void deActivateThermostat(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.ThermostatOffStatus> responseObserver) {
@@ -479,6 +509,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *e.g. cool mode, dry mode etc.
+     * </pre>
      */
     public void setFanMode(org.stu.thermostat.FanMode request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.FanMode> responseObserver) {
@@ -487,6 +520,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *temperature control
+     * </pre>
      */
     public void increaseTemp(org.stu.thermostat.CurrentTemp request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.CurrentTemp> responseObserver) {
@@ -503,6 +539,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *set specific time for shutdown
+     * </pre>
      */
     public void setShutDownTime(org.stu.thermostat.Hours request,
         io.grpc.stub.StreamObserver<org.stu.thermostat.Hours> responseObserver) {
@@ -512,6 +551,9 @@ public final class ThermostatGrpc {
   }
 
   /**
+   * <pre>
+   *thermostat definition
+   * </pre>
    */
   public static final class ThermostatBlockingStub extends io.grpc.stub.AbstractStub<ThermostatBlockingStub> {
     private ThermostatBlockingStub(io.grpc.Channel channel) {
@@ -530,6 +572,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *switch on thermostat and return status message
+     * </pre>
      */
     public org.stu.thermostat.ThermostatOnStatus activateThermostat(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -537,6 +582,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *switch off thermostat and return status message
+     * </pre>
      */
     public org.stu.thermostat.ThermostatOffStatus deActivateThermostat(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -558,6 +606,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *e.g. cool mode, dry mode etc.
+     * </pre>
      */
     public org.stu.thermostat.FanMode setFanMode(org.stu.thermostat.FanMode request) {
       return blockingUnaryCall(
@@ -565,6 +616,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *temperature control
+     * </pre>
      */
     public org.stu.thermostat.CurrentTemp increaseTemp(org.stu.thermostat.CurrentTemp request) {
       return blockingUnaryCall(
@@ -579,6 +633,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *set specific time for shutdown
+     * </pre>
      */
     public org.stu.thermostat.Hours setShutDownTime(org.stu.thermostat.Hours request) {
       return blockingUnaryCall(
@@ -587,6 +644,9 @@ public final class ThermostatGrpc {
   }
 
   /**
+   * <pre>
+   *thermostat definition
+   * </pre>
    */
   public static final class ThermostatFutureStub extends io.grpc.stub.AbstractStub<ThermostatFutureStub> {
     private ThermostatFutureStub(io.grpc.Channel channel) {
@@ -605,6 +665,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *switch on thermostat and return status message
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.ThermostatOnStatus> activateThermostat(
         com.google.protobuf.Empty request) {
@@ -613,6 +676,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *switch off thermostat and return status message
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.ThermostatOffStatus> deActivateThermostat(
         com.google.protobuf.Empty request) {
@@ -637,6 +703,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *e.g. cool mode, dry mode etc.
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.FanMode> setFanMode(
         org.stu.thermostat.FanMode request) {
@@ -645,6 +714,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *temperature control
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.CurrentTemp> increaseTemp(
         org.stu.thermostat.CurrentTemp request) {
@@ -661,6 +733,9 @@ public final class ThermostatGrpc {
     }
 
     /**
+     * <pre>
+     *set specific time for shutdown
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.thermostat.Hours> setShutDownTime(
         org.stu.thermostat.Hours request) {

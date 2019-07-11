@@ -16,6 +16,9 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
+ * <pre>
+ *projector service definition
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.19.0)",
@@ -435,10 +438,16 @@ public final class ProjectorGrpc {
   }
 
   /**
+   * <pre>
+   *projector service definition
+   * </pre>
    */
   public static abstract class ProjectorImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *switch on projector and return status message
+     * </pre>
      */
     public void activateProjector(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOnStatus> responseObserver) {
@@ -446,6 +455,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *switch off
+     * </pre>
      */
     public void deActivateProjector(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOffStatus> responseObserver) {
@@ -453,6 +465,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *choose type of input (HDMI, VGA etc.)
+     * </pre>
      */
     public void setInputType(org.stu.projector.InputType request,
         io.grpc.stub.StreamObserver<org.stu.projector.InputType> responseObserver) {
@@ -460,6 +475,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list supported inputs
+     * </pre>
      */
     public void listInputs(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.InputType> responseObserver) {
@@ -467,6 +485,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *screen brightness control
+     * </pre>
      */
     public void increaseBrightness(org.stu.projector.BrightnessLevel request,
         io.grpc.stub.StreamObserver<org.stu.projector.BrightnessLevel> responseObserver) {
@@ -481,6 +502,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *set aspect ratio for projector screen
+     * </pre>
      */
     public void setAspectRatio(org.stu.projector.AspectRatio request,
         io.grpc.stub.StreamObserver<org.stu.projector.AspectRatio> responseObserver) {
@@ -488,6 +512,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list supported aspect ratios
+     * </pre>
      */
     public void listRatios(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.AspectRatio> responseObserver) {
@@ -495,6 +522,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *set screen resolution
+     * </pre>
      */
     public void setResolution(org.stu.projector.Resolution request,
         io.grpc.stub.StreamObserver<org.stu.projector.Resolution> responseObserver) {
@@ -502,6 +532,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list available screen resolutions
+     * </pre>
      */
     public void listAvailableResolutions(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.Resolution> responseObserver) {
@@ -613,6 +646,9 @@ public final class ProjectorGrpc {
   }
 
   /**
+   * <pre>
+   *projector service definition
+   * </pre>
    */
   public static final class ProjectorStub extends io.grpc.stub.AbstractStub<ProjectorStub> {
     private ProjectorStub(io.grpc.Channel channel) {
@@ -631,6 +667,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *switch on projector and return status message
+     * </pre>
      */
     public void activateProjector(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOnStatus> responseObserver) {
@@ -639,6 +678,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *switch off
+     * </pre>
      */
     public void deActivateProjector(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.ProjectorOffStatus> responseObserver) {
@@ -647,6 +689,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *choose type of input (HDMI, VGA etc.)
+     * </pre>
      */
     public void setInputType(org.stu.projector.InputType request,
         io.grpc.stub.StreamObserver<org.stu.projector.InputType> responseObserver) {
@@ -655,6 +700,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list supported inputs
+     * </pre>
      */
     public void listInputs(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.InputType> responseObserver) {
@@ -663,6 +711,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *screen brightness control
+     * </pre>
      */
     public void increaseBrightness(org.stu.projector.BrightnessLevel request,
         io.grpc.stub.StreamObserver<org.stu.projector.BrightnessLevel> responseObserver) {
@@ -679,6 +730,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *set aspect ratio for projector screen
+     * </pre>
      */
     public void setAspectRatio(org.stu.projector.AspectRatio request,
         io.grpc.stub.StreamObserver<org.stu.projector.AspectRatio> responseObserver) {
@@ -687,6 +741,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list supported aspect ratios
+     * </pre>
      */
     public void listRatios(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.AspectRatio> responseObserver) {
@@ -695,6 +752,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *set screen resolution
+     * </pre>
      */
     public void setResolution(org.stu.projector.Resolution request,
         io.grpc.stub.StreamObserver<org.stu.projector.Resolution> responseObserver) {
@@ -703,6 +763,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list available screen resolutions
+     * </pre>
      */
     public void listAvailableResolutions(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.projector.Resolution> responseObserver) {
@@ -728,6 +791,9 @@ public final class ProjectorGrpc {
   }
 
   /**
+   * <pre>
+   *projector service definition
+   * </pre>
    */
   public static final class ProjectorBlockingStub extends io.grpc.stub.AbstractStub<ProjectorBlockingStub> {
     private ProjectorBlockingStub(io.grpc.Channel channel) {
@@ -746,6 +812,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *switch on projector and return status message
+     * </pre>
      */
     public org.stu.projector.ProjectorOnStatus activateProjector(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -753,6 +822,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *switch off
+     * </pre>
      */
     public org.stu.projector.ProjectorOffStatus deActivateProjector(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -760,6 +832,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *choose type of input (HDMI, VGA etc.)
+     * </pre>
      */
     public org.stu.projector.InputType setInputType(org.stu.projector.InputType request) {
       return blockingUnaryCall(
@@ -767,6 +842,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list supported inputs
+     * </pre>
      */
     public java.util.Iterator<org.stu.projector.InputType> listInputs(
         com.google.protobuf.Empty request) {
@@ -775,6 +853,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *screen brightness control
+     * </pre>
      */
     public org.stu.projector.BrightnessLevel increaseBrightness(org.stu.projector.BrightnessLevel request) {
       return blockingUnaryCall(
@@ -789,6 +870,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *set aspect ratio for projector screen
+     * </pre>
      */
     public org.stu.projector.AspectRatio setAspectRatio(org.stu.projector.AspectRatio request) {
       return blockingUnaryCall(
@@ -796,6 +880,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list supported aspect ratios
+     * </pre>
      */
     public java.util.Iterator<org.stu.projector.AspectRatio> listRatios(
         com.google.protobuf.Empty request) {
@@ -804,6 +891,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *set screen resolution
+     * </pre>
      */
     public org.stu.projector.Resolution setResolution(org.stu.projector.Resolution request) {
       return blockingUnaryCall(
@@ -811,6 +901,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *list available screen resolutions
+     * </pre>
      */
     public java.util.Iterator<org.stu.projector.Resolution> listAvailableResolutions(
         com.google.protobuf.Empty request) {
@@ -835,6 +928,9 @@ public final class ProjectorGrpc {
   }
 
   /**
+   * <pre>
+   *projector service definition
+   * </pre>
    */
   public static final class ProjectorFutureStub extends io.grpc.stub.AbstractStub<ProjectorFutureStub> {
     private ProjectorFutureStub(io.grpc.Channel channel) {
@@ -853,6 +949,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *switch on projector and return status message
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.ProjectorOnStatus> activateProjector(
         com.google.protobuf.Empty request) {
@@ -861,6 +960,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *switch off
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.ProjectorOffStatus> deActivateProjector(
         com.google.protobuf.Empty request) {
@@ -869,6 +971,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *choose type of input (HDMI, VGA etc.)
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.InputType> setInputType(
         org.stu.projector.InputType request) {
@@ -877,6 +982,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *screen brightness control
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.BrightnessLevel> increaseBrightness(
         org.stu.projector.BrightnessLevel request) {
@@ -893,6 +1001,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *set aspect ratio for projector screen
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.AspectRatio> setAspectRatio(
         org.stu.projector.AspectRatio request) {
@@ -901,6 +1012,9 @@ public final class ProjectorGrpc {
     }
 
     /**
+     * <pre>
+     *set screen resolution
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.projector.Resolution> setResolution(
         org.stu.projector.Resolution request) {

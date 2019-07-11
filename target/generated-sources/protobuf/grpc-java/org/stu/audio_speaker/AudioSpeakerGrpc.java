@@ -16,6 +16,9 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
+ * <pre>
+ *speaker service definition
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.19.0)",
@@ -243,10 +246,16 @@ public final class AudioSpeakerGrpc {
   }
 
   /**
+   * <pre>
+   *speaker service definition
+   * </pre>
    */
   public static abstract class AudioSpeakerImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *switch on audio speakers and return status message
+     * </pre>
      */
     public void activateAudioSpeaker(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioSpeakerOnStatus> responseObserver) {
@@ -254,6 +263,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *switch off audio speakers and return status message
+     * </pre>
      */
     public void deActivateAudioSpeaker(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioSpeakerOffStatus> responseObserver) {
@@ -275,6 +287,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *choose type of input (HDMI, VGA etc.)
+     * </pre>
      */
     public void setInput(org.stu.audio_speaker.AudioInput request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioInput> responseObserver) {
@@ -282,6 +297,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *list supported inputs
+     * </pre>
      */
     public void listSupportedInputs(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioInput> responseObserver) {
@@ -337,6 +355,9 @@ public final class AudioSpeakerGrpc {
   }
 
   /**
+   * <pre>
+   *speaker service definition
+   * </pre>
    */
   public static final class AudioSpeakerStub extends io.grpc.stub.AbstractStub<AudioSpeakerStub> {
     private AudioSpeakerStub(io.grpc.Channel channel) {
@@ -355,6 +376,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *switch on audio speakers and return status message
+     * </pre>
      */
     public void activateAudioSpeaker(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioSpeakerOnStatus> responseObserver) {
@@ -363,6 +387,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *switch off audio speakers and return status message
+     * </pre>
      */
     public void deActivateAudioSpeaker(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioSpeakerOffStatus> responseObserver) {
@@ -387,6 +414,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *choose type of input (HDMI, VGA etc.)
+     * </pre>
      */
     public void setInput(org.stu.audio_speaker.AudioInput request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioInput> responseObserver) {
@@ -395,6 +425,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *list supported inputs
+     * </pre>
      */
     public void listSupportedInputs(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.stu.audio_speaker.AudioInput> responseObserver) {
@@ -404,6 +437,9 @@ public final class AudioSpeakerGrpc {
   }
 
   /**
+   * <pre>
+   *speaker service definition
+   * </pre>
    */
   public static final class AudioSpeakerBlockingStub extends io.grpc.stub.AbstractStub<AudioSpeakerBlockingStub> {
     private AudioSpeakerBlockingStub(io.grpc.Channel channel) {
@@ -422,6 +458,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *switch on audio speakers and return status message
+     * </pre>
      */
     public org.stu.audio_speaker.AudioSpeakerOnStatus activateAudioSpeaker(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -429,6 +468,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *switch off audio speakers and return status message
+     * </pre>
      */
     public org.stu.audio_speaker.AudioSpeakerOffStatus deActivateAudioSpeaker(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
@@ -450,6 +492,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *choose type of input (HDMI, VGA etc.)
+     * </pre>
      */
     public org.stu.audio_speaker.AudioInput setInput(org.stu.audio_speaker.AudioInput request) {
       return blockingUnaryCall(
@@ -457,6 +502,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *list supported inputs
+     * </pre>
      */
     public java.util.Iterator<org.stu.audio_speaker.AudioInput> listSupportedInputs(
         com.google.protobuf.Empty request) {
@@ -466,6 +514,9 @@ public final class AudioSpeakerGrpc {
   }
 
   /**
+   * <pre>
+   *speaker service definition
+   * </pre>
    */
   public static final class AudioSpeakerFutureStub extends io.grpc.stub.AbstractStub<AudioSpeakerFutureStub> {
     private AudioSpeakerFutureStub(io.grpc.Channel channel) {
@@ -484,6 +535,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *switch on audio speakers and return status message
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.audio_speaker.AudioSpeakerOnStatus> activateAudioSpeaker(
         com.google.protobuf.Empty request) {
@@ -492,6 +546,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *switch off audio speakers and return status message
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.audio_speaker.AudioSpeakerOffStatus> deActivateAudioSpeaker(
         com.google.protobuf.Empty request) {
@@ -516,6 +573,9 @@ public final class AudioSpeakerGrpc {
     }
 
     /**
+     * <pre>
+     *choose type of input (HDMI, VGA etc.)
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<org.stu.audio_speaker.AudioInput> setInput(
         org.stu.audio_speaker.AudioInput request) {

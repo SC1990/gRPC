@@ -1,6 +1,7 @@
 package client;
 
 import clientui.ControlPanelGUI;
+import com.google.protobuf.Empty;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.stu.control_panel.ControlPanelGrpc;
 import org.stu.control_panel.InputMachine;
+import org.stu.control_panel.PreShutDownMessage;
 import org.stu.control_panel.ResponseMessage;
 
 public class ControlPanelClient implements ServiceObserver {
@@ -25,6 +27,7 @@ public class ControlPanelClient implements ServiceObserver {
     /**
      * Constructor.
      */
+    //set up client service so jmDNS can listen
     public ControlPanelClient() {
         serviceType = "_cpanel._udp.local.";
         name = "Control Panel";
@@ -33,6 +36,7 @@ public class ControlPanelClient implements ServiceObserver {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
+                    //instantiate GUI
                     ui = new ControlPanelGUI(ControlPanelClient.this);
                 } catch (Exception ex) {
                     Logger.getLogger(ControlPanelClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,17 +65,16 @@ public class ControlPanelClient implements ServiceObserver {
     public void serviceAdded(ServiceDescription service) {
         System.out.println("service added");
         current = service;
+        
         //set up channel to communicate with server
-        //multiple beds -> multiple channels
         channel = ManagedChannelBuilder.forAddress(service.getAddress(), service.getPort())
                 .usePlaintext(true)
                 .build();
 
-        //To call service methods, we first need to create a stub,  
-        //a blocking/synchronous stub: this means that the RPC call waits for the server to respond, 
-        //and will either return a response or raise an exception.
+        //create stub to call service methods
         blockingStub = ControlPanelGrpc.newBlockingStub(channel);
 
+        //find and connect to local machine to be used as control panel
         setInputMachine();
 
     }
@@ -88,9 +91,7 @@ public class ControlPanelClient implements ServiceObserver {
         channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
-    /**
-     * Say hello to server.
-     */
+    
     //make request to server
     public void setInputMachine() {
         try {
@@ -107,16 +108,34 @@ public class ControlPanelClient implements ServiceObserver {
                 }
             }.start();
 
-//            //unary request - one thing in, one thing out
-//            Empty request = Empty.newBuilder().build();
-//            BedStatus status = blockingStub.getStatus(request);
-//            System.out.println("Hello " + status);
         } catch (RuntimeException e) {
             System.out.println("RPC failed: " + e);
             return;
         }
         
         
+    }
+    
+     public void shutdownCPanel() {
+        try {
+            //new thread so client and server can run concurrently
+            new Thread() {
+                public void run() {
+                    Empty request = Empty.newBuilder().build();
+
+                    PreShutDownMessage response = blockingStub.shutDown(request);
+
+                    ui.appendMessage(response.toString());
+                    ui.close();
+                    channel.shutdown();
+
+                }
+            }.start();
+
+        } catch (RuntimeException e) {
+            System.out.println("RPC failed: " + e);
+            return;
+        }
     }
 
     public void switchService(String name) {

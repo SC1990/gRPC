@@ -4,6 +4,10 @@
 package org.stu.control_panel;
 
 /**
+ * <pre>
+ *name of machine detected
+ * </pre>
+ *
  * Protobuf type {@code control_panel.InputMachine}
  */
 public  final class InputMachine extends
@@ -271,6 +275,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   *name of machine detected
+   * </pre>
+   *
    * Protobuf type {@code control_panel.InputMachine}
    */
   public static final class Builder extends

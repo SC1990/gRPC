@@ -4,6 +4,10 @@
 package org.stu.control_panel;
 
 /**
+ * <pre>
+ *post-connect user facing message
+ * </pre>
+ *
  * Protobuf type {@code control_panel.ResponseMessage}
  */
 public  final class ResponseMessage extends
@@ -271,6 +275,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   *post-connect user facing message
+   * </pre>
+   *
    * Protobuf type {@code control_panel.ResponseMessage}
    */
   public static final class Builder extends

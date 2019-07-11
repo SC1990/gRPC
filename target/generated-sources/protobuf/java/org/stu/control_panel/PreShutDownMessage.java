@@ -4,6 +4,10 @@
 package org.stu.control_panel;
 
 /**
+ * <pre>
+ *user facing message pre-shutdown of control panel
+ * </pre>
+ *
  * Protobuf type {@code control_panel.PreShutDownMessage}
  */
 public  final class PreShutDownMessage extends
@@ -271,6 +275,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   *user facing message pre-shutdown of control panel
+   * </pre>
+   *
    * Protobuf type {@code control_panel.PreShutDownMessage}
    */
   public static final class Builder extends

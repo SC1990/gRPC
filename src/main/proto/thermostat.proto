@@ -1,3 +1,4 @@
+
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
@@ -8,14 +9,26 @@ option java_multiple_files = true;
 option java_package = "org.stu.thermostat";
 option java_outer_classname = "ThermostatProto";
 
+//thermostat definition
 service Thermostat{
+
+  //switch on thermostat and return status message
   rpc activateThermostat (google.protobuf.Empty) returns (ThermostatOnStatus){}
+
+  //switch off thermostat and return status message
   rpc deActivateThermostat (google.protobuf.Empty) returns (ThermostatOffStatus){}
+
   rpc triggerFan (google.protobuf.Empty) returns (FanStatus){}
   rpc shutdownFan (google.protobuf.Empty) returns (FanStatus){}
+
+  //e.g. cool mode, dry mode etc.
   rpc setFanMode (FanMode) returns (FanMode){}
+
+  //temperature control
   rpc increaseTemp (CurrentTemp) returns (CurrentTemp){}
   rpc decreaseTemp (CurrentTemp) returns (CurrentTemp){}
+
+  //set specific time for shutdown
   rpc setShutDownTime (Hours) returns (Hours){}
 }
 

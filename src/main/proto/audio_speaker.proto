@@ -9,12 +9,22 @@ option java_multiple_files = true;
 option java_package = "org.stu.audio_speaker";
 option java_outer_classname = "AudioSpeakerProto";
 
+//speaker service definition
 service AudioSpeaker{
+
+  //switch on audio speakers and return status message
   rpc activateAudioSpeaker(google.protobuf.Empty) returns (AudioSpeakerOnStatus){}
+
+  //switch off audio speakers and return status message
   rpc deActivateAudioSpeaker(google.protobuf.Empty) returns (AudioSpeakerOffStatus){}
+  
   rpc increaseVolume(CurrentVolume) returns (CurrentVolume){}
   rpc decreaseVolume(CurrentVolume) returns (CurrentVolume){}
+  
+  //choose type of input (HDMI, VGA etc.)
   rpc setInput(AudioInput) returns (AudioInput){}
+  
+  //list supported inputs
   rpc ListSupportedInputs(google.protobuf.Empty) returns (stream AudioInput){}
 }
 
